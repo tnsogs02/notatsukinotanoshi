@@ -5,7 +5,7 @@
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
+	<script src="js/qrcode.js"></script>
 </head>
 <style>
 	.letter {
@@ -18,6 +18,10 @@
 		background-image: url("linedpaper.png");
 		background-repeat: repeat;
 		padding: 2em 1em .5em;
+	}
+
+	img#qr {
+		width: 10vmin;
 	}
 </style>
 
@@ -43,8 +47,7 @@
 		</nav>
 		<div class="alert alert-danger">
 			If users encountered error 500, please consider to use the E-mail method.<br> 如果用戶遭遇500錯誤，請使用傳統郵件方法或者手動寄信。
-			<br> Sorry for any inconvenience caused.<br> 不便之處，敬請原諒。
-			<br>
+			<br> Sorry for any inconvenience caused.<br> 不便之處，敬請原諒。<br><br>使用微信的用户请选择在浏览器中打开。<a href="http://notatsukinotanoshi.tk"><img src="qrcode.png" id="qr"></img></a>
 		</div>
 		Language:
 
@@ -74,7 +77,8 @@
 
 			<div id="email">To: </div>
 			<div id="submit" class="btn btn-warning" onclick="return sendEmail()">跳轉到發送頁面</div>
-
+			<br>
+			<div id="qrcode"></div>
 			<div class="letter markdown-body" id="mailBody"></div><br>
 
 
@@ -91,7 +95,7 @@
 	</footer>
 
 
-
+	<script type="text/javascript" src="http://jeromeetienne.github.io/jquery-qrcode/src/jquery.qrcode.js"></script>
 
 	<script type="text/javascript">
 		class Sponsor {
@@ -136,7 +140,7 @@
 			'zh': {
 				langText: '中文',
 				g: "Gmail",
-				//y: "Yahoo Mail",
+				q: "QR Code",
 				t: "傳統郵件(開啟郵件客戶端)",
 				name: "朋友的名字",
 				country: "朋友的國籍",
@@ -147,7 +151,7 @@
 			"ja": {
 				langText: '日本語',
 				g: "Gmail",
-				//y: "Yahoo Mail",
+				q: "QR コート",
 				t: "メールソフトで開く",
 				mailBody: [
 					'こんにちは、海外(%user_nationality%)からの支持者、%user_name%と申します。\n\n貴社とけものフレンズのコラボレーションしている関連商品とイベントも数多くて、それについてずっと忠実に応援しています。\n\nたつき監督レンズに関して、その重要さは誰とも代えられないと思います。\n最近ネットの情報によると、KADOKAWAはたつき監督を今シーズンのけものフレンズから降板させることを聞き、私と他の応援者はそれに関して理解不能でした。\n\nたつき監督は芸術的って、表現豊かなアニメ監督だと思います。たつき監督が作ったキャラクターは独特な魅力があると思います。\n\nそれこそ、私たちはけものフレンズの関連商品とイベントを支持する理由だったのです。\n\n貴社の忠実な愛用者として、このような巨大な変化は、喜んでる受け入れことはできません。アニメはクリエイティブカルチャーの一つだと思います。主要製作者の監督が外れることは不適切だと感じています。監督が本当に外されたら、関係者たちは視聴者のマイナスコメントを背負うリスクもあります。なぜならば、視聴者たちの感情を惹かれるのものは単純の商品ではなく、その素晴らしい芸術表現だと思います。\n\n貴社とのコラボレーション相手KADOKAWAさんは今シーズンのけものフレンズのたつき監督を外すことが事実であれば、消費者の私たちは、今後貴社が発売する関連商品や行う関連イベントを応援することをやめると考えています。これからも、貴社のこと末永く応援したいですが、KADOKAWAさんの無謀の決定のせいで、貴社に対し応援することはできないと思います。\n\nもしよければ、我々の意見を関係者の方々にお伝えてください。今度も貴社のことが応援したいです。よろしくお願いいたします。\n\n%user_name%、%user_nationality%より\n',
@@ -163,7 +167,7 @@
 			"en": {
 				langText: 'English',
 				g: "Gmail",
-				//y: "Yahoo Mail",
+				q: "QR Code",
 				t: "Traditional mail",
 				mailBody: [
 					'Dear %company_name%:\n\nYour recent collaborative advertisement campaign with the “Kemono Friends Project” for your product has captivated a significant amount of customer interests, and there has been notable inquiries across the Japanese domestic and even overseas markets over this specific product. This is a major advertisement coup and which has resulted in a significant rise of this product’s exposure.\n\nI wish to bring to your attention that the resigning of Yaoyorozu Co., Ltd. from the “Kemono Friends Project” could put this advertisement into jeopardy, given that the animation director from the said company (whom you have worked with personally) has demonstrated his value in conveying your product in a positive light, with this man being one of the main creative driving force of the “Kemono Friends Project”.\n\nI, as a customer became interested in your product solely because of the work of this director. I wish to reflect that I am in opposition to this outcome and the failure of Kadokawa in retaining Yaoyorozu Co., Ltd. from resigning. I believe it will adversely affect your advertisement campaign in the future, both from customer backlash, and in a guaranteed decline over future deliverables due to this change in personal.\n\nFrankly, I feel that you would do your business harm if you were to ignore Kadokawa Corporation’s failure and continue to partner with Kemono Friends Project knowing that the charismatic creative force behind the original work is no longer working on this project. \n\nI strongly suggest your company to correspond with Kadokawa Group with regards to how this change in personal is likely to impact the corporate image of %company_name%, the marketability of your product and any future product that you wish for Kemono Friends Project to promote, and hopefully see a means for %company_name% to continue building on the success of this advertisement campaign in the future.\n\nSincerely yours,\n%user_name% from %user_nationality%.',
@@ -183,7 +187,8 @@
 			1: "mailto:!RECV!?subject=!SUBJECT!&body=!BODY!"
 		}
 
-		var mode = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? 1 : 0)
+		const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+		var mode = (isMobile ? 1 : 0)
 		var recv = sps[parseInt(Math.random() * sps.length)];
 		var author = '';
 		var country = "";
@@ -216,7 +221,7 @@
 				.replace(/%user_nationality%/g, country);
 			$("#mailBody").html(mailBody)
 			$("h4#mode").html("Mode: " + langs[locale]["modeText"][mode]);
-			//$("p#locale").html("Localization: " + langs[locale]["langText"])
+
 			$("button#g").html(langs[locale]["g"])
 			$("button#t").html(langs[locale]["t"])
 
@@ -273,23 +278,18 @@
 
 		function sendEmail() {
 			if (!author.length) {
-				return alert("Please have username!")
+				return alert("Please input your username!")
 			}
 			if (!country.length) {
-				return alert("Please have nationality!")
+				country = "Foreign Country";
 			}
 			var subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)]
-
-			var link = mailAPI[mode].replace("!SUBJECT!", encodeURIComponent(subject)).replace("!RECV!", encodeURIComponent(recv.email)).replace("!BODY!", encodeURIComponent(mailBody))
-
-			window.open(link, "_blank").focus();
+			var link = mailAPI[mode]
+				.replace("!SUBJECT!", encodeURIComponent(subject))
+				.replace("!RECV!", encodeURIComponent(recv.email))
+				.replace("!BODY!", encodeURIComponent(mailBody))
+			window.open(link, "_blank").focus()
 		}
-
-		/*setInterval(() => {
-			updateRecv()
-			updateLang()
-			update()
-		}, 1000)*/
 	</script>
 </body>
 
