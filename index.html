@@ -257,10 +257,10 @@
 
 		function sendEmail() {
 			if (!author.length) {
-				return alert("Please have username!")
+				return alert("Please enter username!")
 			}
 			if (!country.length) {
-				return alert("Please have nationality!")
+				return alert("Please enter nationality!")
 			}
 			var subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)]
 
