@@ -39,15 +39,13 @@
 				<option value="ja">日本語</option>
 		</select>
 		
-		<br>
+		<br/>
 		
 		<div class="btn-group">
 			<button id="g" class="btn btn-danger" data-type=0 onclick="mailAction(this)">Gmail</button>
 
 			<button id="t" class="btn btn-info" data-type=1 onclick="mailAction(this)">傳統郵件(開啟郵件客戶端)</button>
 		</div>
-		
-		<br>
 		
 		<form class="form">
 
@@ -63,9 +61,10 @@
 			</div>
 
 			<div id="email">To: </div>
+			<div id="submit" class="btn btn-warning" onclick="return sendEmail()">跳轉到發送頁面</div>
 			<div class="letter markdown-body" id="mailBody"></div><br>
 
-			<div id="submit" class="btn btn-warning" onclick="return sendEmail()">跳轉到發送頁面</div>
+			
 		</form>
 
 	</div>
