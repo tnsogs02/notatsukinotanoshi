@@ -31,7 +31,7 @@
 			不便之處，敬請原諒。
 		</div>
 
-		Language:
+		<h5 id="langlabel"></h5>
 
 		<select id="lang" class="form-control">
 				<option value="en">English</option>
@@ -120,6 +120,7 @@
 		const langs = {
 			'zh': {
 				langText: '中文',
+				langlabeltext: '語言:',
 				g: "Gmail",
 				//y: "Yahoo Mail",
 				t: "傳統郵件(開啟郵件客戶端)",
@@ -131,6 +132,7 @@
 			},
 			"ja": {
 				langText: '日本語',
+				langlabeltext: '言語:',
 				g: "Gmail",
 				//y: "Yahoo Mail",
 				t: "メールソフトで開く",
@@ -147,6 +149,7 @@
 			},
 			"en": {
 				langText: 'English',
+				langlabeltext: 'Language:',
 				g: "Gmail",
 				//y: "Yahoo Mail",
 				t: "Traditional mail",
@@ -216,6 +219,7 @@
 			$("label#country").html(langs[locale]["country"])
 			$("label#recv").html(langs[locale]["recv"])
 			$("div#submit").html(langs[locale]["submit"])
+			$("h5#langlabel").html(langs[locale]["langlabeltext"])
 		}
 
 		$(document).ready(() => {
