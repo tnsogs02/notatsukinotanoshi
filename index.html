@@ -3,8 +3,9 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
 </head>
 <style>
 	.letter {
@@ -22,31 +23,35 @@
 
 <body>
 	<div class="container">
-		<h1>NoTatsukiNoTanoshi</h1>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">NoTatsukiNoTanoshi</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="about.html">About</a></li>
+				</ul>
+			</div>
+		</nav>
 		<div class="alert alert-danger">
-			If users encountered error 500, please consider to use the E-mail method.<br>
-			如果用戶遭遇500錯誤，請使用傳統郵件方法或者手動寄信。
-
-			Sorry for any inconvenience caused.
-			不便之處，敬請原諒。
+			If users encountered error 500, please consider to use the E-mail method.<br> 如果用戶遭遇500錯誤，請使用傳統郵件方法或者手動寄信。
+			<br> Sorry for any inconvenience caused.<br> 不便之處，敬請原諒。
+			<br>
 		</div>
-
-		<h5 id="langlabel"></h5>
+		Language:
 
 		<select id="lang" class="form-control">
 				<option value="en">English</option>
 				<option value="zh">中文</option>
 				<option value="ja">日本語</option>
-		</select>
-		
-		<br/>
-		
+			</select>
+		<br>
 		<div class="btn-group">
 			<button id="g" class="btn btn-danger" data-type=0 onclick="mailAction(this)">Gmail</button>
 
 			<button id="t" class="btn btn-info" data-type=1 onclick="mailAction(this)">傳統郵件(開啟郵件客戶端)</button>
 		</div>
-		
 		<form class="form">
 
 			<h4 id="mode"></h4>
@@ -61,11 +66,12 @@
 			</div>
 
 			<div id="email">To: </div>
-			<div id="submit" class="btn btn-warning" onclick="return sendEmail()">跳轉到發送頁面</div>
 			<div class="letter markdown-body" id="mailBody"></div><br>
 
-			
+			<div id="submit" class="btn btn-warning" onclick="return sendEmail()">跳轉到發送頁面</div>
 		</form>
+
+
 
 	</div>
 
@@ -120,7 +126,6 @@
 		const langs = {
 			'zh': {
 				langText: '中文',
-				langlabeltext: '語言:',
 				g: "Gmail",
 				//y: "Yahoo Mail",
 				t: "傳統郵件(開啟郵件客戶端)",
@@ -132,7 +137,6 @@
 			},
 			"ja": {
 				langText: '日本語',
-				langlabeltext: '言語:',
 				g: "Gmail",
 				//y: "Yahoo Mail",
 				t: "メールソフトで開く",
@@ -149,7 +153,6 @@
 			},
 			"en": {
 				langText: 'English',
-				langlabeltext: 'Language:',
 				g: "Gmail",
 				//y: "Yahoo Mail",
 				t: "Traditional mail",
@@ -219,7 +222,6 @@
 			$("label#country").html(langs[locale]["country"])
 			$("label#recv").html(langs[locale]["recv"])
 			$("div#submit").html(langs[locale]["submit"])
-			$("h5#langlabel").html(langs[locale]["langlabeltext"])
 		}
 
 		$(document).ready(() => {
@@ -227,6 +229,11 @@
 
 			$("select#lang").val(locale);
 		});
+
+		window.onload = function() {
+			var lang = navigator.language || navigator.userLanguage;
+			$("select#lang").val(lang)
+		}
 
 		function updateLang() {
 			locale = $("select#lang").val();
@@ -257,10 +264,10 @@
 
 		function sendEmail() {
 			if (!author.length) {
-				return alert("Please enter username!")
+				return alert("Please have username!")
 			}
 			if (!country.length) {
-				return alert("Please enter nationality!")
+				return alert("Please have nationality!")
 			}
 			var subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)]
 
