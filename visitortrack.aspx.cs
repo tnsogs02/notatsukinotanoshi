@@ -22,10 +22,45 @@ public partial class visitortrack : System.Web.UI.Page
         string dbUser = "root";
         string dbPass = "4q3uj948u309";
         string dbName = "visitor";
-        MySqlConnection conn = new MySqlConnection("server=" + dbHost + ";uid=" + dbUser + ";pwd=" + dbPass + ";database=" + dbName);
-        try
+        string sqlcommand = "select count(*) as Count from submit_count;";
+        using (MySqlConnection conn = new MySqlConnection("server=" + dbHost + ";uid=" + dbUser + ";pwd=" + dbPass + ";database=" + dbName))
         {
             conn.Open();
+            using (MySqlCommand cmd = new MySqlCommand(sqlcommand, conn))
+            {
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    try
+                    {
+                        if (reader.Read())
+                        {
+                            return reader.GetString(0);
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                    catch (MySql.Data.MySqlClient.MySqlException ex)
+                    {
+                        return ex.ToString();
+                    }
+                    finally
+                    {
+                        reader.Close();
+                        reader.Dispose();
+                        cmd.Dispose();
+                        conn.Close();
+                        conn.Dispose();
+                    }
+                }
+            }
+
+        }
+        /**
+        try
+        {
+            
         }
         catch (MySql.Data.MySqlClient.MySqlException ex)
         {
@@ -52,6 +87,7 @@ public partial class visitortrack : System.Web.UI.Page
         {
             return ex.ToString();
         }
+         * */
     }
 
     [WebMethod]
@@ -62,6 +98,31 @@ public partial class visitortrack : System.Web.UI.Page
         string dbUser = "root";
         string dbPass = "4q3uj948u309";
         string dbName = "visitor";
+        string sqlcommand = String.Format("insert into submit_count(IP_ADDRESS, TIMESTAMP, COMPANY_SELECTION) value ('{0}', '{1}', '{2}');", GetIP(), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), selection);
+
+        using (MySqlConnection conn = new MySqlConnection("server=" + dbHost + ";uid=" + dbUser + ";pwd=" + dbPass + ";database=" + dbName))
+        {
+            conn.Open();
+            using (MySqlCommand insertcmd = new MySqlCommand(sqlcommand, conn))
+            {
+                try
+                {
+                    insertcmd.ExecuteNonQuery();
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    return ex.ToString();
+                }
+                finally
+                {
+                    insertcmd.Dispose();
+                    conn.Close();
+                    conn.Dispose();
+                }
+            }
+            return "Function returned without any error";
+        }
+        /**
         MySqlConnection conn = new MySqlConnection("server=" + dbHost + ";uid=" + dbUser + ";pwd=" + dbPass + ";database=" + dbName);
         try
         {
@@ -75,7 +136,7 @@ public partial class visitortrack : System.Web.UI.Page
                     return "無法連線到資料庫.";
             }
         }
-        string sqlcommand = String.Format("insert into submit_count(IP_ADDRESS, TIMESTAMP, COMPANY_SELECTION) value ('{0}', '{1}', '{2}');", GetIP(), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), selection);
+
         try
         {
             MySqlCommand insertcmd = new MySqlCommand(sqlcommand, conn);
@@ -88,6 +149,7 @@ public partial class visitortrack : System.Web.UI.Page
         }
 
         return "Function returned without any error" + "\nYour IP is: " + GetIP() + "\n你選擇的公司是: " + selection;
+         * */
     }
 
     public static String GetIP()
