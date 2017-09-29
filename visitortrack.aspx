@@ -23,7 +23,7 @@
     }
 
     function onSuccess(result, context, method) {
-        submitcount.innerHTML = '已經有幾封信被送出: ' + result;
+        submitcount.innerHTML = '已經寄出' + result + '封信';
     }
 
     function onError(result, context, method) {
