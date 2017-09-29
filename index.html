@@ -282,10 +282,10 @@
 
 		function sendEmail() {
 			if (!author.length) {
-				return alert("Please input your username!")
+				return alert("Please enter your username!")
 			}
 			if (!country.length) {
-				country = "Foreign Country";
+				return alert("Please enter your nationality")
 			}
 			var subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)]
 			var link = mailAPI[mode]
