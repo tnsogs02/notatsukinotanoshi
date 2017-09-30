@@ -20,6 +20,9 @@
     <EmbeddedResource Update="Resources\Views\Home\Index.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Home\Index.ko.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Views\Home\Index.zh.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>

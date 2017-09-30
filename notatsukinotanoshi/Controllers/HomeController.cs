@@ -26,8 +26,8 @@ namespace notatsukinotanoshi.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
+            ViewData["Title"] = _localizer["About Title"];
+            ViewData["Message"] = _localizer["About message"];
             return View();
         }
 

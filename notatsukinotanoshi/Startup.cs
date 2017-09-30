@@ -40,7 +40,8 @@ namespace notatsukinotanoshi
                 {
                     new CultureInfo("en"),
                     new CultureInfo("zh"),
-                    new CultureInfo("ja")
+                    new CultureInfo("ja"),
+                    new CultureInfo("ko")
                 };
 
                 options.DefaultRequestCulture = new RequestCulture(culture: "en", uiCulture: "en");

@@ -1,4 +1,4 @@
-﻿let _locale = ($('#culture-input').val() == "zh" ? "en" : $('#culture-input').val());
+﻿let _locale = ($('#culture-input').val() === "zh" ? "en" : $('#culture-input').val());
 $(document).ready(() => {
     //Get all mail templates
     console.log("./resources/email-template." + _locale + ".json");
@@ -119,7 +119,7 @@ function update() {
 
 function updateLang() {
     locale = $("select#lang").val();
-    _locale = (locale == "zh" ? "en" : locale);
+    _locale = (locale === "zh" ? "en" : locale);
     update();
 }
 

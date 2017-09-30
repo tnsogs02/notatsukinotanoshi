@@ -117,7 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="http500msg" xml:space="preserve">
-    <value>If users encountered error 500, please consider to use the E-mail method.&lt;br /&gt;Sorry for any inconvenience caused. &lt;br /&gt;Please use the following QR Code if you are not using Gmail. &lt;br /&gt;</value>
+  <data name="About message" xml:space="preserve">
+    <value>여기있는 모두가 감독 뿐만 아니라 "케모노 프렌즈" 의 제작사가 시즌2 제작에 물러났다는 것을 알고 있을 거라고 믿고 있습니다. 이 뉴스는 인터넷에서 많은 논란을 일으킬 정도로 크고 빠르게 퍼져나갔습니다.
+
+모두가 아시다시피, 애니메이션은 창작 예술의 종류 중 하나로서 예술가들의 많은 노력이 필요하며 제작자의 교체 또한 불가능합니다.
+이러한 작품들은 제한적인 시간과 공간에서 예술가와 그들의 관객들을 연결시킬 수 있습니다.
+이것은 훌륭한 유대이며 모두가 소중히 여겨야 합니다. 하지만, 동기는 비슷할지언정 혼란스럽고, 곤란하게 하며, 심지어 말도 안되는 이유로 이 유대를 부수려는 사람들이 있습니다. 우리가 어떻게 대응해야 할까요?
+
+"케모노 프렌즈" 를 사랑하는 사람들 중 뉴스를 접한 사람들 사이에서 각각 다른 반응이 보여지고 있습니다. 누군가는 슬퍼하고, 누군가는 분노하고, 누군가는 냉정했으며, 몇몇  사람들은 신경쓰지 않고 있습니다.
+
+
+하지만 저와 여러분을 포함한 대다수의 사람들이 무기력하고 공허한 느낌을 받을 겁니다. 일본 외에 다른 지역에 사시는 분들은 뭔가 도와주고 싶지만 도와줄 수수 있는 게 많이 없습니다.
+
+아닙니다.
+
+당신은 겁쟁이도 아니고 당신이 생각한 정도로 힘없는 사람도 아닙니다. 당신은 혼자가 아닙니다. 꽤 많은 친구들이 당신 뒤에 있습니다.
+
+타츠키 감독님은 이미 우리에게 그의 창작물을 통해 알려주셨습니다. 그렇죠?
+
+http://tinyurl.com/NoTatsukiNoTanoshi
+
+우리는 위 사이트를 통해 중국, 대만, 일본, 유럽등 전세계 사람들로부터 많은 양의 청원 메일을 보낼 것입니다. 이 청원 메일은 Kadokawa 본사뿐만 아니라 그 회사와 관련이 있는 기업인 닛신, 크런치롤, TV 도쿄, 패밀리마트까지 보내질 것입니다. 우리는 카도카와와 카도카와의의 사업 협력체에게 이 결과 (타츠키 감독 외 관계자 강판) 를 폐지시키도록 요구할 것이며 야오요로즈에게 "케모노 프렌즈" 일을 계속 해서 맡을 수 있도록 하겠습니다.
+
+
+
+우리는 관련 회사들에게 "케모노 프렌즈 프로젝트가 많은 후원자를 보유하고 있다는 것이 일본의 단순한 사업 이상의 의미를 가지고 있다” 것을 가르쳐 줄 수 있습니다. 또한 기업인들도 해외 소비자들의 “케모노 프렌즈 프로젝트에 투자한 회사는 이것을 무시할 수 없기 때문에 이 상황을 효과적으로 바꿔나갈 수 있을 것입니다” 라는 의견을 들어줘야 할 때입니다.
+
+우리의 마음을 아프게 했던 11화를 기억하시나요? 12화에서 모두가 각자의 모든 힘을 쏟아냈던 장면도 기억하시나요?
+
+
+集まれ友達！(모여라 친구들!)
+
+위에 있는 링크를 눌러 저희를 지지해주세요. 다같이 전세계에 있는 모든 프렌즈들과 카도카와 본사, 그리고 다른 회사들을 향해 크게 외칩시다. "우리는 성우 교체도 원하지 않는다! 우리는 야오요로즈가 잘리는 것도 원하지 않는다!  우리는 우리가 좋아하는 감독인 타츠키 감독과 함께 하고싶다!”
+
+우리는 이 사건이 좋은 방향으로 끝나길 빕니다. 그래야 우리는 자파리 파크의 새로운 지역을 발견할 때까지 우리에게 친숙한 프렌즈와 한번 더 만날 수 있기 때문입니다.
+
+
+Jerry Ho, the do-everything-Friends who cannot cook curry, and is a drag sometimes at - Kemono Friends Save Director Movement Group
+
+케모노프렌즈 감독 구하기 운동
+&lt;a href="https://discord.gg/zgH2fe6"&gt;https://discord.gg/zgH2fe6&lt;/a&gt;
+(디스코드는 무료 이용 가능하고, 회원가입 시 개인 정보도 필요 없고 광고도 없습니다!)</value>
+  </data>
+  <data name="About Title" xml:space="preserve">
+    <value>타츠키 감독을 세룰리안의 손아귀에서 부터 구하자! 이 운동에 참가해주세요.</value>
   </data>
 </root>

@@ -117,7 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="http500msg" xml:space="preserve">
-    <value>If users encountered error 500, please consider to use the E-mail method.&lt;br /&gt;Sorry for any inconvenience caused. &lt;br /&gt;Please use the following QR Code if you are not using Gmail. &lt;br /&gt;</value>
+  <data name="About message" xml:space="preserve">
+    <value>Please join us in this movement.
+
+I believe everyone here has already learnt that not only the director, but also the production company of the anime “Kemono Friends” have resigned from producing the second season. This news spreaded loud and fast on the Internet while provoking much discussions.
+
+As we all know, an animation - which is also a form of art creation - is a painstaking effort for every artist, and is largely irreplaceable for each of their creators. Works like this are capable of bypassing the very limitation set by space and time, bridging a connection between the artists and their audiences. This is a very commendable bond and should be cherished by all of us. However, there are parties who wish to break this bond with reasons that are but puzzling, confusing, perhaps even outright ridiculous, while their motives are more or less the same. How are we supposed to face this?
+
+Different reacts there are amongst those who got the news, and those who loved “Kemono Friends” deeply from their hearts. Some are saddened, some are furious; some remained unmoved, while some others didn’t care at all.
+
+Though, many more are like you and me, feeling helpless and lost. Given that you live in overseas far away from Japan, there is nothing much you can do.
+
+Wrong.
+
+You are certainly not a coward, and you are not as powerless as you believe. You are not alone as well, as you have lots and lots of other Friends beside you.
+
+Mr. Tatsuki has already taught us via his creations, didn’t he?
+
+With this site working, we are currently organizing a large scaled petition via mail from all nationalities, including China, Taiwan, Japan, European countries and many more. The target of this petition, of course, includes, but is not limited to Kadokawa Corporation; Other associated and/or corresponding parties are our targets as well, such as Nissin, Crunchyroll, TV Tokyo, and even FamilyMart. We will request them to convince their business partner, Kadokawa Corporation, to revoke this outcome and have Yaoyorozu to continue working on the animation “Kemono Friends”.
+
+We can teach the relevant companies a lesson, that “The Kemono Friends Project has this much supporters, which effectively makes it something more than a mere local Japanese business. And also, it’s time for us businessmen to listen to our overseas customers.” These companies funded the Kemono Friends project, which is why they play an important role in this incident - they can effectively change where all this is going.
+
+Do you remember the heartbreaking episode 11? Do you remember the scene where everyone gave their all of their efforts to save the day in episode 12?
+
+集まれ友達！（My friends, let’s gather together!）
+
+Please join our movement! Step forward and speak out loud with your Friends - all of your Friends from across the globe - to Kadokawa Corporation and all the other businesses: “We are your customers, and we don’t want a change in producing studios, and we don’t want a change in the voice actresses. We want, and we will, stay side-by-side with Tatsuki, our beloved director!”
+
+We hope this incident will have a happy ending, so that we can once again meet our familiar Friends while we discover new areas in the Japari Park.
+
+Jerry Ho, the do-everything-Friends who cannot cook curry, and is a drag sometimes at -
+
+Kemono Friends Save Director Movement Group
+&lt;a href=https://discord.gg/zgH2fe6&gt;https://discord.gg/zgH2fe6&lt;/a&gt;
+(Discord is completely free, no personnel info needed during registration, no advertisement!)</value>
+  </data>
+  <data name="About Title" xml:space="preserve">
+    <value>Let’s rescue director Tatsuki from the claws of Cerulean!</value>
   </data>
 </root>
