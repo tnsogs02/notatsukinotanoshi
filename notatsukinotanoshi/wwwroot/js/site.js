@@ -1,29 +1,13 @@
-﻿var locale = ((lang) => {
-    // get full list from https://stackoverflow.com/a/36042028
-    switch (lang) {
-        case 'zh-TW':
-        case 'zh-CN':
-        case 'zh-HK':
-        case 'zh-SG':
-            return 'en';
-        // return 'zh'; - No Chinese template
-        case 'ja':
-            return 'ja';
-        default:
-            return 'en';
-    }
-})(navigator.language);
-let _locale = (locale == "zh" ? "en" : locale);
-
+﻿let _locale = ($('#culture-input').val() == "zh" ? "en" : $('#culture-input').val());
 $(document).ready(() => {
     //Get all mail templates
+    console.log("./resources/email-template." + _locale + ".json");
     $.getJSON("./resources/email-template." + _locale + ".json", function (data) {
+        console.log(data);
         mailTemplate = data;
     }).complete(function () {
         update();
     });
-
-    $("select#lang").val(locale);
 });
 
 class Sponsor {
