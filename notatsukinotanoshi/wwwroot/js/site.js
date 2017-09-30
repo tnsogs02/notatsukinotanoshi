@@ -3,7 +3,6 @@ $(document).ready(() => {
     //Get all mail templates
     console.log("./resources/email-template." + _locale + ".json");
     $.getJSON("./resources/email-template." + _locale + ".json", function (data) {
-        console.log(data);
         mailTemplate = data;
     }).complete(function () {
         update();
@@ -85,8 +84,6 @@ const langs = {
         modeText: ["Gmail (For PC)", "E-Mail (For Mobile)"]
     }
 }
-
-
 
 const mailAPI = {
     0: "https://mail.google.com/mail/?view=cm&fs=1&to=!RECV!&su=!SUBJECT!&body=!BODY!",
