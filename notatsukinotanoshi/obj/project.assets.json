@@ -42,6 +42,20 @@
           }
         }
       },
+      "Localization.AspNetCore.TagHelpers/0.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Localization": "1.1.2",
+          "Microsoft.AspNetCore.Razor.Runtime": "1.1.1",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.6.1/Localization.AspNetCore.TagHelpers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6.1/Localization.AspNetCore.TagHelpers.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.4.0": {
         "type": "package",
         "dependencies": {
@@ -4766,6 +4780,21 @@
         "runtimes/win-arm/native/libuv.dll",
         "runtimes/win-x64/native/libuv.dll",
         "runtimes/win-x86/native/libuv.dll"
+      ]
+    },
+    "Localization.AspNetCore.TagHelpers/0.3.0": {
+      "sha512": "spG/0NEWU/gNMo8P/V5wfDJUkx6pWENDLM2wCpmsI07eyWci/gL/DlOFdwp0Xln6eNWDFa0/xgikIYsdextb2A==",
+      "type": "package",
+      "path": "localization.aspnetcore.taghelpers/0.3.0",
+      "files": [
+        "lib/net451/Localization.AspNetCore.TagHelpers.dll",
+        "lib/net451/Localization.AspNetCore.TagHelpers.xml",
+        "lib/netstandard1.6.1/Localization.AspNetCore.TagHelpers.dll",
+        "lib/netstandard1.6.1/Localization.AspNetCore.TagHelpers.xml",
+        "lib/netstandard1.6/Localization.AspNetCore.TagHelpers.dll",
+        "lib/netstandard1.6/Localization.AspNetCore.TagHelpers.xml",
+        "localization.aspnetcore.taghelpers.0.3.0.nupkg.sha512",
+        "localization.aspnetcore.taghelpers.nuspec"
       ]
     },
     "Microsoft.ApplicationInsights/2.4.0": {
@@ -12528,6 +12557,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "Localization.AspNetCore.TagHelpers >= 0.3.0",
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
@@ -12576,6 +12606,10 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "Localization.AspNetCore.TagHelpers": {
+            "target": "Package",
+            "version": "0.3.0"
+          },
           "Microsoft.NETCore.App": {
             "target": "Package",
             "version": "2.0.0",

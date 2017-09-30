@@ -33,3 +33,13 @@
         display: none;
     }
 }
+
+/* Select */
+.dropdown-select{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.dropdown-select > label {
+    color: #9d9d9d;
+}
