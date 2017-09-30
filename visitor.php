@@ -1,7 +1,6 @@
 <?php
     date_default_timezone_set('UTC');
 
-	include "db_cred.php";
     function query($obj, $query, $argv = array())
     {
         $stmt = $obj->prepare($query);
@@ -13,6 +12,13 @@
         return $stmt;
     }
     try {
+		$cred_info = parse_ini_file("db_cred.ini", true);
+
+		$db_info = array(
+			"dbUser" => $cred_info["dbUser"],
+			"dbPass" => $cred_info["dbPass"],
+			"dbName" => $cred_info["dbName"]
+		);
         $db = new PDO("mysql:dbname={$db_info["dbName"]};charset=utf8", $db_info["dbUser"], $db_info["dbPass"], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
         $ip = $_SERVER["REMOTE_ADDR"];
