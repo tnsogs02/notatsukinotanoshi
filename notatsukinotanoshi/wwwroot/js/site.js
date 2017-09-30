@@ -92,16 +92,14 @@ const mailAPI = {
 
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 var mode = (isMobile ? 1 : 0)
-var author = $('#sender');
-var country = $('#country');
 let mailTemplate = "";
 
 function update() {
     mailBodyIndex = parseInt(Math.random() * mailTemplate.length);
     mailBody = mailTemplate[mailBodyIndex]['msg']
         .replace(/%company_name%/g, $('#sp').text())
-        .replace(/%user_name%/g, author.val())
-        .replace(/%user_nationality%/g, country.val());
+        .replace(/%user_name%/g, $("#FriendName").val())
+        .replace(/%user_nationality%/g, $("#FriendName").val());
     $("#mailBody").html(mailBody)
     /* $("h4#mode").html("Mode: " + langs[locale]["modeText"][mode]);
 
@@ -117,19 +115,13 @@ function update() {
     $("div#email").html("Email: " + $("#sp").val());
 }
 
-function updateLang() {
-    locale = $("select#lang").val();
-    _locale = (locale === "zh" ? "en" : locale);
-    update();
-}
-
 function updateRecv() {
     recv = sps[parseInt($("#sp").val())];
     update();
 }
 
 $("#sp").on("change", updateRecv);
-$("select#lang").on("change", updateLang);
+
 $("input#sender").on("input", () => {
     update();
 })
@@ -144,12 +136,6 @@ function mailAction(e) {
 }
 
 function sendEmail() {
-    if (!author.val().length) {
-        return alert("Please input your username!");
-    }
-    if (!country.val().length) {
-        return alert("Please input your nationality!");
-    }
     var subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)]
     var link = mailAPI[mode]
         .replace("!SUBJECT!", encodeURIComponent(subject))

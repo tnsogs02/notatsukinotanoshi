@@ -2,6 +2,7 @@
 @using Microsoft.AspNetCore.Localization
 @using Microsoft.AspNetCore.Mvc.Localization
 @using Microsoft.Extensions.Options
+@using notatsukinotanoshi.Models.Home
 
 @inject IViewLocalizer Localizer
 @inject IOptions<RequestLocalizationOptions> LocOptions
@@ -21,27 +22,21 @@
 
         <button id="t" class="btn btn-info" data-type=1 onclick="mailAction(this)">@Localizer["Outlook (etc.)"]</button>
     </div>
-    <form class="form">
-        <h4 id="mode"></h4>
 
-        <div class="form-group">
-            <label id="name">@Localizer["Friend's Name"]</label>
-            <input type="text" class="form-control" id="sender" placeholder="Serval" required />
-            <label id="nationality">@Localizer["Friend's Nationality"]</label>
-            <input type="text" class="form-control" id="country" placeholder="Foreign Country" required />
-            <label id="recv">@Localizer["Receiving Company"]</label>
-            <select id="sp" class="form-control">
-                <option value="privacy@txshop.jp">@Localizer["TV TOKYO Corporation"]</option>
-                <option value="support@crunchyroll.com">@Localizer["Crunchyroll"]</option>
-            </select>
-        </div>
+    <h4 id="mode"></h4>
+    @model EmailSubmitModel
+    <form asp-controller="Home" asp-action="Submit" method="post">
+        <div asp-validation-summary="All"></div>
+        <label asp-for="FriendName">@Localizer["Friend's Name"]</label>
+        <input asp-for="FriendName" type="text" />
+        <span asp-validation-for="FriendName"></span>
 
-        <div id="email">To: </div>
-        <div id="submit" class="btn btn-warning" onclick="return sendEmail()">@Localizer["Send the email"]</div>
-        <br>
-        <div id="qrcode"></div>
-        <div class="letter markdown-body" id="mailBody"></div><br>
-
-        <input id="culture-input" type="hidden" value="@requestCulture" />
+        <input type="submit" class="btn btn-warning">@Localizer["Send the email"] />
     </form>
+
+    <div id="qrcode"></div>
+    <div class="letter markdown-body" id="mailBody"></div><br>
+
+    <input id="culture-input" type="hidden" value="@requestCulture" />
+
 </div>
