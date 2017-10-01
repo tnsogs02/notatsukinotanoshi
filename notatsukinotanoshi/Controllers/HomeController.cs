@@ -74,6 +74,11 @@ namespace notatsukinotanoshi.Controllers
                     {
                         throw;
                     }
+                    finally
+                    {
+                        //Close the connection
+                        conn.Close();
+                    }
                 };
                 return Json(connectionString);
             }
@@ -121,6 +126,11 @@ namespace notatsukinotanoshi.Controllers
                 catch (Exception)
                 {
                     throw;
+                }
+                finally
+                {
+                    //Close the connection
+                    conn.Close();
                 }
             };
             return result;
