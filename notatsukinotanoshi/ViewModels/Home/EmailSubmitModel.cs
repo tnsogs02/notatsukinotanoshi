@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Extensions.Localization;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace notatsukinotanoshi.ViewModels.Home
 {
@@ -15,7 +12,7 @@ namespace notatsukinotanoshi.ViewModels.Home
         [Required(ErrorMessage = "Please enter your country")]
         public string FriendCountry { get; set; }
 
-        [Display(Name = "Friend's Country")]
+        [Display(Name = "Which to send")]
         public SponsorEnum Sponsors { get; set; }
     }
 

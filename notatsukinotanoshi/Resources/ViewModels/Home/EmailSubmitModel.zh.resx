@@ -129,4 +129,7 @@
   <data name="Please enter your name" xml:space="preserve">
     <value>請輸入朋友的姓名</value>
   </data>
+  <data name="Which to send" xml:space="preserve">
+    <value>收件公司</value>
+  </data>
 </root>

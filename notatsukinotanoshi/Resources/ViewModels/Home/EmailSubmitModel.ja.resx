@@ -123,4 +123,7 @@
   <data name="Friend's Name" xml:space="preserve">
     <value>フレンズの名前</value>
   </data>
+  <data name="Which to send" xml:space="preserve">
+    <value>紙飛行機の届き先</value>
+  </data>
 </root>

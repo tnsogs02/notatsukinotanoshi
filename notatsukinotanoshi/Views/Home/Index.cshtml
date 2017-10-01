@@ -26,25 +26,26 @@
     <h4 id="mode"></h4>
     @model EmailSubmitViewModel
     <form asp-controller="Home" asp-action="Submit" method="post">
-        <div asp-validation-summary="All"></div>
+        <div asp-validation-summary="All" class="validation-error"></div>
 
         <div class="form-group">
             <label asp-for="FriendName"></label>
             <input asp-for="FriendName" class="form-control" placeholder="Serval" />
-            <span asp-validation-for="FriendName"></span>
+            <span asp-validation-for="FriendName" class="validation-error"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="FriendCountry"></label>
             <input asp-for="FriendCountry" class="form-control" placeholder="Foreign Country"/>
-            <span asp-validation-for="FriendCountry" ></span>
+            <span asp-validation-for="FriendCountry" class="validation-error"></span>
         </div>
 
         <div class="form-group">
+            <label asp-for="Sponsors"></label>
             <select asp-for="Sponsors" asp-items="Html.GetEnumSelectList<SponsorEnum>()" class="form-control"></select>
         </div>
         <button type="submit" class="btn btn-warning">@Localizer["Send the email"]</button>
-</form>
+    </form>
 
     <div id="qrcode"></div>
     <div class="letter markdown-body" id="mailBody"></div><br>

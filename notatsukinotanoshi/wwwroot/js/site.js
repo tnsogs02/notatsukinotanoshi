@@ -24,10 +24,8 @@ $('form').submit(function (e) {
  * Helper class
  */
 class Sponsor {
-    constructor(jp, ch, en, p_jp = "", p_en = "", email) {
+    constructor(en, p_jp = "", p_en = "", email) {
         this.company = {
-            "ja": jp,
-            "zh": ch,
             "en": en
         };
         this.product = {
@@ -41,24 +39,24 @@ class Sponsor {
 
 const sps = [
     //new Sponsor("株式会社KADOKAWA", "KADOKAWA公司", "KADOKAWA CORPORATION", "", "", "seki@kadokawa.co.jp"),
-    new Sponsor("株式会社テレビ東京", "東京電視台", "TV TOKYO Corporation", "", "", "privacy@txshop.jp"),
+    new Sponsor("TV TOKYO Corporation", "", "", "privacy@txshop.jp"),
     //new Sponsor("株式会社ファミマ・ドット・コム", "famima.com", "famima.com Co., Ltd.", "ファミリーマート", "Family Mart", ""),
     //new Sponsor("日本ビクター株式会社", "JVC", "JVC", "音楽CD", "Audio CD", ""),
-    new Sponsor("クランチロール", "Crunchyroll", "Crunchyroll", "ネット放送サービス", "Web Broadcast Service", "support@crunchyroll.com"),
-    new Sponsor("アニメシアターX", "AT-X", "AT-X", "テレビ放送サービス", "TV Broadcast Service", "ppinfo@at-x.com"),
-    new Sponsor("株式会社エス・ワイ・エス", "SYS公司", "SYS Inc.", "プリントサービス", "Printing Service", "info@sys-inc.jp"),
-    new Sponsor("エイジグローバルネットワークス株式会社", "Age Global Networks", "Age Global Networks", "", "", "info@age-global.net"),
-    new Sponsor("株式会社ジャストプロ", "JustPro", "Just Production Inc.", "", "", "info@just-pro.jp"),
+    new Sponsor("Crunchyroll", "ネット放送サービス", "Web Broadcast Service", "support@crunchyroll.com"),
+    new Sponsor("AT-X", "テレビ放送サービス", "TV Broadcast Service", "ppinfo@at-x.com"),
+    new Sponsor("SYS Inc.", "プリントサービス", "Printing Service", "info@sys-inc.jp"),
+    new Sponsor("Age Global Networks", "", "", "info@age-global.net"),
+    new Sponsor("Just Production Inc.", "", "", "info@just-pro.jp"),
     //new Sponsor("株式会社ドコモ・アニメストア", "DOCOMO動畫商城", "DOCOMO ANIME STORE, INC.", "ネット配信サービス", "Web Broadcast Service", "support@animate-onlineshop.jp"),
-    new Sponsor("株式会社ブシロード", "株式會社武士道", "Bushiroad Inc.", "", "", "support@bushiroad.com"),
-    new Sponsor("株式会社クロックワークス", "KlockWorx", "KlockWorx Co.ltd", "DVDレンタル", "DVD Rental Service", "info@klockworx.com"),
+    new Sponsor("Bushiroad Inc.", "", "", "support@bushiroad.com"),
+    new Sponsor("KlockWorx Co.ltd", "DVDレンタル", "DVD Rental Service", "info@klockworx.com"),
     //new Sponsor("日清食品グループ", "日清食品", "Nissin Food Group", "どん兵衛", "どん兵衛", "release@nissinfoods-holdings.co.jp"),
     //new Sponsor("けものフレンズカフェ", "動物朋友咖啡", "JAPARI CAFÉ CONCEPT", "DVD Rental Service", "JAPARI CAFÉ", "japaricafe.tokyo@gmail.com"),
-    new Sponsor("株式会社ウルトラダイレクト", "Ultra Direct", "Ultra Direct", "けものフレンズカフェ", "JAPARI CAFÉ", "japaricafe.tokyo@gmail.com"),
-    new Sponsor("にいがたアニメ・マンガフェスティバル実行委員会事務局", "新潟動漫節執行委員會", "The Niigata Anime and Manga Festival Committee", "がたふぇす限定グッズ", "Limited Goods", "bunka@city.niigata.lg.jp"),
+    new Sponsor("Ultra Direct", "けものフレンズカフェ", "JAPARI CAFÉ", "japaricafe.tokyo@gmail.com"),
+    new Sponsor("The Niigata Anime and Manga Festival Committee", "がたふぇす限定グッズ", "Limited Goods", "bunka@city.niigata.lg.jp"),
     //new Sponsor("那須どうぶつ王国", "那須動物王國", "Nasu Animal Kingdom", "コラボグッズ", "Collaboration Goods", ""),
     //new Sponsor("日本中央競馬会", "日本中央競馬會", "JRA", "", "", "inter@jra.go.jp"),
-    new Sponsor("オンキヨー株式会社", "ONKYO", "Onkyo Corporation", "イヤホン", "Earphone", "customer@jp.onkyo.com"),
+    new Sponsor("Onkyo Corporation", "イヤホン", "Earphone", "customer@jp.onkyo.com"),
     //new Sponsor("株式会社ファミリーマート", "全家便利商店株式會社", "Familymart Co., Ltd.", "オリジナルグッズ", "Original Collboration Goods", "")
 ];
 
