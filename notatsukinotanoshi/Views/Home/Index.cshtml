@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Localization
 @using Microsoft.AspNetCore.Mvc.Localization
 @using Microsoft.Extensions.Options
-@using notatsukinotanoshi.Models.Home
+@using notatsukinotanoshi.ViewModels.Home
 
 @inject IViewLocalizer Localizer
 @inject IOptions<RequestLocalizationOptions> LocOptions
@@ -27,11 +27,16 @@
     @model EmailSubmitModel
     <form asp-controller="Home" asp-action="Submit" method="post">
         <div asp-validation-summary="All"></div>
-        <label asp-for="FriendName">@Localizer["Friend's Name"]</label>
-        <input asp-for="FriendName" type="text" />
-        <span asp-validation-for="FriendName"></span>
 
-        <input type="submit" class="btn btn-warning">@Localizer["Send the email"] />
+        <label asp-for="FriendName"></label>
+        @Html.EditorFor(model => model.FriendName)
+        @Html.ValidationMessageFor(model => model.FriendName)
+
+        <label asp-for="FriendCountry"></label>
+        <input asp-for="FriendCountry" />
+        <span asp-validation-for="FriendCountry"></span>
+
+        <button type="submit" class="btn btn-warning">@Localizer["Send the email"]</button>
     </form>
 
     <div id="qrcode"></div>

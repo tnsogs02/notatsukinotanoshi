@@ -1,6 +1,6 @@
 using System;
 
-namespace notatsukinotanoshi.Models
+namespace notatsukinotanoshi.ViewModels
 {
     public class ErrorViewModel
     {

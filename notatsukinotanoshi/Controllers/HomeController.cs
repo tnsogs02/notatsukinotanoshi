@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using notatsukinotanoshi.Models;
+using notatsukinotanoshi.ViewModels;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Http;
-using notatsukinotanoshi.Models.Home;
+using notatsukinotanoshi.ViewModels.Home;
 
 namespace notatsukinotanoshi.Controllers
 {
