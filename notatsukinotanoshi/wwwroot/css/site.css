@@ -80,3 +80,8 @@ pre {
     border: 0;
     border-radius: 0;
 }
+
+/* Validation message format */
+.validation-error{
+    color: red;
+}

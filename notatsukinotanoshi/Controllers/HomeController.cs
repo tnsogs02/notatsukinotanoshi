@@ -4,10 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using notatsukinotanoshi.Models;
+using notatsukinotanoshi.ViewModels;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Http;
+using notatsukinotanoshi.ViewModels.Home;
 
 namespace notatsukinotanoshi.Controllers
 {
@@ -43,6 +44,28 @@ namespace notatsukinotanoshi.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        /// <summary>
+        /// Validate a submittion of email
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Submit(EmailSubmitViewModel emailSubmitModel)
+        {
+            if (ModelState.IsValid)
+            {
+                return Json(emailSubmitModel);
+            }
+            return View(emailSubmitModel);
+        }
+
+        /// <summary>
+        /// Set the clients required culture
+        /// </summary>
+        /// <param name="culture"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult SetLanguage(string culture, string returnUrl)
         {
