@@ -60,16 +60,21 @@ namespace notatsukinotanoshi.Controllers
 }
 ```
 如瀏覽網頁 `http://notatsukinotanoshi.tw/Home/Index/`，將會直接顯示相對應的View。  
+
+## Views
+Views為主要顯示內容，主要以HTML編寫，`Razor Template`僅提供輔助功能，例如可以由`Controller`先進行運算，再將內容加入到顯示頁面。  
 View的位置必須根據Controller設置，並放置於`Views`資料夾內。  
 `Razor Template`支援的命名方式包括`Views/Home.Index.cshtml`（無資料夾）或者`Views/Home/Index.cshtml`  
 * 注意：`Views.Home.Index.cshtml` 並不包括在內。
 
-## Views
-Views為主要顯示內容，主要以HTML編寫，`Razor Template`僅提供輔助功能，例如可以由`Controller`先進行運算，再將內容加入到顯示頁面。  
-
 ### Shared Views
 `Views/Shared`內的檔案為共享內容，`_Layout.cshtml`為每個網頁必顯示的內容，一般`View/Action.cshtml`僅為Content部分，故不用加入header/footer。  
 `_Layout.cshtml` 內的 `@RenderBody()` 為Content出現的部分。
+
+### Environment Tag
+Template內有數個`Enviroment`的Tag存在，將會根據App的環境控制出現的檔案。  
+`<environment include="Development">`：僅在開發環境出現  
+`<environment exclude="Development">`：在非開放環境出現（staging/production）  
 
 # Usage
 ### Helper classes
