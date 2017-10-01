@@ -67,7 +67,7 @@ namespace notatsukinotanoshi.Controllers
                         cmd.CommandText = "INSERT INTO submit_count(ip, submit_time, company_id) VALUES (INET_ATON(@ip), NOW(), @company)";
                         var ip = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4();
                         cmd.Parameters.AddWithValue("@ip", ip.ToString());
-                        cmd.Parameters.AddWithValue("@company", model.Sponsor);
+                        cmd.Parameters.AddWithValue("@company", 1);
                         cmd.ExecuteNonQuery();
                     }
                     catch (Exception)

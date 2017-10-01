@@ -8,8 +8,7 @@
 @inject IOptions<RequestLocalizationOptions> LocOptions
 
 @{
-    ViewData["Title"] = "Home Page";
-    var requestCulture = Context.Features.Get<IRequestCultureFeature>().RequestCulture.Culture.Name;
+    ViewData["Title"] = "Participate";
 }
 
 <div class="container">
@@ -48,6 +47,5 @@
     </form>
 
     <div id="qrcode"></div>
-    <div class="letter markdown-body" id="mailBody"></div><br>
-    <input id="culture-input" type="hidden" value="@requestCulture" />
+    <div class="letter markdown-body" id="mailBody"></div><br />
 </div>

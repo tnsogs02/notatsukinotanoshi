@@ -6,7 +6,7 @@ $(document).ready(() => {
     recv = sps[parseInt($("#Sponsor").val())];
 
     //Get all mail templates
-    $.getJSON("./resources/email-template." + _locale + ".json", function (data) {
+    $.getJSON("/resources/email-template." + _locale + ".json", function (data) {
         mailTemplate = data;
     }).complete(function () {
         update();
