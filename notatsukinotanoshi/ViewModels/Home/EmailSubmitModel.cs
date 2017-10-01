@@ -18,8 +18,8 @@ namespace notatsukinotanoshi.ViewModels.Home
 
     public enum SponsorEnum
     {
-        [Display(Name = "TV TOKYO Corporation")]
-        TokyoTV,
+        /* [Display(Name = "TV TOKYO Corporation")]
+        TokyoTV, */
         [Display(Name = "Crunchyroll")]
         Crunchyroll,
         [Display(Name = "AT-X")]

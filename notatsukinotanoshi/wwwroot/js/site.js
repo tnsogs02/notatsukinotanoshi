@@ -39,7 +39,7 @@ class Sponsor {
 
 const sps = [
     //new Sponsor("株式会社KADOKAWA", "KADOKAWA公司", "KADOKAWA CORPORATION", "", "", "seki@kadokawa.co.jp"),
-    new Sponsor("TV TOKYO Corporation", "", "", "privacy@txshop.jp"),
+    //new Sponsor("TV TOKYO Corporation", "", "", "privacy@txshop.jp"),
     //new Sponsor("株式会社ファミマ・ドット・コム", "famima.com", "famima.com Co., Ltd.", "ファミリーマート", "Family Mart", ""),
     //new Sponsor("日本ビクター株式会社", "JVC", "JVC", "音楽CD", "Audio CD", ""),
     new Sponsor("Crunchyroll", "ネット放送サービス", "Web Broadcast Service", "support@crunchyroll.com"),
