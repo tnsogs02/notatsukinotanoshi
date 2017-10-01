@@ -1,10 +1,11 @@
-﻿using Microsoft.Extensions.Localization;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Localization;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace notatsukinotanoshi.ViewModels.Home
 {
-    public class EmailSubmitModel
+    public class EmailSubmitViewModel
     {
         [Display(Name = "Friend's Name")]
         [Required(ErrorMessage = "Please enter your name")]
@@ -14,16 +15,33 @@ namespace notatsukinotanoshi.ViewModels.Home
         [Required(ErrorMessage = "Please enter your country")]
         public string FriendCountry { get; set; }
 
-        public List<Sponsor> Sponsors { get; } = new List<Sponsor>
-        {
-            new Sponsor { Text = "TV TOKYO Corporation" }
-        };
+        [Display(Name = "Friend's Country")]
+        public SponsorEnum Sponsors { get; set; }
     }
 
-    public class Sponsor 
+    public enum SponsorEnum
     {
-        public string Text;
-        public string Value;
-        public string Email;
+        [Display(Name = "TV TOKYO Corporation")]
+        TokyoTV,
+        [Display(Name = "Crunchyroll")]
+        Crunchyroll,
+        [Display(Name = "AT-X")]
+        ATX,
+        [Display(Name = "SYS Inc.")]
+        SYS,
+        [Display(Name = "Age Global Networks")]
+        AGN,
+        [Display(Name = "Just Production Inc.")]
+        JPI,
+        [Display(Name = "Bushiroad Inc.")]
+        Bushiroad,
+        [Display(Name = "KlockWorx Co.ltd")]
+        KlockWorx,
+        [Display(Name = "Ultra Direct")]
+        UltraDirect,
+        [Display(Name = "The Niigata Anime and Manga Festival Committee")]
+        TNNMFC,
+        [Display(Name = "Onkyo Corporation")]
+        Onyko
     }
 }

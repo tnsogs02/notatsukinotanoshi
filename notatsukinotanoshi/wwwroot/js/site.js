@@ -1,7 +1,11 @@
-﻿let _locale = ($('#culture-input').val() === "zh" ? "en" : $('#culture-input').val());
+﻿/**
+ * jQuery scripts
+ */
+let _locale = ($('#culture-input').val() === "zh" ? "en" : $('#culture-input').val());
 $(document).ready(() => {
+    recv = sps[parseInt($("#Sponsors").val())];
+
     //Get all mail templates
-    console.log("./resources/email-template." + _locale + ".json");
     $.getJSON("./resources/email-template." + _locale + ".json", function (data) {
         mailTemplate = data;
     }).complete(function () {
@@ -9,6 +13,16 @@ $(document).ready(() => {
     });
 });
 
+$('form').submit(function (e) {
+    e.preventDefault();
+    console.log("Submitting");
+    $.post($(this).attr("action"), $(this).serialize(), function () {
+        sendEmail();
+    });
+});
+/**
+ * Helper class
+ */
 class Sponsor {
     constructor(jp, ch, en, p_jp = "", p_en = "", email) {
         this.company = {
@@ -24,6 +38,7 @@ class Sponsor {
         this.email = email;
     }
 }
+
 const sps = [
     //new Sponsor("株式会社KADOKAWA", "KADOKAWA公司", "KADOKAWA CORPORATION", "", "", "seki@kadokawa.co.jp"),
     new Sponsor("株式会社テレビ東京", "東京電視台", "TV TOKYO Corporation", "", "", "privacy@txshop.jp"),
@@ -53,9 +68,6 @@ const langs = {
         g: "Gmail",
         q: "QR Code",
         t: "傳統郵件(開啟郵件客戶端)",
-        name: "朋友的名字",
-        country: "朋友的國籍",
-        recv: "收件公司",
         submit: "跳轉到發送頁面",
         modeText: ["Gmail (電腦)", "電子郵件 (手機)"]
     },
@@ -65,9 +77,6 @@ const langs = {
         q: "QR コート",
         t: "メールソフトで開く",
         mailSubject: ["けものフレンズの件について", "けものフレンズコラボの件について"],
-        name: "フレンズの名前",
-        country: "フレンズの縄張り",
-        recv: "紙飛行機の届き先",
         submit: "メールのページへ",
         modeText: ["Gmail (パソコン)", "メール (携帯)"]
     },
@@ -77,9 +86,6 @@ const langs = {
         q: "QR Code",
         t: "Traditional mail",
         mailSubject: ['About your company\'s collaboration with Kemono Friends', 'Kemono Friends Inquiry'],
-        name: "Friends\' name",
-        country: "Friends\' nationality",
-        recv: "Which to send",
         submit: "Compose an email",
         modeText: ["Gmail (For PC)", "E-Mail (For Mobile)"]
     }
@@ -94,10 +100,18 @@ const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
 var mode = (isMobile ? 1 : 0)
 let mailTemplate = "";
 
+let recv = "";
+
+/**
+ * Functions
+ */
 function update() {
     mailBodyIndex = parseInt(Math.random() * mailTemplate.length);
+
+    console.log("Selected Index: "+$('#Sponsors').val());
+    console.log("Sponsor Data: "+sps[$('#Sponsors').val()]);
     mailBody = mailTemplate[mailBodyIndex]['msg']
-        .replace(/%company_name%/g, $('#sp').text())
+        .replace(/%company_name%/g, recv.company['en'])
         .replace(/%user_name%/g, $("#FriendName").val())
         .replace(/%user_nationality%/g, $("#FriendName").val());
     $("#mailBody").html(mailBody)
@@ -116,11 +130,11 @@ function update() {
 }
 
 function updateRecv() {
-    recv = sps[parseInt($("#sp").val())];
+    recv = sps[parseInt($("#Sponsors").val())];
     update();
 }
 
-$("#sp").on("change", updateRecv);
+$("#Sponsors").on("change", updateRecv);
 
 $("input#sender").on("input", () => {
     update();
@@ -139,7 +153,7 @@ function sendEmail() {
     var subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)]
     var link = mailAPI[mode]
         .replace("!SUBJECT!", encodeURIComponent(subject))
-        .replace("!RECV!", encodeURIComponent($("#sp").val()))
+        .replace("!RECV!", encodeURIComponent(recv.email))
         .replace("!BODY!", encodeURIComponent(mailBody))
     window.open(link, "_blank").focus()
 }

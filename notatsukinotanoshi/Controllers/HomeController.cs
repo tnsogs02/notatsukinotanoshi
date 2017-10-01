@@ -51,7 +51,7 @@ namespace notatsukinotanoshi.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Submit(EmailSubmitModel emailSubmitModel)
+        public IActionResult Submit(EmailSubmitViewModel emailSubmitModel)
         {
             if (ModelState.IsValid)
             {
