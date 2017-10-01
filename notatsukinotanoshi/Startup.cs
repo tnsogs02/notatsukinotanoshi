@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
+using notatsukinotanoshi.Models;
 
 namespace notatsukinotanoshi
 {
@@ -32,6 +33,9 @@ namespace notatsukinotanoshi
             services.AddMvc()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization();
+
+            // Add our Config object so it can be injected
+            services.AddSingleton<IConfiguration>(Configuration);
 
             services.Configure<RequestLocalizationOptions>(
             options =>

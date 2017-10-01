@@ -12832,6 +12832,9 @@
       "BuildBundlerMinifier >= 2.5.357",
       "Localization.AspNetCore.TagHelpers >= 0.3.0",
       "Microsoft.AspNetCore.All >= 2.0.0",
+      "Microsoft.Extensions.Configuration.EnvironmentVariables >= 2.0.0",
+      "Microsoft.Extensions.Configuration.Json >= 2.0.0",
+      "Microsoft.Extensions.Options.ConfigurationExtensions >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "Pomelo.EntityFrameworkCore.MySql >= 2.0.0"
     ]
@@ -12884,6 +12887,14 @@
             "target": "Package",
             "version": "2.0.0"
           },
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": {
+            "target": "Package",
+            "version": "2.0.0"
+          },
+          "Microsoft.Extensions.Configuration.Json": {
+            "target": "Package",
+            "version": "2.0.0"
+          },
           "Localization.AspNetCore.TagHelpers": {
             "target": "Package",
             "version": "0.3.0"
@@ -12892,6 +12903,10 @@
             "target": "Package",
             "version": "2.0.0",
             "autoReferenced": true
+          },
+          "Microsoft.Extensions.Options.ConfigurationExtensions": {
+            "target": "Package",
+            "version": "2.0.0"
           },
           "Microsoft.AspNetCore.All": {
             "target": "Package",

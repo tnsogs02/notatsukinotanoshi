@@ -9,15 +9,21 @@ using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Http;
 using notatsukinotanoshi.ViewModels.Home;
+using MySql.Data.MySqlClient;
+using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
 
 namespace notatsukinotanoshi.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly string connectionString;
         private readonly IStringLocalizer<HomeController> _localizer;
-        public HomeController(IStringLocalizer<HomeController> localizer)
+
+        public HomeController(IStringLocalizer<HomeController> localizer, IConfiguration config)
         {
             _localizer = localizer;
+            connectionString = config.GetValue<string>("ConnectionStrings:DefaultConnection");
         }
 
         public IActionResult Index()
@@ -35,7 +41,6 @@ namespace notatsukinotanoshi.Controllers
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 
@@ -51,13 +56,30 @@ namespace notatsukinotanoshi.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Submit(EmailSubmitViewModel emailSubmitModel)
+        public IActionResult Submit(EmailSubmitViewModel model)
         {
             if (ModelState.IsValid)
             {
-                return Json(emailSubmitModel);
+                //Add count
+                using ( var conn = new MySqlConnection(connectionString)) {
+                    try
+                    {
+                        conn.Open();
+                        var cmd = conn.CreateCommand();
+                        cmd.CommandText = "INSERT INTO submit_count(ip, submit_time, company_id) VALUES (INET_ATON(@ip), NOW(), @company)";
+                        var ip = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4();
+                        cmd.Parameters.AddWithValue("@ip", ip.ToString());
+                        cmd.Parameters.AddWithValue("@company", 1);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                };
+                return Json(connectionString);
             }
-            return View(emailSubmitModel);
+            return View(model);
         }
 
         /// <summary>
