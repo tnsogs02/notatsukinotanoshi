@@ -37,6 +37,34 @@ ask your question in IRC.
 3. 最後，如果系統沒有顯示Merge conflict，就可以直接進行`merge`。Review後不必馬上進行merge，可以在此進行改進，直至滿意。
 4. 完成Merge後，請順便Delete branch，以防止冗餘數據積蓄。
 
+# Application structure
+基本部分採用Model-View-Control (MVC)設計，透過Controller控制網頁內容。
+以上三個部分分別在`Controllers`，`Models`，`Views`資料夾。  
+網頁的顯示方式為: `http://notatsukinotanoshi.tw/{Controllers}/{Actions}`
+
+## Controllers
+Controllers主要負責網頁顯示方式，必須以 `{Name}Controller.cs` 命名。
+裡面的 `IAction` method為可定義Action。
+
+以下代碼為例子
+```csharp
+namespace notatsukinotanoshi.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+```
+如瀏覽網頁 `http://notatsukinotanoshi.tw/Home/Index/`，將會直接顯示相對應的View。  
+View的位置必須根據Controller設置，並放置於`Views`資料夾內。  
+`Razor Template`支援的命名方式包括`Views/Home.Index.cshtml`（無資料夾）或者`Views/Home/Index.cshtml`  
+* 注意：`Views.Home.Index.cshtml` 並不包括在內。
+
+
 # Usage
 ### Helper classes
 `bundleconfig.json`: 負責產生並minify代碼
