@@ -13,7 +13,7 @@ namespace notatsukinotanoshi.ViewModels.Home
         public string FriendCountry { get; set; }
 
         [Display(Name = "Which to send")]
-        public SponsorEnum Sponsors { get; set; }
+        public SponsorEnum Sponsor { get; set; }
     }
 
     public enum SponsorEnum

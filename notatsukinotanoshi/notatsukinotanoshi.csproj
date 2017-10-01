@@ -35,9 +35,6 @@
     <EmbeddedResource Update="Resources\Views\Shared\_Layout.ja.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Views\Shared\_Layout.zh.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

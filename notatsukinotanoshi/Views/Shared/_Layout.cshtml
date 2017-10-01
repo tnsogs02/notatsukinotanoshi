@@ -51,6 +51,11 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
+        <div class="sent-data">
+            <h3 style="text-align: center">
+                @Localizer["No. of mails sent: {0}", @ViewData["SignedNo"]]
+            </h3>
+        </div>
         <footer>
             <div class="container">
                 Use beautiful background image from <a target="_blank" href="https://www.toptal.com/designers/subtlepatterns">Subtle Patterns</a>

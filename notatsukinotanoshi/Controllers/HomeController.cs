@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using notatsukinotanoshi.ViewModels;
 using Microsoft.Extensions.Localization;
@@ -10,7 +7,6 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Http;
 using notatsukinotanoshi.ViewModels.Home;
 using MySql.Data.MySqlClient;
-using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
 
 namespace notatsukinotanoshi.Controllers
@@ -28,6 +24,7 @@ namespace notatsukinotanoshi.Controllers
 
         public IActionResult Index()
         {
+            ViewData["SignedNo"] = CountSent();
             return View();
         }
 
@@ -35,6 +32,7 @@ namespace notatsukinotanoshi.Controllers
         {
             ViewData["Title"] = _localizer["About Title"];
             ViewData["Message"] = _localizer["About message"];
+            ViewData["SignedNo"] = CountSent();
             return View();
         }
 
@@ -69,7 +67,7 @@ namespace notatsukinotanoshi.Controllers
                         cmd.CommandText = "INSERT INTO submit_count(ip, submit_time, company_id) VALUES (INET_ATON(@ip), NOW(), @company)";
                         var ip = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4();
                         cmd.Parameters.AddWithValue("@ip", ip.ToString());
-                        cmd.Parameters.AddWithValue("@company", 1);
+                        cmd.Parameters.AddWithValue("@company", model.Sponsor);
                         cmd.ExecuteNonQuery();
                     }
                     catch (Exception)
@@ -98,6 +96,34 @@ namespace notatsukinotanoshi.Controllers
             );
 
             return LocalRedirect(returnUrl);
+        }
+
+        /// <summary>
+        /// Count number of signed
+        /// </summary>
+        /// <returns></returns>
+        private int CountSent()
+        {
+            int result = 0;
+            //Add count
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = "SELECT count(submit_id) FROM submit_count";
+                    var reader = cmd.ExecuteReader();
+
+                    reader.Read();
+                    result = reader.GetInt32(0);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            };
+            return result;
         }
     }
 }
