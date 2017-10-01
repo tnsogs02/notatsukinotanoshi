@@ -121,7 +121,7 @@
     <value>クランチロール</value>
   </data>
   <data name="http500msg" xml:space="preserve">
-    <value>If users encountered error 500, please consider to use the E-mail method.&lt;br /&gt;Sorry for any inconvenience caused. &lt;br /&gt;Please use the following QR Code if you are not using Gmail. &lt;br /&gt;</value>
+    <value>もしHTTP 500エラーが発生した場合、メールを使ってみてください。&lt;br /&gt;ご不便をおかけしてごめんなさい。&lt;br /&gt;Gmailを使ってない場合、下のQRコードを使ってください。&lt;br /&gt;</value>
   </data>
   <data name="TV TOKYO Corporation" xml:space="preserve">
     <value>株式会社テレビ東京</value>
