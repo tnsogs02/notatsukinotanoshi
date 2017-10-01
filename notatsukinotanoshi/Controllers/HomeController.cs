@@ -74,6 +74,11 @@ namespace notatsukinotanoshi.Controllers
                     {
                         throw;
                     }
+                    finally
+                    {
+                        //Close the connection
+                        conn.Close();
+                    }
                 };
                 return Json(connectionString);
             }
@@ -114,13 +119,19 @@ namespace notatsukinotanoshi.Controllers
                     var cmd = conn.CreateCommand();
                     cmd.CommandText = "SELECT count(submit_id) FROM submit_count";
                     var reader = cmd.ExecuteReader();
-
-                    reader.Read();
-                    result = reader.GetInt32(0);
+                    if (reader.Read())
+                    {
+                        result = reader.GetInt32(0);
+                    }
                 }
                 catch (Exception)
                 {
                     throw;
+                }
+                finally
+                {
+                    //Close the connection
+                    conn.Close();
                 }
             };
             return result;
