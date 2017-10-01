@@ -126,7 +126,7 @@
   <data name="mailbody" xml:space="preserve">
     <value />
   </data>
-  <data name="Outlook (etc.)" xml:space="preserve">
+  <data name="Traditional Mail" xml:space="preserve">
     <value>傳統郵件(開啟郵件客戶端)</value>
   </data>
   <data name="Please input your nationality!" xml:space="preserve">
