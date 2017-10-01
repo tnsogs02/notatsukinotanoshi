@@ -76,6 +76,18 @@ Template內有數個`Enviroment`的Tag存在，將會根據App的環境控制出
 `<environment include="Development">`：僅在開發環境出現  
 `<environment exclude="Development">`：在非開放環境出現（staging/production）  
 
+## Resouce
+本系統已經設置Localization，語言資料放置於`Resources`資料夾內，受於系統限制，語言資料必須根據相對應的 Controller/View/Model 命名。  
+例如首頁的語言資料為 `Views/Home/Index.{local}.resx`
+
+目前支援的語言包括
+```
+en: 英文
+zh: 中文
+ja: 日文
+ko: 韓文
+```
+
 # Usage
 ### Helper classes
 `bundleconfig.json`: 負責產生並minify代碼
