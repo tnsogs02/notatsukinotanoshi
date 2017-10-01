@@ -3,10 +3,10 @@
  */
 let _locale = ($('#culture-input').val() === "zh" ? "en" : $('#culture-input').val());
 $(document).ready(() => {
-    recv = sps[parseInt($("#Sponsors").val())];
+    recv = sps[parseInt($("#Sponsor").val())];
 
     //Get all mail templates
-    $.getJSON("./resources/email-template." + _locale + ".json", function (data) {
+    $.getJSON("/resources/email-template." + _locale + ".json", function (data) {
         mailTemplate = data;
     }).complete(function () {
         update();
@@ -105,9 +105,6 @@ let recv = "";
  */
 function update() {
     mailBodyIndex = parseInt(Math.random() * mailTemplate.length);
-
-    console.log("Selected Index: "+$('#Sponsors').val());
-    console.log("Sponsor Data: "+sps[$('#Sponsors').val()]);
     mailBody = mailTemplate[mailBodyIndex]['msg']
         .replace(/%company_name%/g, recv.company['en'])
         .replace(/%user_name%/g, $("#FriendName").val())
@@ -128,11 +125,11 @@ function update() {
 }
 
 function updateRecv() {
-    recv = sps[parseInt($("#Sponsors").val())];
+    recv = sps[parseInt($("#Sponsor").val())];
     update();
 }
 
-$("#Sponsors").on("change", updateRecv);
+$("#Sponsor").on("change", updateRecv);
 
 $("input#sender").on("input", () => {
     update();
