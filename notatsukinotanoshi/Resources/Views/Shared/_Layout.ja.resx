@@ -118,9 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>簡介</value>
+    <value>このプロジェクトについて</value>
   </data>
   <data name="Participate" xml:space="preserve">
-    <value>紹介</value>
+    <value>メールを送る</value>
   </data>
 </root>
