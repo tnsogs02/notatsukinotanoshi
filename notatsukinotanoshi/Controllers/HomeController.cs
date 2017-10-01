@@ -1,27 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using notatsukinotanoshi.ViewModels;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Http;
 using notatsukinotanoshi.ViewModels.Home;
+using MySql.Data.MySqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace notatsukinotanoshi.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly string connectionString;
         private readonly IStringLocalizer<HomeController> _localizer;
-        public HomeController(IStringLocalizer<HomeController> localizer)
+
+        public HomeController(IStringLocalizer<HomeController> localizer, IConfiguration config)
         {
             _localizer = localizer;
+            connectionString = config.GetValue<string>("ConnectionStrings:DefaultConnection");
         }
 
         public IActionResult Index()
         {
+            ViewData["SignedNo"] = CountSent();
             return View();
         }
 
@@ -29,13 +32,13 @@ namespace notatsukinotanoshi.Controllers
         {
             ViewData["Title"] = _localizer["About Title"];
             ViewData["Message"] = _localizer["About message"];
+            ViewData["SignedNo"] = CountSent();
             return View();
         }
 
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 
@@ -51,13 +54,35 @@ namespace notatsukinotanoshi.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Submit(EmailSubmitViewModel emailSubmitModel)
+        public IActionResult Submit(EmailSubmitViewModel model)
         {
             if (ModelState.IsValid)
             {
-                return Json(emailSubmitModel);
+                //Add count
+                using ( var conn = new MySqlConnection(connectionString)) {
+                    try
+                    {
+                        conn.Open();
+                        var cmd = conn.CreateCommand();
+                        cmd.CommandText = "INSERT INTO submit_count(ip, submit_time, company_id) VALUES (INET_ATON(@ip), NOW(), @company)";
+                        var ip = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4();
+                        cmd.Parameters.AddWithValue("@ip", ip.ToString());
+                        cmd.Parameters.AddWithValue("@company", 1);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                    finally
+                    {
+                        //Close the connection
+                        conn.Close();
+                    }
+                };
+                return Json(connectionString);
             }
-            return View(emailSubmitModel);
+            return View(model);
         }
 
         /// <summary>
@@ -76,6 +101,40 @@ namespace notatsukinotanoshi.Controllers
             );
 
             return LocalRedirect(returnUrl);
+        }
+
+        /// <summary>
+        /// Count number of signed
+        /// </summary>
+        /// <returns></returns>
+        private int CountSent()
+        {
+            int result = 0;
+            //Add count
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = "SELECT count(submit_id) FROM submit_count";
+                    var reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        result = reader.GetInt32(0);
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    //Close the connection
+                    conn.Close();
+                }
+            };
+            return result;
         }
     }
 }
