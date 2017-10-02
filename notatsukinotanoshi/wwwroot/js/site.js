@@ -2,22 +2,23 @@
  * jQuery scripts
  */
 let _locale = ($('#culture-input').val() === "zh" ? "en" : $('#culture-input').val());
-$(document).ready(() => {
-    recv = sps[parseInt($("#Sponsor").val())];
-
-    //Get all mail templates
-    $.getJSON("/resources/email-template." + _locale + ".json", function (data) {
-        mailTemplate = data;
-    }).complete(function () {
-        update();
-    });
-});
 
 $('form').submit(function (e) {
     e.preventDefault();
     console.log("Submitting");
     $.post($(this).attr("action"), $(this).serialize(), function () {
         sendEmail();
+    });
+});
+
+$("#btn--preview").click(function (e) {
+    e.preventDefault();
+    generate(function (data) {
+        if (data.status === "success") {
+            $("#mail-body").html(data['returnData']['template']);
+        } else {
+            showNotification(data.message, "danger");
+        }
     });
 });
 /**
@@ -36,29 +37,6 @@ class Sponsor {
         this.email = email;
     }
 }
-
-const sps = [
-    //new Sponsor("株式会社KADOKAWA", "KADOKAWA公司", "KADOKAWA CORPORATION", "", "", "seki@kadokawa.co.jp"),
-    //new Sponsor("TV TOKYO Corporation", "", "", "privacy@txshop.jp"),
-    //new Sponsor("株式会社ファミマ・ドット・コム", "famima.com", "famima.com Co., Ltd.", "ファミリーマート", "Family Mart", ""),
-    //new Sponsor("日本ビクター株式会社", "JVC", "JVC", "音楽CD", "Audio CD", ""),
-    new Sponsor("Crunchyroll", "ネット放送サービス", "Web Broadcast Service", "support@crunchyroll.com"),
-    new Sponsor("AT-X", "テレビ放送サービス", "TV Broadcast Service", "ppinfo@at-x.com"),
-    new Sponsor("SYS Inc.", "プリントサービス", "Printing Service", "info@sys-inc.jp"),
-    new Sponsor("Age Global Networks", "", "", "info@age-global.net"),
-    new Sponsor("Just Production Inc.", "", "", "info@just-pro.jp"),
-    //new Sponsor("株式会社ドコモ・アニメストア", "DOCOMO動畫商城", "DOCOMO ANIME STORE, INC.", "ネット配信サービス", "Web Broadcast Service", "support@animate-onlineshop.jp"),
-    new Sponsor("Bushiroad Inc.", "", "", "support@bushiroad.com"),
-    new Sponsor("KlockWorx Co.ltd", "DVDレンタル", "DVD Rental Service", "info@klockworx.com"),
-    //new Sponsor("日清食品グループ", "日清食品", "Nissin Food Group", "どん兵衛", "どん兵衛", "release@nissinfoods-holdings.co.jp"),
-    //new Sponsor("けものフレンズカフェ", "動物朋友咖啡", "JAPARI CAFÉ CONCEPT", "DVD Rental Service", "JAPARI CAFÉ", "japaricafe.tokyo@gmail.com"),
-    new Sponsor("Ultra Direct", "けものフレンズカフェ", "JAPARI CAFÉ", "japaricafe.tokyo@gmail.com"),
-    new Sponsor("The Niigata Anime and Manga Festival Committee", "がたふぇす限定グッズ", "Limited Goods", "bunka@city.niigata.lg.jp"),
-    //new Sponsor("那須どうぶつ王国", "那須動物王國", "Nasu Animal Kingdom", "コラボグッズ", "Collaboration Goods", ""),
-    //new Sponsor("日本中央競馬会", "日本中央競馬會", "JRA", "", "", "inter@jra.go.jp"),
-    new Sponsor("Onkyo Corporation", "イヤホン", "Earphone", "customer@jp.onkyo.com"),
-    //new Sponsor("株式会社ファミリーマート", "全家便利商店株式會社", "Familymart Co., Ltd.", "オリジナルグッズ", "Original Collboration Goods", "")
-];
 
 const langs = {
     'zh': {
@@ -103,52 +81,30 @@ let recv = "";
 /**
  * Functions
  */
-function update() {
-    mailBodyIndex = parseInt(Math.random() * mailTemplate.length);
-    mailBody = mailTemplate[mailBodyIndex]['msg']
-        .replace(/%company_name%/g, recv.company['en'])
-        .replace(/%user_name%/g, $("#FriendName").val())
-        .replace(/%user_nationality%/g, $("#FriendName").val());
-    $("#mailBody").html(mailBody)
-    /* $("h4#mode").html("Mode: " + langs[locale]["modeText"][mode]);
-
-    $("button#g").html(langs[locale]["g"])
-    $("button#t").html(langs[locale]["t"])
-
-    $("#sp").find("option").remove().end()
-    for (var i in sps) {
-        $("#sp").append($("<option></option>").attr("value", i).text(sps[i].company[locale]))
-    }
-    $("#sp").val(sps.indexOf(recv)) */
-
-    $("div#email").html("Email: " + $("#sp").val());
-}
-
-function updateRecv() {
-    recv = sps[parseInt($("#Sponsor").val())];
-    update();
-}
-
-$("#Sponsor").on("change", updateRecv);
-
-$("input#sender").on("input", () => {
-    update();
-})
-
-$("input#country").on("input", () => {
-    update();
-})
-
 function mailAction(e) {
     mode = parseInt(e.dataset["type"])
     update();
 }
 
+/**
+ * Generate and send the mail
+ */
 function sendEmail() {
-    var subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)]
-    var link = mailAPI[mode]
-        .replace("!SUBJECT!", encodeURIComponent(subject))
-        .replace("!RECV!", encodeURIComponent(recv.email))
-        .replace("!BODY!", encodeURIComponent(mailBody))
-    window.open(link, "_blank").focus()
+    generate(function (data) {
+        let info = data['returnData'];
+        let subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)];
+        let link = mailAPI[mode]
+            .replace("!SUBJECT!", encodeURIComponent(subject))
+            .replace("!RECV!", encodeURIComponent(info['email']))
+            .replace("!BODY!", encodeURIComponent(info['template']))
+        window.open(link, "_blank").focus()
+    });    
+}
+
+/**
+ * Generate template
+ * @param {any} func
+ */
+function generate(func) {
+    $.post("/Home/Generate", $("#form--submit-mail").serialize(), func, "json");
 }
