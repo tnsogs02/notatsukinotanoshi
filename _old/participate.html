@@ -5,16 +5,17 @@
 <head>
 	<title>No Tatsuki No TANOSHI</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-	<link rel="shortcut icon" href="favicon-32x32.png" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<meta property="og:type" content="article" />
-	<meta property="og:image" content="http://notatsukinotanoshi.tk/img/Visual_HandrawnPlane.jpg" />
-	<meta property="og:title" content="NoTatsukiNoTanoshi" />
-	<meta property="og:description" content="No Tatsuki No Tanoshi." />
-	<meta property="og:url" content="http://notatsukinotanoshi.tk/index-test2.html" />
+    <meta property="og:image" content="http://notatsukinotanoshi.tk/img/Visual_HandrawnPlane.jpg" />
+    <meta property="og:title" content="NoTatsukiNoTanoshi" />
+    <meta property="og:description" content="Please join us." />
+    <meta property="og:url" content="http://notatsukinotanoshi.tk/index.html" />
 	<meta name="twitter:card" content="summary_large_image">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 </head>
 <style>
@@ -53,16 +54,16 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="participate.html" class="navbar-brand">Participate</a></li>
-					<li><a href="index.html" class="navbar-brand">About</a></li>
+					<li><a name='navbar_p_link' href="participate.html" class="navbar-brand"></a></li>
+					<li><a name='navbar_a_link' href="index.html" class="navbar-brand"></a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<div class="container content">
 		<div class="alert alert-danger">
-			If users encountered error 500, please consider to use the E-mail method.<br> 如果用戶遭遇500錯誤，請使用傳統郵件方法或者手動寄信。
-			<br> Sorry for any inconvenience caused.<br> 不便之處，敬請原諒。<br>「若没有Gmail，请扫描二维码使用下方传统邮件选项打开手机邮件客户端。使用微信的用户请选择在浏览器中打开。」<br/><a href="http://notatsukinotanoshi.tk"><img src="qrcode.png" id="qr"></img></a>
+		<div id='warningmsg'></div>
+		<a href="http://notatsukinotanoshi.tk"><img src="qrcode.png" id="qr"></img></a>
 		</div>
 		Language:
 
@@ -163,7 +164,10 @@
 				country: "朋友的國籍",
 				recv: "收件公司",
 				submit: "跳轉到發送頁面",
-				modeText: ["Gmail (電腦)", "電子郵件 (手機)"]
+				modeText: ["Gmail (電腦)", "電子郵件 (手機)"],
+				nav_button_p_text: "參與",
+				nav_button_a_text: "簡介",
+				warningmsg_text: "如果用戶遭遇500錯誤，請使用傳統郵件方法或者手動寄信。<br/>不便之處，敬請原諒。<br/><br/>若沒有Gmail，請掃描QRCode\n使用下方傳統郵件選像打開手機郵件程式。使用微信的用戶請選擇在瀏覽器中打開。"
 			},
 			"ja": {
 				langText: '日本語',
@@ -180,7 +184,10 @@
 				country: "フレンズの縄張り",
 				recv: "紙飛行機の届き先",
 				submit: "メールのページへ",
-				modeText: ["Gmail (パソコン)", "メール (携帯)"]
+				modeText: ["Gmail (パソコン)", "メール (携帯)"],
+				nav_button_p_text: "メールを送る",
+				nav_button_a_text: "このプロジェクトについて",
+				warningmsg_text: "もしHTTP 500エラーが発生した場合、メールをコピーして普通にクライアント等で送るか、以下のQRコードを使ってみてください。<br/>また、Gmailを使っていない場合も、以下のQRコードを使ってください。ご不便をおかけしてごめんなさい。"
 			},
 			"en": {
 				langText: 'English',
@@ -200,7 +207,10 @@
 				country: "Friends\' nationality",
 				recv: "Which to send",
 				submit: "Compose an email",
-				modeText: ["Gmail (For PC)", "E-Mail (For Mobile)"]
+				modeText: ["Gmail (For PC)", "E-Mail (For Mobile)"],
+				nav_button_p_text: "Participate",
+				nav_button_a_text: "About",
+				warningmsg_text: "If users encountered error 500, please consider to use the E-mail method.<br/>Sorry for any inconvenience caused.<br/><br/>If you don't have Gmail, please scan the QR code below and use the Traditional Mail mode provided."
 			}
 		}
 
@@ -254,10 +264,13 @@
 			$("#sp").val(sps.indexOf(recv))
 
 			$("div#email").html("Email: " + recv.email);
-			$("label#name").html(langs[locale]["name"])
-			$("label#nationality").html(langs[locale]["country"])
-			$("label#recv").html(langs[locale]["recv"])
-			$("div#submit").html(langs[locale]["submit"])
+			$("label#name").html(langs[locale]["name"]);
+			$("label#nationality").html(langs[locale]["country"]);
+			$("label#recv").html(langs[locale]["recv"]);
+			$("div#submit").html(langs[locale]["submit"]);
+			$('[name="navbar_p_link"]').html(langs[locale]["nav_button_p_text"]);
+			$('[name="navbar_a_link"]').html(langs[locale]["nav_button_a_text"]);
+			$('div#warningmsg').html(langs[locale]["warningmsg_text"]);
 		}
 
 		$(document).ready(() => {
