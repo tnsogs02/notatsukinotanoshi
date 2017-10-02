@@ -195,13 +195,17 @@ namespace notatsukinotanoshi.Controllers
                     .Replace("%user_name%", model.FriendName)
                     .Replace("%user_nationality%", model.FriendCountry);
 
-                response.State = ResponseState.Success;
+                var returnData = new Dictionary<string, string>();
+                returnData.Add("template", msg);
+                returnData.Add("email", companyMail);
+
+                response.Status = ResponseState.Success;
                 response.Message = "Get template successfully";
-                response.ReturnData = msg;
+                response.ReturnData = returnData;
                 return Json(response);
             }
 
-            response.State = ResponseState.Fail;
+            response.Status = ResponseState.Fail;
             response.Message = "Missing details";
             return Json(response);
         }
