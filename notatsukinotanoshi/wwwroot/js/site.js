@@ -20,6 +20,13 @@ $('form').submit(function (e) {
         sendEmail();
     });
 });
+
+$("#btn--preview").click(function (e) {
+    e.preventDefault();
+    $.post("/Home/Generate", $("#form--submit-mail").serialize(), function (data) {
+        alert(data);
+    })
+});
 /**
  * Helper class
  */
@@ -36,19 +43,6 @@ class Sponsor {
         this.email = email;
     }
 }
-
-const sps = [
-    new Sponsor("Crunchyroll", "ネット放送サービス", "Web Broadcast Service", "support@crunchyroll.com"),
-    new Sponsor("AT-X", "テレビ放送サービス", "TV Broadcast Service", "ppinfo@at-x.com"),
-    new Sponsor("SYS Inc.", "プリントサービス", "Printing Service", "info@sys-inc.jp"),
-    new Sponsor("Age Global Networks", "", "", "info@age-global.net"),
-    new Sponsor("Just Production Inc.", "", "", "info@just-pro.jp"),
-    new Sponsor("Bushiroad Inc.", "", "", "support@bushiroad.com"),
-    new Sponsor("KlockWorx Co.ltd", "DVDレンタル", "DVD Rental Service", "info@klockworx.com"),
-    new Sponsor("Ultra Direct", "けものフレンズカフェ", "JAPARI CAFÉ", "japaricafe.tokyo@gmail.com"),
-    new Sponsor("The Niigata Anime and Manga Festival Committee", "がたふぇす限定グッズ", "Limited Goods", "bunka@city.niigata.lg.jp"),
-    new Sponsor("Onkyo Corporation", "イヤホン", "Earphone", "customer@jp.onkyo.com"),
-];
 
 const langs = {
     'zh': {
@@ -93,47 +87,12 @@ let recv = "";
 /**
  * Functions
  */
-function update() {
-    mailBodyIndex = parseInt(Math.random() * mailTemplate.length);
-    mailBody = mailTemplate[mailBodyIndex]['msg']
-        .replace(/%company_name%/g, recv.company['en'])
-        .replace(/%user_name%/g, $("#FriendName").val())
-        .replace(/%user_nationality%/g, $("#FriendName").val());
-    $("#mailBody").html(mailBody)
-    /* $("h4#mode").html("Mode: " + langs[locale]["modeText"][mode]);
-
-    $("button#g").html(langs[locale]["g"])
-    $("button#t").html(langs[locale]["t"])
-
-    $("#sp").find("option").remove().end()
-    for (var i in sps) {
-        $("#sp").append($("<option></option>").attr("value", i).text(sps[i].company[locale]))
-    }
-    $("#sp").val(sps.indexOf(recv)) */
-
-    $("div#email").html("Email: " + $("#sp").val());
-}
-
-function updateRecv() {
-    recv = sps[parseInt($("#Sponsor").val())];
-    update();
-}
-
-$("#Sponsor").on("change", updateRecv);
-
-$("input#sender").on("input", () => {
-    update();
-})
-
-$("input#country").on("input", () => {
-    update();
-})
-
 function mailAction(e) {
     mode = parseInt(e.dataset["type"])
     update();
 }
 
+//Generate and send the mail
 function sendEmail() {
     var subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)]
     var link = mailAPI[mode]

@@ -17,6 +17,8 @@ namespace notatsukinotanoshi.ViewModels.Home
         [Display(Name = "Which to send")]
         public int Sponsor { get; set; }
 
+        public string Culture { get; set; }
+
         public List<SelectListItem> Sponsors { set; get; }
     }
 }

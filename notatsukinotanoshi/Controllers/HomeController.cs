@@ -10,6 +10,8 @@ using MySql.Data.MySqlClient;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
+using notatsukinotanoshi.Models.Utilities;
 
 namespace notatsukinotanoshi.Controllers
 {
@@ -122,6 +124,64 @@ namespace notatsukinotanoshi.Controllers
                 return Json("success");
             }
             return View(model);
+        }
+
+        /// <summary>
+        /// Generate the mail
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Generate(EmailSubmitViewModel model)
+        {
+            var response = new ResponseAPI();
+
+            if (ModelState.IsValid)
+            {
+                //Get requested culture
+                var culture = Request.HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture.Culture.Name;
+                string[] supportedCultures = { "en", "ja" };
+                if (!supportedCultures.Contains(culture))
+                {
+                    culture = "en";
+                }
+
+                var msg = "";
+                using (var conn = new MySqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        var cmd = conn.CreateCommand();
+                        cmd.CommandText = "SELECT text_body FROM email_templates et WHERE et.locale = @locale AND approved = true ORDER BY RAND() LIMIT 1";
+                        cmd.Parameters.AddWithValue("@locale", culture);
+                        var reader = cmd.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            msg = reader.GetString(0);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                    finally
+                    {
+                        //Close the connection
+                        conn.Close();
+                    }
+                };
+
+                response.State = ResponseState.Success;
+                response.Message = "Get template successfully";
+                response.ReturnData = msg;
+                return Json(response);
+            }
+
+            response.State = ResponseState.Fail;
+            response.Message = "Missing details";
+            return Json(response);
         }
 
         /// <summary>
