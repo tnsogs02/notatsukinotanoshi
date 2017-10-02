@@ -9,8 +9,6 @@ using notatsukinotanoshi.ViewModels.Home;
 using MySql.Data.MySqlClient;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
-using notatsukinotanoshi.Models;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace notatsukinotanoshi.Controllers
@@ -34,26 +32,19 @@ namespace notatsukinotanoshi.Controllers
                 Sponsors = new List<SelectListItem>()
             };
 
-            //Get requested culture
-            var culture = Request.HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture.Culture.Name;
-            string[] supportedCultures = { "en", "ja", "zh" };
-            if (!supportedCultures.Contains(culture)){
-                culture = "en";
-            }
-
             using (var conn = new MySqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
                     var cmd = conn.CreateCommand();
-                    cmd.CommandText = "SELECT company_id, name_"+culture+" FROM company_info";
+                    cmd.CommandText = "SELECT company_id, name FROM company_info";
                     var reader = cmd.ExecuteReader();
                     while(reader.Read())
                     {
                         model.Sponsors.Add(new SelectListItem
                         {
-                            Text = reader.GetString(1),
+                            Text = _localizer[reader.GetString(1)],
                             Value = reader.GetInt16(0).ToString()
                         });
                     }
