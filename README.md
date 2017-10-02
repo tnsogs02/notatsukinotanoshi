@@ -2,7 +2,7 @@
 No tatsuki No Tanoshi!
 
 # Specifications
-Framework `.NET Core 2.1.1 MVC`  
+Framework `.NET Core 2.0 MVC`  
 Scripts
 ```
 PHP 7.0
