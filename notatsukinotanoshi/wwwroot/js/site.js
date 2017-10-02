@@ -2,16 +2,6 @@
  * jQuery scripts
  */
 let _locale = ($('#culture-input').val() === "zh" ? "en" : $('#culture-input').val());
-$(document).ready(() => {
-    recv = sps[parseInt($("#Sponsor").val())];
-
-    //Get all mail templates
-    $.getJSON("/resources/email-template." + _locale + ".json", function (data) {
-        mailTemplate = data;
-    }).complete(function () {
-        update();
-    });
-});
 
 $('form').submit(function (e) {
     e.preventDefault();
@@ -23,9 +13,13 @@ $('form').submit(function (e) {
 
 $("#btn--preview").click(function (e) {
     e.preventDefault();
-    $.post("/Home/Generate", $("#form--submit-mail").serialize(), function (data) {
-        alert(data);
-    })
+    generate(function (data) {
+        if (data.status === "success") {
+            $("#mail-body").html(data['returnData']['template']);
+        } else {
+            showNotification(data.message, "danger");
+        }
+    });
 });
 /**
  * Helper class
@@ -92,7 +86,9 @@ function mailAction(e) {
     update();
 }
 
-//Generate and send the mail
+/**
+ * Generate and send the mail
+ */
 function sendEmail() {
     var subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)]
     var link = mailAPI[mode]
@@ -100,4 +96,12 @@ function sendEmail() {
         .replace("!RECV!", encodeURIComponent(recv.email))
         .replace("!BODY!", encodeURIComponent(mailBody))
     window.open(link, "_blank").focus()
+}
+
+/**
+ * Generate template
+ * @param {any} func
+ */
+function generate(func) {
+    $.post("/Home/Generate", $("#form--submit-mail").serialize(), func, "json");
 }
