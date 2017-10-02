@@ -38,7 +38,7 @@ namespace notatsukinotanoshi.Controllers
                 {
                     conn.Open();
                     var cmd = conn.CreateCommand();
-                    cmd.CommandText = "SELECT company_id, name FROM company_info";
+                    cmd.CommandText = "SELECT company_id, name FROM company_info WHERE active = true";
                     var reader = cmd.ExecuteReader();
                     while(reader.Read())
                     {
