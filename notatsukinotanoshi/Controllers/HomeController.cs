@@ -71,7 +71,8 @@ namespace notatsukinotanoshi.Controllers
                     conn.Close();
                 }
             };
-            model.Sponsor = 1;
+            var rnd = new Random();
+            model.Sponsor = rnd.Next(model.Sponsors.Count);
             return View(model);
         }
 
