@@ -41,7 +41,7 @@
 
         <div class="form-group">
             <label asp-for="Sponsor"></label>
-            <select asp-for="Sponsor" asp-items="Html.GetEnumSelectList<SponsorEnum>()" class="form-control"></select>
+            <select asp-for="Sponsor" asp-items="@Model.Sponsors" class="form-control"></select>
         </div>
         <button type="submit" class="btn btn-warning">@Localizer["Send the email"]</button>
     </form>

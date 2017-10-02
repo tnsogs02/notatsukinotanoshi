@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace notatsukinotanoshi.ViewModels.Home
 {
@@ -14,31 +16,7 @@ namespace notatsukinotanoshi.ViewModels.Home
 
         [Display(Name = "Which to send")]
         public int Sponsor { get; set; }
-    }
 
-    public enum SponsorEnum
-    {
-        /* [Display(Name = "TV TOKYO Corporation")]
-        TokyoTV, */
-        [Display(Name = "Crunchyroll")]
-        Crunchyroll,
-        [Display(Name = "AT-X")]
-        ATX,
-        [Display(Name = "SYS Inc.")]
-        SYS,
-        [Display(Name = "Age Global Networks")]
-        AGN,
-        [Display(Name = "Just Production Inc.")]
-        JPI,
-        [Display(Name = "Bushiroad Inc.")]
-        Bushiroad,
-        [Display(Name = "KlockWorx Co.ltd")]
-        KlockWorx,
-        [Display(Name = "Ultra Direct")]
-        UltraDirect,
-        [Display(Name = "The Niigata Anime and Manga Festival Committee")]
-        TNNMFC,
-        [Display(Name = "Onkyo Corporation")]
-        Onyko
+        public List<SelectListItem> Sponsors { set; get; }
     }
 }

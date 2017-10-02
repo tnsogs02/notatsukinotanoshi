@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.Http;
 using notatsukinotanoshi.ViewModels.Home;
 using MySql.Data.MySqlClient;
 using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
+using notatsukinotanoshi.Models;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace notatsukinotanoshi.Controllers
 {
@@ -19,13 +23,56 @@ namespace notatsukinotanoshi.Controllers
         public HomeController(IStringLocalizer<HomeController> localizer, IConfiguration config)
         {
             _localizer = localizer;
-            connectionString = config.GetValue<string>("ConnectionStrings:DefaultConnection");
+            connectionString = config.GetValue<string>("ConnectionStrings:DefaultConnection"); //MySQL settings
         }
 
         public IActionResult Index()
         {
             ViewData["SignedNo"] = CountSent();
-            return View();
+            var model = new EmailSubmitViewModel
+            {
+                Sponsors = new List<SelectListItem>()
+            };
+
+            //Get requested culture
+            var culture = Request.HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture.Culture.Name;
+            string[] supportedCultures = { "en", "ja", "zh" };
+            if (!supportedCultures.Contains(culture)){
+                culture = "en";
+            }
+
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = "SELECT company_id, name_"+culture+" FROM company_info";
+                    var reader = cmd.ExecuteReader();
+                    while(reader.Read())
+                    {
+                        model.Sponsors.Add(new SelectListItem
+                        {
+                            Text = reader.GetString(1),
+                            Value = reader.GetInt16(0).ToString()
+                        });
+                    }
+
+                    //Close the reader
+                    reader.Close();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    //Close the connection
+                    conn.Close();
+                }
+            };
+            model.Sponsor = 1;
+            return View(model);
         }
 
         public IActionResult About()
@@ -110,7 +157,6 @@ namespace notatsukinotanoshi.Controllers
         private int CountSent()
         {
             int result = 0;
-            //Add count
             using (var conn = new MySqlConnection(connectionString))
             {
                 try
