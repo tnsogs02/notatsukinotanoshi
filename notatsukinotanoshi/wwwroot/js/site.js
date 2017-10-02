@@ -90,12 +90,15 @@ function mailAction(e) {
  * Generate and send the mail
  */
 function sendEmail() {
-    var subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)]
-    var link = mailAPI[mode]
-        .replace("!SUBJECT!", encodeURIComponent(subject))
-        .replace("!RECV!", encodeURIComponent(recv.email))
-        .replace("!BODY!", encodeURIComponent(mailBody))
-    window.open(link, "_blank").focus()
+    generate(function (data) {
+        let info = data['returnData'];
+        let subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)];
+        let link = mailAPI[mode]
+            .replace("!SUBJECT!", encodeURIComponent(subject))
+            .replace("!RECV!", encodeURIComponent(info['email']))
+            .replace("!BODY!", encodeURIComponent(info['template']))
+        window.open(link, "_blank").focus()
+    });    
 }
 
 /**
