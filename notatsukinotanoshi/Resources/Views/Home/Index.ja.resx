@@ -123,7 +123,4 @@
   <data name="http500msg" xml:space="preserve">
     <value>もしHTTP 500エラーが発生した場合、メールをコピーして普通にクライアント等で送るか、以下のQRコードを読み取って使ってみてください。&lt;br /&gt;また、Gmailを使っていない場合も、同様にしてください。&lt;br /&gt;ご不便をおかけしてごめんなさい。&lt;br /&gt;</value>
   </data>
-  <data name="TV TOKYO Corporation" xml:space="preserve">
-    <value>株式会社テレビ東京</value>
-  </data>
 </root>
