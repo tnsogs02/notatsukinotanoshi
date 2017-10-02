@@ -148,11 +148,15 @@ namespace notatsukinotanoshi.Controllers
                 }
 
                 var msg = "";
+                var companyName = "";
+                var companyMail = "";
                 using (var conn = new MySqlConnection(connectionString))
                 {
                     try
                     {
                         conn.Open();
+
+                        //Get a random template
                         var cmd = conn.CreateCommand();
                         cmd.CommandText = "SELECT text_body FROM email_templates et WHERE et.locale = @locale AND approved = true ORDER BY RAND() LIMIT 1";
                         cmd.Parameters.AddWithValue("@locale", culture);
@@ -161,6 +165,20 @@ namespace notatsukinotanoshi.Controllers
                         {
                             msg = reader.GetString(0);
                         }
+                        reader.Close();
+
+                        //Get the target company info
+                        cmd = conn.CreateCommand();
+                        cmd.CommandText = "SELECT name, email FROM company_info WHERE active = true LIMIT 1";
+                        cmd.Parameters.AddWithValue("@locale", culture);
+                        reader = cmd.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            companyName = _localizer[reader.GetString(0)];
+                            companyMail = reader.GetString(1);
+                        }
+                        reader.Close();
+
                     }
                     catch (Exception)
                     {
@@ -172,6 +190,10 @@ namespace notatsukinotanoshi.Controllers
                         conn.Close();
                     }
                 };
+
+                msg = msg.Replace("%company_name%", companyName)
+                    .Replace("%user_name%", model.FriendName)
+                    .Replace("%user_nationality%", model.FriendCountry);
 
                 response.State = ResponseState.Success;
                 response.Message = "Get template successfully";
@@ -221,6 +243,7 @@ namespace notatsukinotanoshi.Controllers
                     {
                         result = reader.GetInt32(0);
                     }
+                    reader.Close();
                 }
                 catch (Exception)
                 {
