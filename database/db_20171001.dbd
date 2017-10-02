@@ -53,11 +53,11 @@
             </CustomProperties>
             <Location>
               <X>0 px</X>
-              <Y>80 px</Y>
+              <Y>63 px</Y>
             </Location>
             <Size>
               <Width>183 px</Width>
-              <Height>233 px</Height>
+              <Height>250 px</Height>
             </Size>
             <DbOid>
               <Path>notatsukinotanoshi.company_info</Path>
@@ -75,8 +75,8 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>-340 px</X>
-              <Y>140 px</Y>
+              <X>-380 px</X>
+              <Y>120 px</Y>
             </Location>
             <Size>
               <Width>185 px</Width>
@@ -118,7 +118,7 @@
               <Port>
                 <Location>
                   <X>0 px</X>
-                  <Y>154.460674157303 px</Y>
+                  <Y>165.730337078651 px</Y>
                 </Location>
                 <Anchors>Top Bottom</Anchors>
                 <Align>Left</Align>
@@ -131,11 +131,11 @@
             <BendPoints>
               <PointD>
                 <X>-125 px</X>
-                <Y>289.25 px</Y>
+                <Y>269.25 px</Y>
               </PointD>
               <PointD>
                 <X>-125 px</X>
-                <Y>234.460674157303 px</Y>
+                <Y>228.730337078651 px</Y>
               </PointD>
             </BendPoints>
             <IsManuallyRouted>false</IsManuallyRouted>
@@ -154,8 +154,8 @@
             <PortAnchors>
               <Port xsi:type="LinkPort">
                 <Location>
-                  <X>-92.5 px</X>
-                  <Y>54.7893218994141 px</Y>
+                  <X>-132.5 px</X>
+                  <Y>40.5196685791016 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Right</Align>
@@ -177,12 +177,12 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>-340 px</X>
+              <X>-350 px</X>
               <Y>450 px</Y>
             </Location>
             <Size>
               <Width>166 px</Width>
-              <Height>126 px</Height>
+              <Height>146 px</Height>
             </Size>
             <DbOid>
               <Path>notatsukinotanoshi.email_templates</Path>
@@ -312,7 +312,7 @@
               <Port>
                 <Location>
                   <X>0 px</X>
-                  <Y>64.5 px</Y>
+                  <Y>74.7380952380952 px</Y>
                 </Location>
                 <Anchors>Top Bottom</Anchors>
                 <Align>Right</Align>
@@ -329,7 +329,7 @@
               </PointD>
               <PointD>
                 <X>-40 px</X>
-                <Y>514.5 px</Y>
+                <Y>524.738095238095 px</Y>
               </PointD>
             </BendPoints>
             <IsManuallyRouted>false</IsManuallyRouted>
@@ -348,8 +348,8 @@
             <PortAnchors>
               <Port xsi:type="LinkPort">
                 <Location>
-                  <X>87 px</X>
-                  <Y>50 px</Y>
+                  <X>92 px</X>
+                  <Y>39.7619018554688 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Left</Align>
@@ -370,8 +370,8 @@
           <ScaleMode>Free</ScaleMode>
           <Scale>1</Scale>
           <Location>
-            <X>-641 px</X>
-            <Y>14 px</Y>
+            <X>-436 px</X>
+            <Y>3 px</Y>
           </Location>
         </ViewPort>
       </Model>
