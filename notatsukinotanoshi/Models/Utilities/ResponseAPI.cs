@@ -7,7 +7,7 @@ namespace notatsukinotanoshi.Models.Utilities
 {
     public class ResponseAPI
     {
-        public ResponseState State;
+        public ResponseState Status;
         public string Message;
         public Object ReturnData;
     }
