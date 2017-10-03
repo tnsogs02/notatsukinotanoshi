@@ -118,7 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About message" xml:space="preserve">
-    <value>We are the Save Japari Park Team, with members from all over the world. Our group's goal is to bring light to the matter of KADOKAWA Corporation's decision to let off Director Tatsuki and Yaoyorozu Co.,Ltd. from the Kemono Friends Project. We are currently organizing a large scale petition by sending email from countries all over the world. The target of this petition is KADOKAWA Corporation and their associated parties, such as  Crunchyroll, TV Tokyo &amp; etc. We will do our best to request these parties to make a public statement on this matter and convince their business partner, KADOKAWA Corporation, to bring back Director Tatsuki. We currently have a website to automatically generate email templates to the relevant parties with convenient access to your email account; all that is required is your name and country. We have more plans for the future as well, and we hope that Friends from all over the world can join us in our efforts to save our Japari Park.</value>
+    <value>我們是動物朋友監督更換對策本部，由全世界各地的朋友們自發組成。
+組織目前正在進行大規模的陳情活動，透過向動物朋友製作委員會的相關合作企業發送電子郵件，
+請求相關公司對製作委員會的決定施加影響，同時對此次事件發佈公開聲明，滿足消費者的知情權。
+我們的網站可以自動生成信件範本，只需填入您的名字和所在國家，方便以您的信箱帳號向各相關公司發送郵件。
+我們今後還將有更多的行動，請全世界的朋友們團結起來共同努力，拯救我們的加帕里公園。</value>
   </data>
   <data name="About Title" xml:space="preserve">
     <value>大家從天藍怪手中拯救駝鹿監督吧！</value>
