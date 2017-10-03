@@ -123,4 +123,7 @@
   <data name="Participate" xml:space="preserve">
     <value>メールを送る</value>
   </data>
+  <data name="Participated: {0}" xml:space="preserve">
+    <value>参加者：{0}</value>
+  </data>
 </root>
