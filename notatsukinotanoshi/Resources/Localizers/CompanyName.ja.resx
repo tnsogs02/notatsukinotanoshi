@@ -117,13 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>このプロジェクトについて</value>
+  <data name="Age Global Networks" xml:space="preserve">
+    <value>エイジグローバルネットワークス株式会社</value>
   </data>
-  <data name="Participate" xml:space="preserve">
-    <value>メールを送る</value>
+  <data name="AT-X" xml:space="preserve">
+    <value>アニメシアターX</value>
   </data>
-  <data name="Participated: {0}" xml:space="preserve">
-    <value>参加者：{0}</value>
+  <data name="Bushiroad Inc." xml:space="preserve">
+    <value>株式会社ブシロード</value>
+  </data>
+  <data name="Crunchyroll" xml:space="preserve">
+    <value>クランチロール</value>
+  </data>
+  <data name="Just Production Inc." xml:space="preserve">
+    <value>株式会社ジャストプロ</value>
+  </data>
+  <data name="KADOKAWA CORPORATION" xml:space="preserve">
+    <value>株式会社KADOKAWA</value>
+  </data>
+  <data name="Kemono Friends project offical site" xml:space="preserve">
+    <value>けものフレンズプロジェクト公式サイト</value>
+  </data>
+  <data name="KlockWorx Co.ltd" xml:space="preserve">
+    <value>株式会社クロックワークス</value>
+  </data>
+  <data name="Onkyo Corporation" xml:space="preserve">
+    <value>オンキヨー株式会社</value>
+  </data>
+  <data name="SYS Inc." xml:space="preserve">
+    <value>株式会社エス・ワイ・エス</value>
+  </data>
+  <data name="The Niigata Anime and Manga Festival Committee" xml:space="preserve">
+    <value>にいがたアニメ・マンガフェスティバル実行委員会事務局</value>
+  </data>
+  <data name="Ultra Direct" xml:space="preserve">
+    <value>株式会社ウルトラダイレクト</value>
   </data>
 </root>

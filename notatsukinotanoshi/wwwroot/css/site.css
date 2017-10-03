@@ -1,6 +1,15 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    background-color: #fff8e6;
+}
+
+.body-content {
+    padding-top: 10px;
+    background-color: #FFF;
+}
+
+.footer {
+    background-color: #FFF;
 }
 
 /* Wrapping element */
@@ -84,4 +93,9 @@ pre {
 /* Validation message format */
 .validation-error{
     color: red;
+}
+
+/* Bootstrap override */
+header.jumbotron{
+    margin-bottom: 0;
 }

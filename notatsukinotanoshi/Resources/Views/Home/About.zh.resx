@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>このプロジェクトについて</value>
+  <data name="Join our discord group!" xml:space="preserve">
+    <value>加入我們的Discord群組吧！</value>
   </data>
-  <data name="Participate" xml:space="preserve">
-    <value>メールを送る</value>
+  <data name="Participate in our action!" xml:space="preserve">
+    <value>立即參與我們的送信行動！</value>
   </data>
-  <data name="Participated: {0}" xml:space="preserve">
-    <value>参加者：{0}</value>
+  <data name="You can save Japari Park!" xml:space="preserve">
+    <value>你也可以拯救Japari Park!</value>
   </data>
 </root>

@@ -117,13 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>このプロジェクトについて</value>
+  <data name="Bushiroad Inc." xml:space="preserve">
+    <value>武士道有限公司</value>
   </data>
-  <data name="Participate" xml:space="preserve">
-    <value>メールを送る</value>
+  <data name="Just Production Inc." xml:space="preserve">
+    <value>JustPro</value>
   </data>
-  <data name="Participated: {0}" xml:space="preserve">
-    <value>参加者：{0}</value>
+  <data name="KADOKAWA CORPORATION" xml:space="preserve">
+    <value>KADOKAWA公司</value>
+  </data>
+  <data name="Kemono Friends project offical site" xml:space="preserve">
+    <value>動物朋友企劃官方網站</value>
+  </data>
+  <data name="KlockWorx Co.ltd" xml:space="preserve">
+    <value>KlockWorx</value>
+  </data>
+  <data name="Onkyo Corporation" xml:space="preserve">
+    <value>安橋</value>
+  </data>
+  <data name="SYS Inc." xml:space="preserve">
+    <value>SYS公司</value>
+  </data>
+  <data name="The Niigata Anime and Manga Festival Committee" xml:space="preserve">
+    <value>新潟動漫節執行委員會</value>
   </data>
 </root>
