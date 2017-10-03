@@ -16,6 +16,7 @@ $(document).ready(() => {
     generate();
 });
 
+//Submit petition
 $('form').submit(function (e) {
     e.preventDefault();
     console.log("Adding count...");
@@ -48,8 +49,14 @@ $("#btn--preview").click(function (e) {
     generate();
 });
 
+//Update body when fill in data changed
 $("#Sponsor").on("change", fillTemplate);
 $("input").on("input", fillTemplate);
+
+//Set locale when language button is on click
+$(".a--locale-selection").click(function () {
+    $.post("/Home/SetLanguage", { culture: $(this).data("locale") }, 'json');
+});
 
 /**
  * Helper class
