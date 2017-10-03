@@ -141,7 +141,6 @@ function sendEmail() {
 
 /**
  * Generate template
- * @param {any} func
  */
 function generate() {
     $.ajax({
