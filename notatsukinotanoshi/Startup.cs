@@ -11,6 +11,7 @@ using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using notatsukinotanoshi.Models;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace notatsukinotanoshi
 {
@@ -66,6 +67,14 @@ namespace notatsukinotanoshi
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            //Get real IP behind CloudFlare
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.All,
+                RequireHeaderSymmetry = false,
+                ForwardLimit = null
+            });
 
             var localizationOption = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(localizationOption.Value);
