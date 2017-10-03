@@ -1,6 +1,12 @@
-﻿<h2>@ViewData["Title"]</h2>
-<div class="letter markdown-body" id="manifest">
-    <pre>  
+﻿<header id="mainHeader" class="jumbotron">
+    <div class="container text-right">
+        <h2>@ViewData["Title"]</h2>
+    </div>
+</header>
+<div class="container body-content">
+    <div class="letter markdown-body" id="manifest">
+        <pre>  
 @Html.Raw(@ViewData["Message"])
-    </pre>
+        </pre>
+    </div>
 </div>

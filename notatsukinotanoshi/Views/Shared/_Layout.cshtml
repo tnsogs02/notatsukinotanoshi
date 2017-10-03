@@ -50,18 +50,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Participate"]</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">@Localizer["About"]</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Participate"]</a></li>
                 </ul>
                 @await Html.PartialAsync("_SelectLanguagePartial")
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        @RenderBody()
-
-        <!-- Hidden Locale field for JavaScript-->
-        <input id="culture-input" type="hidden" value="@requestCulture" />
+    @RenderBody()
+    <div class="container footer">
         <div class="sent-data">
             <h3 style="text-align: center">
                 @Localizer["No. of mails sent: {0}", @ViewData["SignedNo"]]
@@ -72,10 +69,15 @@
             <!-- <div class="container">
                 Use beautiful background image from <a target="_blank" href="https://www.toptal.com/designers/subtlepatterns">Subtle Patterns</a>
             </div> -->
-            <p>&copy; 2017 - Save Japari Park<br />
-            Designed by <a href="https://utosoft.com.au/">UTOSOFT Inc.</a> AU</p>
+            <p>
+                &copy; 2017 - <a href="https://discord.gg/bbBbsGc">Save Japari Park</a><br />
+                Designed by <a href="https://utosoft.com.au/">UTOSOFT Inc.</a> AU
+            </p>
         </footer>
     </div>
+
+    <!-- Hidden Locale field for JavaScript-->
+    <input id="culture-input" type="hidden" value="@requestCulture" />
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

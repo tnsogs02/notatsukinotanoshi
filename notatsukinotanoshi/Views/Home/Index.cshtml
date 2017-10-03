@@ -11,42 +11,44 @@
     ViewData["Title"] = "Participate";
 }
 
-<div class="alert alert-danger">
-    @Localizer["http500msg"]
-    <a href="http://notatsukinotanoshi.tk"><img src="/images/qrcode.png" id="qr" /></a>
+<div class="container body-content">
+    <div class="alert alert-danger">
+        @Localizer["http500msg"]
+        <a href="http://notatsukinotanoshi.tk"><img src="/images/qrcode.png" id="qr" /></a>
+    </div>
+    <div id="select-mail-mode" class="btn-group">
+        <button id="btn--gmail" class="btn btn-danger" data-type=0>Gmail</button>
+        <button id="btn--conventional" class="btn btn-info" data-type=1>@Localizer["Conventional Mail"]</button>
+    </div>
+
+    <h4 id="mode"></h4>
+    @model EmailSubmitViewModel
+    <form id="form--submit-mail" asp-controller="Home" asp-action="Submit" method="post">
+        <div asp-validation-summary="All" class="validation-error"></div>
+
+        <div class="form-group">
+            <label asp-for="FriendName"></label>
+            <input asp-for="FriendName" class="form-control" placeholder="Serval" />
+            <span asp-validation-for="FriendName" class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="FriendCountry"></label>
+            <input asp-for="FriendCountry" class="form-control" placeholder="Japari Park" />
+            <span asp-validation-for="FriendCountry" class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Sponsor"></label>
+            <select asp-for="Sponsor" asp-items="@Model.Sponsors" class="form-control"></select>
+        </div>
+
+        <!-- Hidden helper contents -->
+        <input type="hidden" id="sp-email" />
+        <button id="btn--preview" class="btn btn-success">@Localizer["Generate"]</button>
+        <button type="submit" class="btn btn-warning">@Localizer["Send the email"]</button>
+    </form>
+
+    <div id="qrcode"></div>
+    <div class="letter markdown-body" id="mail-body"></div><br />
 </div>
-<div id="select-mail-mode" class="btn-group">
-    <button id="btn--gmail" class="btn btn-danger" data-type=0>Gmail</button>
-    <button id="btn--conventional" class="btn btn-info" data-type=1>@Localizer["Conventional Mail"]</button>
-</div>
-
-<h4 id="mode"></h4>
-@model EmailSubmitViewModel
-<form id="form--submit-mail" asp-controller="Home" asp-action="Submit" method="post">
-    <div asp-validation-summary="All" class="validation-error"></div>
-
-    <div class="form-group">
-        <label asp-for="FriendName"></label>
-        <input asp-for="FriendName" class="form-control" placeholder="Serval" />
-        <span asp-validation-for="FriendName" class="validation-error"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="FriendCountry"></label>
-        <input asp-for="FriendCountry" class="form-control" placeholder="Japari Park"/>
-        <span asp-validation-for="FriendCountry" class="validation-error"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Sponsor"></label>
-        <select asp-for="Sponsor" asp-items="@Model.Sponsors" class="form-control"></select>
-    </div>
-
-    <!-- Hidden helper contents -->
-    <input type="hidden" id="sp-email" />
-    <button id="btn--preview" class="btn btn-success">@Localizer["Generate"]</button>
-    <button type="submit" class="btn btn-warning">@Localizer["Send the email"]</button>
-</form>
-
-<div id="qrcode"></div>
-<div class="letter markdown-body" id="mail-body"></div><br />

@@ -3,8 +3,12 @@
     background-color: #fff8e6;
 }
 
-.body-content{
+.body-content {
     padding-top: 10px;
+    background-color: #FFF;
+}
+
+.footer {
     background-color: #FFF;
 }
 
@@ -89,4 +93,9 @@ pre {
 /* Validation message format */
 .validation-error{
     color: red;
+}
+
+/* Bootstrap override */
+header.jumbotron{
+    margin-bottom: 0;
 }
