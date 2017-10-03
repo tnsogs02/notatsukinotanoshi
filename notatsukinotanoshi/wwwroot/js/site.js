@@ -5,7 +5,7 @@ let _locale = ($('#culture-input').val() === "zh" ? "en" : $('#culture-input').v
 
 $('form').submit(function (e) {
     e.preventDefault();
-    console.log("Submitting");
+    console.log("Adding count...");
     $.post($(this).attr("action"), $(this).serialize(), function () {
         sendEmail();
     });
@@ -13,13 +13,7 @@ $('form').submit(function (e) {
 
 $("#btn--preview").click(function (e) {
     e.preventDefault();
-    generate(function (data) {
-        if (data.status === "success") {
-            $("#mail-body").html(data['returnData']['template']);
-        } else {
-            showNotification(data.message, "danger");
-        }
-    });
+    generate();
 });
 /**
  * Helper class
@@ -90,21 +84,39 @@ function mailAction(e) {
  * Generate and send the mail
  */
 function sendEmail() {
-    generate(function (data) {
-        let info = data['returnData'];
-        let subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)];
-        let link = mailAPI[mode]
-            .replace("!SUBJECT!", encodeURIComponent(subject))
-            .replace("!RECV!", encodeURIComponent(info['email']))
-            .replace("!BODY!", encodeURIComponent(info['template']))
-        window.open(link, "_blank").focus()
-    });    
+    if ($('#mail-body').is(':empty')) {
+        generate();
+    }
+    let template = $('#mail-body').text();
+    let subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)];
+    let link = mailAPI[mode]
+        .replace("!SUBJECT!", encodeURIComponent(subject))
+        .replace("!RECV!", encodeURIComponent($('#sp-email')))
+        .replace("!BODY!", encodeURIComponent($('#mail-body').text()));
+    window.open(link, "_blank").focus();
 }
 
 /**
  * Generate template
  * @param {any} func
  */
-function generate(func) {
-    $.post("/Home/Generate", $("#form--submit-mail").serialize(), func, "json");
+function generate() {
+    $.ajax({
+        type: 'POST',
+        url: "/Home/Generate",
+        data: $("#form--submit-mail").serialize(),
+        dataType: "json",
+        success: function (data) {
+            if (data.status === "success") {
+                let info = data['returnData'];
+                $("#mail-body").html(info['template']);
+                $("#sp-email").val(info['email']);
+            } else {
+                showNotification(data.message, "danger");
+            }
+        },
+        fail: function () {
+            showNotification('Internal error', "danger");
+        }
+    });
 }

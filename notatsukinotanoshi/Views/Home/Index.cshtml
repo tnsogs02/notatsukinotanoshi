@@ -44,6 +44,8 @@
             <select asp-for="Sponsor" asp-items="@Model.Sponsors" class="form-control"></select>
         </div>
 
+        <!-- Hidden helper contents -->
+        <input type="hidden" id="sp-email" />
         <button id="btn--preview" class="btn btn-success">@Localizer["Preview"]</button>
         <button type="submit" class="btn btn-warning">@Localizer["Send the email"]</button>
     </form>
