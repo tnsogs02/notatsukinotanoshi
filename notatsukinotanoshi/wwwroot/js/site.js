@@ -3,8 +3,10 @@
  */
 
 //Shared variables
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 let _locale = ($('#culture-input').val() === "zh" ? "en" : $('#culture-input').val());
 let templateBody = "";
+let mode = (isMobile ? 1 : 0);
 
 //Cached selectors
 let friendName = $("#FriendName");
@@ -13,9 +15,11 @@ let companyName = $("#Sponsor");
 let companyMail = $("#sp-email").val();
 
 $(document).ready(() => {
+    setMailMode(mode);
     generate();
 });
 
+//Submit petition
 $('form').submit(function (e) {
     e.preventDefault();
     console.log("Adding count...");
@@ -48,8 +52,19 @@ $("#btn--preview").click(function (e) {
     generate();
 });
 
+//Select mail mode
+$("#select-mail-mode").on("click", "button", function () {
+    setMailMode($(this).data("type"));
+});
+
+//Update body when fill in data changed
 $("#Sponsor").on("change", fillTemplate);
 $("input").on("input", fillTemplate);
+
+//Set locale when language button is on click
+$(".a--locale-selection").click(function () {
+    $.post("/Home/SetLanguage", { culture: $(this).data("locale") }, 'json');
+});
 
 /**
  * Helper class
@@ -102,19 +117,9 @@ const mailAPI = {
     1: "mailto:!RECV!?subject=!SUBJECT!&body=!BODY!"
 }
 
-const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-var mode = (isMobile ? 1 : 0)
 let mailTemplate = "";
 
 let recv = "";
-
-/**
- * Functions
- */
-function mailAction(e) {
-    mode = parseInt(e.dataset["type"])
-    update();
-}
 
 /**
  * Generate and send the mail
@@ -123,6 +128,7 @@ function sendEmail() {
     //Build the URI
     let bodyText = $('#mail-body').text();
     let subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)];
+
     let link = mailAPI[mode]
         .replace("!SUBJECT!", encodeURIComponent(subject))
         .replace("!RECV!", encodeURIComponent(companyMail))
@@ -132,9 +138,19 @@ function sendEmail() {
     window.open(link, "_blank").focus();
 }
 
+function setMailMode(selected) {
+    mode = selected;
+    if (mode === 0) {
+        $("#btn--gmail").prop("disabled", true);
+        $("#btn--conventional").prop("disabled", false);
+    } else if (mode === 1) {
+        $("#btn--conventional").prop("disabled", true);
+        $("#btn--gmail").prop("disabled", false);
+    }
+}
+
 /**
  * Generate template
- * @param {any} func
  */
 function generate() {
     $.ajax({

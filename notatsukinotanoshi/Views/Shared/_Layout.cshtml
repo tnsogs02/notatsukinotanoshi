@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - No Tatsuki No TANOSHI</title>
+    <title>@ViewData["Title"] - Save Japari Park! - "No Tatsuki, No Tanoshi"</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -30,15 +30,14 @@
         <link rel="shortcut icon" href="favicon-32x32.png" />
         <meta property="og:type" content="article" />
         <meta property="og:image" content="http://notatsukinotanoshi.tk/img/Visual_HandrawnPlane.jpg" />
-        <meta property="og:title" content="NoTatsukiNoTanoshi" />
-        <meta property="og:description" content="No Tatsuki No Tanoshi." />
-        <meta property="og:url" content="http://notatsukinotanoshi.tk/index-test2.html" />
+        <meta property="og:title" content="No Tatsuki, No Tanoshi!" />
+        <meta property="og:description" content="Save Japari park. Please join us!" />
         <meta name="twitter:card" content="summary_large_image" />
     </environment>
 </head>
 <body>
     <div id="notification-area"></div>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -47,35 +46,38 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">NoTatsukiNoTanoshi</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">No Tatsuki, No Tanoshi</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Participate"]</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">@Localizer["About"]</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Participate"]</a></li>
                 </ul>
                 @await Html.PartialAsync("_SelectLanguagePartial")
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-
-        <!-- Hidden Locale field for JavaScript-->
-        <input id="culture-input" type="hidden" value="@requestCulture" />
+    @RenderBody()
+    <div class="container footer">
         <div class="sent-data">
             <h3 style="text-align: center">
-                @Localizer["No. of mails sent: {0}", @ViewData["SignedNo"]]
+                @Localizer["Participated: {0}", @ViewData["SignedNo"]]
             </h3>
         </div>
-        <footer>
-            <div class="container">
+        <hr />
+        <footer class="text-right">
+            <!-- <div class="container">
                 Use beautiful background image from <a target="_blank" href="https://www.toptal.com/designers/subtlepatterns">Subtle Patterns</a>
-            </div>
-            <p>&copy; 2017 - notatsukinotanoshi</p>
+            </div> -->
+            <p>
+                &copy; 2017 - <a href="https://discord.gg/bbBbsGc">Save Japari Park</a><br />
+                Designed by <a href="https://utosoft.com.au/">UTOSOFT Inc.</a> AU
+            </p>
         </footer>
     </div>
+
+    <!-- Hidden Locale field for JavaScript-->
+    <input id="culture-input" type="hidden" value="@requestCulture" />
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

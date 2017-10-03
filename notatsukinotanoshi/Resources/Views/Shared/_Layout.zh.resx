@@ -120,10 +120,10 @@
   <data name="About" xml:space="preserve">
     <value>簡介</value>
   </data>
-  <data name="No. of mails sent: {0}" xml:space="preserve">
-    <value>已經有幾封信被送出：{0}</value>
-  </data>
   <data name="Participate" xml:space="preserve">
     <value>參與</value>
+  </data>
+  <data name="Participated: {0}" xml:space="preserve">
+    <value>已經有幾封信被送出：{0}</value>
   </data>
 </root>

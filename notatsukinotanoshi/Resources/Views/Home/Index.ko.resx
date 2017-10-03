@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Generate" xml:space="preserve">
+    <value>생성</value>
+  </data>
   <data name="http500msg" xml:space="preserve">
     <value>If users encountered error 500, please consider to use the E-mail method.&lt;br /&gt;Sorry for any inconvenience caused. &lt;br /&gt;Please use the following QR Code if you are not using Gmail. &lt;br /&gt;</value>
   </data>
