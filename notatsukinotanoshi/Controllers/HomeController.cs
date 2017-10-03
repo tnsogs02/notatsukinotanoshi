@@ -80,17 +80,6 @@ namespace notatsukinotanoshi.Controllers
             return View();
         }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-            return View();
-        }
-
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
         /// <summary>
         /// Validate a submittion of email
         /// </summary>
@@ -126,7 +115,7 @@ namespace notatsukinotanoshi.Controllers
                 };
                 return Json("success");
             }
-            return View(model);
+            return Json("fail");
         }
 
         /// <summary>
@@ -145,6 +134,15 @@ namespace notatsukinotanoshi.Controllers
             );
 
             return LocalRedirect(returnUrl);
+        }
+
+        /// <summary>
+        /// Error Page
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
         /// <summary>

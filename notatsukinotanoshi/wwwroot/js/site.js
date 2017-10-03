@@ -1,20 +1,56 @@
 ﻿/**
  * jQuery scripts
  */
+
+//Shared variables
 let _locale = ($('#culture-input').val() === "zh" ? "en" : $('#culture-input').val());
+let templateBody = "";
+
+//Cached selectors
+let friendName = $("#FriendName");
+let friendCountry = $("#FriendCountry");
+let companyName = $("#Sponsor");
+let companyMail = $("#sp-email").val();
+
+$(document).ready(() => {
+    generate();
+});
 
 $('form').submit(function (e) {
     e.preventDefault();
     console.log("Adding count...");
-    $.post($(this).attr("action"), $(this).serialize(), function () {
-        sendEmail();
+    let verified = false;
+    $.ajax({
+        type: 'POST',
+        url: $(this).attr("action"),
+        data: $(this).serialize(),
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            if (data === "success") {
+                sendEmail();
+            }
+        },
+        fail: function () {
+            showNotification('Internal error', "danger");
+        }
     });
+
+    $.post($(this).attr("action"), $(this).serialize(), function (data) {
+        if (data === "success") {
+            $("#btn--send-mail").click();
+        }
+    }, 'json');
 });
 
 $("#btn--preview").click(function (e) {
     e.preventDefault();
     generate();
 });
+
+$("#Sponsor").on("change", fillTemplate);
+$("input").on("input", fillTemplate);
+
 /**
  * Helper class
  */
@@ -84,15 +120,15 @@ function mailAction(e) {
  * Generate and send the mail
  */
 function sendEmail() {
-    if ($('#mail-body').is(':empty')) {
-        generate();
-    }
-    let template = $('#mail-body').text();
+    //Build the URI
+    let bodyText = $('#mail-body').text();
     let subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)];
     let link = mailAPI[mode]
         .replace("!SUBJECT!", encodeURIComponent(subject))
-        .replace("!RECV!", encodeURIComponent($('#sp-email')))
-        .replace("!BODY!", encodeURIComponent($('#mail-body').text()));
+        .replace("!RECV!", encodeURIComponent(companyMail))
+        .replace("!BODY!", encodeURIComponent(bodyText));
+
+    //Open the mail
     window.open(link, "_blank").focus();
 }
 
@@ -103,14 +139,15 @@ function sendEmail() {
 function generate() {
     $.ajax({
         type: 'POST',
-        url: "/Home/Generate",
+        url: "/Api/Generate",
         data: $("#form--submit-mail").serialize(),
         dataType: "json",
         success: function (data) {
             if (data.status === "success") {
                 let info = data['returnData'];
-                $("#mail-body").html(info['template']);
+                templateBody = info['template'];
                 $("#sp-email").val(info['email']);
+                fillTemplate();
             } else {
                 showNotification(data.message, "danger");
             }
@@ -119,4 +156,15 @@ function generate() {
             showNotification('Internal error', "danger");
         }
     });
+}
+
+/**
+ * Manipulate the template and edit apprear on screen
+ */
+function fillTemplate() {
+    $("#mail-body").html(templateBody
+        .replace(/%company_name%/g, companyName.find(":selected").text())
+        .replace(/%user_name%/g, friendName.val())
+        .replace(/%user_nationality%/g, friendCountry.val())
+    );
 }

@@ -35,7 +35,7 @@
 
         <div class="form-group">
             <label asp-for="FriendCountry"></label>
-            <input asp-for="FriendCountry" class="form-control" placeholder="Foreign Country"/>
+            <input asp-for="FriendCountry" class="form-control" placeholder="Japari Park"/>
             <span asp-validation-for="FriendCountry" class="validation-error"></span>
         </div>
 
@@ -46,7 +46,7 @@
 
         <!-- Hidden helper contents -->
         <input type="hidden" id="sp-email" />
-        <button id="btn--preview" class="btn btn-success">@Localizer["Preview"]</button>
+        <button id="btn--preview" class="btn btn-success">@Localizer["Generate"]</button>
         <button type="submit" class="btn btn-warning">@Localizer["Send the email"]</button>
     </form>
 
