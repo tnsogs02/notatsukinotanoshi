@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Conventional Mail" xml:space="preserve">
+    <value>郵件客戶端</value>
+  </data>
   <data name="Friend's Name" xml:space="preserve">
     <value>朋友的名字</value>
   </data>
@@ -143,9 +146,6 @@
   </data>
   <data name="Send the email" xml:space="preserve">
     <value>跳轉到發送頁面</value>
-  </data>
-  <data name="Traditional Mail" xml:space="preserve">
-    <value>傳統郵件(開啟郵件客戶端)</value>
   </data>
   <data name="TV TOKYO Corporation" xml:space="preserve">
     <value>東京電視台</value>
