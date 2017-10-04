@@ -19,6 +19,26 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/utilities.css" />
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+        <!-- ja -->
+        <link href="//fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/sawarabigothic.css" rel="stylesheet">
+        <!-- zh -->
+        <link href="//fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet">
+        <!-- ko -->
+        <link href="//fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/jejumyeongjo.css" rel="stylesheet">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="shortcut icon" href="favicon-32x32.png" />
+        <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
         <!-- ja -->
         <link href="//fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet">
@@ -30,21 +50,7 @@
         <link href="//fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
         <link href="//fonts.googleapis.com/earlyaccess/jejumyeongjo.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="~/css/utilities.css" />
-        <meta property="og:image" content="http://notatsukinotanoshi.tk/img/Visual_HandrawnPlane.jpg" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-        <link rel="shortcut icon" href="favicon-32x32.png" />
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="~/css/font.en.css" />
-        <link rel="stylesheet" href="~/css/@string.Format("font.{0}.css", requestCulture)" />
-        <link href="https://fonts.googleapis.com/css?family=Inconsolata|Raleway|Roboto" rel="stylesheet">
-
+        <!-- Meta data -->
         <meta property="og:type" content="article" />
         <meta property="og:image" content="http://notatsukinotanoshi.tk/img/Visual_HandrawnPlane.jpg" />
         <meta property="og:title" content="No Tatsuki, No Tanoshi!" />

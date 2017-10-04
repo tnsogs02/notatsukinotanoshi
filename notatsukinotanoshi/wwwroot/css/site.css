@@ -9,6 +9,7 @@ nav {
     font-size: 1.5em;
 }
 
+/* Paper display box */
 .letter > pre {
     font-family: 'Raleway', 'Rounded Mplus 1c', 'Noto Sans TC', 'Jeju Myeongjo', sans-serif;
     font-size: 2em;
@@ -18,6 +19,7 @@ nav {
     background-color: #FFF;
 }
 
+/* Components style */
 label {
     font-family: 'Inconsolata', 'Noto Sans Japanese', 'Noto Sans TC', sans-serif;
     font-size: 1.25em;
