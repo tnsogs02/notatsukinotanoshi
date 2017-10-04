@@ -1,0 +1,13 @@
+﻿nav {
+    font-family: 'Raleway', 'Noto Sans Japanese', sans-serif;
+    font-size: 1.5em;
+}
+
+.container {
+    font-family: 'Raleway', 'Rounded Mplus 1c', sans-serif;
+}
+
+.letter > pre {
+    font-family: 'Rounded Mplus 1c', sans-serif;
+    font-size: 2em;
+}

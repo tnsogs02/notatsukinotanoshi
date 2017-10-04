@@ -1,22 +1,40 @@
 ﻿body {
     padding-top: 50px;
     background-color: #fff8e6;
+    font-family: 'Raleway', 'Rounded Mplus 1c', 'Noto Sans TC', sans-serif;
 }
 
-.body-content {
-    padding-top: 10px;
-    background-color: #FFF;
+nav {
+    font-family: 'Raleway', 'Noto Sans Japanese', 'Noto Sans TC', sans-serif;
+    font-size: 1.5em;
+}
+
+.letter > pre {
+    font-family:'Raleway', 'Rounded Mplus 1c', 'Noto Sans TC', sans-serif;
+    font-size: 2em;
 }
 
 .footer {
     background-color: #FFF;
 }
 
+label {
+    font-family: 'Inconsolata', 'Noto Sans Japanese', 'Noto Sans TC', sans-serif;
+    font-size: 1.25em;
+}
+
+button {
+    font-family: 'Raleway', 'Sawarabi Gothic', sans-serif;
+    font-size: 1.25em;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
+    padding: 10px 15px 10px 15px;
     padding-right: 15px;
+    padding-top: 10px;
+    background-color: #FFF;
 }
 
 /* Carousel */
@@ -98,4 +116,8 @@ pre {
 /* Bootstrap override */
 header.jumbotron{
     margin-bottom: 0;
+}
+
+.navbar-brand > img {
+    display: inline;
 }

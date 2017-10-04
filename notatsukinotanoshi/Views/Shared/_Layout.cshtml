@@ -19,6 +19,12 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/sawarabigothic.css" rel="stylesheet">
+
         <link rel="stylesheet" href="~/css/utilities.css" />
         <meta property="og:image" content="http://notatsukinotanoshi.tk/img/Visual_HandrawnPlane.jpg" />
     </environment>
@@ -28,6 +34,12 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         <link rel="shortcut icon" href="favicon-32x32.png" />
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="~/css/font.en.css" />
+        <link rel="stylesheet" href="~/css/@string.Format("font.{0}.css", requestCulture)" />
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata|Raleway|Roboto" rel="stylesheet">
+
         <meta property="og:type" content="article" />
         <meta property="og:image" content="http://notatsukinotanoshi.tk/img/Visual_HandrawnPlane.jpg" />
         <meta property="og:title" content="No Tatsuki, No Tanoshi!" />
@@ -46,7 +58,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">No Tatsuki, No Tanoshi</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/paper_plane.png" width="25" height="25" class="d-inline-block align-top" alt="">
+                    <b>No Tatsuki, No Tanoshi</b>
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
