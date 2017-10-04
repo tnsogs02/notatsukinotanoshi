@@ -178,9 +178,9 @@ function generate() {
  * Manipulate the template and edit apprear on screen
  */
 function fillTemplate() {
-    $("#mail-body").html(templateBody
+    $("#mail-body").html("<pre>"+templateBody
         .replace(/%company_name%/g, companyName.find(":selected").text())
         .replace(/%user_name%/g, friendName.val())
-        .replace(/%user_nationality%/g, friendCountry.val())
+        .replace(/%user_nationality%/g, friendCountry.val()) + "</pre>"
     );
 }
