@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
+      "AspNetCoreUtils/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AspNetCoreUtils.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AspNetCoreUtils.dll": {}
+        }
+      },
       "BuildBundlerMinifier/2.5.357": {
         "type": "package",
         "build": {
@@ -4879,6 +4891,16 @@
     }
   },
   "libraries": {
+    "AspNetCoreUtils/1.1.0": {
+      "sha512": "7W4iYc5qFpTwUb3VFJ1lQq01UYBMBckGu9UQd5twDHErMduWtT3mSuw5F/0xuQ0JQAKPh7fUZmMbxCFTrKnxyA==",
+      "type": "package",
+      "path": "aspnetcoreutils/1.1.0",
+      "files": [
+        "aspnetcoreutils.1.1.0.nupkg.sha512",
+        "aspnetcoreutils.nuspec",
+        "lib/netstandard2.0/AspNetCoreUtils.dll"
+      ]
+    },
     "BuildBundlerMinifier/2.5.357": {
       "sha512": "kE/it+aN0DNmttXFYJSyBPGgzq4D4xg7W3KgRo917VP/wDb5bzH45u996pUrdoe9Zi54TGIS0Y3PEa42wvld2w==",
       "type": "package",
@@ -12829,6 +12851,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "AspNetCoreUtils >= 1.1.0",
       "BuildBundlerMinifier >= 2.5.357",
       "Localization.AspNetCore.TagHelpers >= 0.3.0",
       "Microsoft.AspNetCore.All >= 2.0.0",
@@ -12898,6 +12921,10 @@
           "Localization.AspNetCore.TagHelpers": {
             "target": "Package",
             "version": "0.3.0"
+          },
+          "AspNetCoreUtils": {
+            "target": "Package",
+            "version": "1.1.0"
           },
           "Microsoft.NETCore.App": {
             "target": "Package",

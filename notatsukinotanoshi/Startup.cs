@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using notatsukinotanoshi.Models;
 using Microsoft.AspNetCore.HttpOverrides;
 using System.Net;
+using AspNetCoreUtils;
 
 namespace notatsukinotanoshi
 {
@@ -60,13 +61,14 @@ namespace notatsukinotanoshi
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             //Get real IP behind CloudFlare
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            var options = new ForwardedHeadersOptions
             {
                 ForwardedHeaders = ForwardedHeaders.All,
                 RequireHeaderSymmetry = false,
-                ForwardLimit = null,
-                KnownProxies = { IPAddress.Parse("172.68.46.104") }
-            });
+                ForwardLimit = null
+            };
+            CloudFlareUtilities.FillKnownNetworks(options);
+            app.UseForwardedHeaders(options);
 
             if (env.IsDevelopment())
             {
