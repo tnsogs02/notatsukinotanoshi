@@ -1,16 +1,16 @@
 ﻿body {
     padding-top: 50px;
     background-color: #fff8e6;
-    font-family: 'Raleway', 'Rounded Mplus 1c', 'Noto Sans TC', sans-serif;
+    font-family: 'Raleway', 'Rounded Mplus 1c', 'Noto Sans TC', 'Jeju Gothic', sans-serif;
 }
 
 nav {
-    font-family: 'Raleway', 'Noto Sans Japanese', 'Noto Sans TC', sans-serif;
+    font-family: 'Raleway', 'Noto Sans Japanese', 'Noto Sans TC', 'Jeju Gothic', sans-serif;
     font-size: 1.5em;
 }
 
 .letter > pre {
-    font-family:'Raleway', 'Rounded Mplus 1c', 'Noto Sans TC', sans-serif;
+    font-family: 'Raleway', 'Rounded Mplus 1c', 'Noto Sans TC', 'Jeju Myeongjo', sans-serif;
     font-size: 2em;
 }
 
