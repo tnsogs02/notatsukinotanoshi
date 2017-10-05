@@ -7,6 +7,8 @@
     </div>
 </header>
 <div class="container body-content">
+    <div id="tweets">
+    </div>
     <div class="letter markdown-body" id="manifest">
         <pre>  
 @Html.Raw(@ViewData["Message"])
@@ -20,3 +22,14 @@
         </div>
     </div>
 </div>
+
+@section Scripts{ 
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
+        const callout = '<div class="bs-callout bs-callout-warning">[replace-text]</div>';
+        var socket = io.connect('http://localhost:3000');
+        socket.on('tweet', function (data) {
+            $('#tweets').append(callout.replace('[replace-text]', data.text));
+        });
+    </script>
+}

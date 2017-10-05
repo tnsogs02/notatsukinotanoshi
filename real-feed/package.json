@@ -4,6 +4,7 @@
   "description": "Get tweeter stream about save japari park",
   "main": "app.js",
   "dependencies": {
+    "express": "^4.15.2",
     "node-tweet-stream": "^2.0.1",
     "socket.io": "^2.0.3",
     "twitter": "^1.7.1"
