@@ -1,5 +1,5 @@
 ﻿//The message
-const callout = '<blockquote class="twitter-tweet" data-lang="[sys-locale]"><p lang="[tweet-locale]" dir="ltr">[replace-text]</p>&mdash; [tweet-name] ([screen-name]) <a class="tweet-time" href="https://twitter.com/[screen-name]/status/[tweet-id]" data-time="[tweet-time]"></a></blockquote>';
+const callout = '<blockquote class="twitter-tweet center-block" data-lang="[sys-locale]"><p lang="[tweet-locale]" dir="ltr">[replace-text]</p>&mdash; [tweet-name] ([screen-name]) <a class="tweet-time" href="https://twitter.com/[screen-name]/status/[tweet-id]" data-time="[tweet-time]"></a></blockquote>';
 
 var socket = io.connect('https://socket.savejaparipark.com');
 socket.on('tweet', function (data) {
@@ -22,7 +22,7 @@ socket.on('tweet', function (data) {
     });
 
     //Remove old tweets
-    let content = $("#tweets > .tweets-content");
+    let content = $("#tweets > .twitter-tweet");
     if (content.length > 5) {
         content.last().remove();
     }
