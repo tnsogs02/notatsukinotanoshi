@@ -7,8 +7,6 @@
     </div>
 </header>
 <div class="container body-content">
-    <div id="tweets">
-    </div>
     <div class="letter markdown-body" id="manifest">
         <pre>  
 @Html.Raw(@ViewData["Message"])
@@ -21,15 +19,31 @@
             <a class="btn btn-success" href="/Home/Index">@Localizer["Participate in our action!"]</a>
         </div>
     </div>
+    <div class="bs-callout">
+        <h4>@Localizer["Talking about us"]</h4>
+        <div id="tweets"></div>
+    </div>
 </div>
 
 @section Scripts{ 
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script>
-        const callout = '<div class="bs-callout bs-callout-warning">[replace-text]</div>';
+        const callout = '<div class="bs-callout bs-callout-warning tweets-content"><img style="float: left; margin:8px" src="[profile-pic]"><b>[tweet-name]</b> - [tweet-time]<p>[replace-text]</p></div>';
         var socket = io.connect('http://localhost:3000');
         socket.on('tweet', function (data) {
-            $('#tweets').append(callout.replace('[replace-text]', data.text));
+            let user = data.user;
+            let tweets = $("#tweets");
+            tweets.prepend(
+                callout.replace('[replace-text]', data.text)
+                    .replace('[tweet-name]', user.name)
+                    .replace('[tweet-time]', DateFormat.format.prettyDate(data.created_at))
+                    .replace('[profile-pic]', user.profile_image_url_https)
+            );
+            console.log($("#tweets > .tweets-content").length);
+            let content = $("#tweets > .tweets-content");
+            if (content.length > 5) {
+                content.last().remove();
+            }
         });
     </script>
 }
