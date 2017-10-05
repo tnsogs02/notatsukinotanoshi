@@ -1,23 +1,19 @@
 var app = require('http').createServer(handler),
     io = require('socket.io')(app),
+    cfg = require('./config.json'),
     fs = require('fs');
 
 app.listen(1337);
 
-var Twitter = require('node-tweet-stream'), t = new Twitter({
-  consumer_key: '',
-  consumer_secret: '',
-  token: '',
-  token_secret: ''
-})
+var tw = require('node-tweet-stream')(cfg);
 
-t.track('燃える紙飛行機');
-t.on('tweet', function (tweet) {
+tw.track('燃える紙飛行機');
+tw.on('tweet', function (tweet) {
     console.log('tweet received', tweet);
     io.emit('tweet', tweet);
 });
 
-t.on('error', function (err) {
+tw.on('error', function (err) {
     console.log('Oh no');
 })
 
