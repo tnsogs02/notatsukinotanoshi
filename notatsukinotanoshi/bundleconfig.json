@@ -21,6 +21,10 @@
     "outputFileName": "wwwroot/js/about.min.js",
     "inputFiles": [
       "wwwroot/js/about.js"
-    ]
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
   }
 ]
