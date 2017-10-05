@@ -10,6 +10,7 @@ http.listen(3000, function(){
 });
 
 /** Grap tweets on connect */
+var clients = 0;
 var client = new Twitter(cfg);
 var params = {
     q:"燃える紙飛行機",
@@ -18,7 +19,8 @@ var params = {
     include_entities: true
 };
 io.on('connection', function(socket){
-    console.log('a user connected');
+	clients++;
+    console.log('Users connected: '+clients);
     client.get('search/tweets', params, function(error, tweets, response){
         if(error) {
             console.log(error);
@@ -29,10 +31,17 @@ io.on('connection', function(socket){
             socket.emit('tweet', tweets['statuses'][i]);
         }
     });
+
+    socket.on('disconnect', function(){
+		console.log('Users connected: '+clients);
+		clients--;
+	});
 });
 
 /** Track twitter */
 tw.track('燃える紙飛行機');
+tw.track('SaveJapariPark');
+tw.track('フレンズ笑顔プロジェクト');
 tw.on('tweet', function (tweet) {
     io.emit('tweet', tweet);
 });
