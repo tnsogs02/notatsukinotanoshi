@@ -39,7 +39,8 @@
                     .replace('[tweet-time]', DateFormat.format.prettyDate(data.created_at))
                     .replace('[profile-pic]', user.profile_image_url_https)
             );
-            console.log($("#tweets > .tweets-content").length);
+
+            //Remove old tweets
             let content = $("#tweets > .tweets-content");
             if (content.length > 5) {
                 content.last().remove();

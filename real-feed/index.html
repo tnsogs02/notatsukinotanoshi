@@ -6,6 +6,6 @@
   var socket = io.connect('/'),
       tweets = document.getElementById('tweets');
   socket.on('tweet', function (data) {
-    tweets.innerHTML = tweets.innerHTML + '<br>' + data;
+    tweets.innerHTML = tweets.innerHTML + '<br />';
   });
 </script>
