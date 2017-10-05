@@ -20,7 +20,17 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/utilities.css" />
-        <meta property="og:image" content="http://notatsukinotanoshi.tk/img/Visual_HandrawnPlane.jpg" />
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+        <!-- ja -->
+        <link href="//fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/sawarabigothic.css" rel="stylesheet">
+        <!-- zh -->
+        <link href="//fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet">
+        <!-- ko -->
+        <link href="//fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/jejumyeongjo.css" rel="stylesheet">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -28,8 +38,21 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         <link rel="shortcut icon" href="favicon-32x32.png" />
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+        <!-- ja -->
+        <link href="//fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/sawarabigothic.css" rel="stylesheet">
+        <!-- zh -->
+        <link href="//fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet">
+        <!-- ko -->
+        <link href="//fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/earlyaccess/jejumyeongjo.css" rel="stylesheet">
+
+        <!-- Meta data -->
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="http://notatsukinotanoshi.tk/img/Visual_HandrawnPlane.jpg" />
+        <meta property="og:image" content="https://www.savejaparipark.com/images/Visual_HandrawnPlane.jpg" />
         <meta property="og:title" content="No Tatsuki, No Tanoshi!" />
         <meta property="og:description" content="Save Japari park. Please join us!" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -46,7 +69,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">No Tatsuki, No Tanoshi</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/paper_plane.png" width="25" height="25" class="d-inline-block align-top" alt="">
+                    <b>No Tatsuki, No Tanoshi</b>
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -71,7 +97,7 @@
             </div> -->
             <p>
                 &copy; 2017 - <a href="https://discord.gg/bbBbsGc">Save Japari Park</a><br />
-                Designed by <a href="https://utosoft.com.au/">UTOSOFT Inc.</a> AU
+                Designed by <a href="https://utosoft.com.au/">UTOSOFT</a>
             </p>
         </footer>
     </div>
@@ -84,7 +110,9 @@
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-        <script type="text/javascript" src="http://jeromeetienne.github.io/jquery-qrcode/src/jquery.qrcode.js"></script>
+        <script src="~/lib/jquery-qrcode/jquery.qrcode.js"></script>
+        <script async src="~/lib/twitter/widgets.js" charset="utf-8"></script>
+        <script src="~/lib/jquery-dateFormat/dateFormat.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
         <script src="~/js/utilities.js" asp-append-version="true"></script>
     </environment>
@@ -101,10 +129,14 @@
                 crossorigin="anonymous"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
+        <script src="https://jeromeetienne.github.io/jquery-qrcode/src/jquery.qrcode.js"
+                asp-fallback-src="~/lib/jquery-qrcode/jquery.qrcode.min.js"
+                asp-fallback-test="window.jQuery.fn.qrcode">
+        </script>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <script src="~/lib/jquery-dateFormat/dateFormat.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
-
-        <script type="text/javascript" src="http://jeromeetienne.github.io/jquery-qrcode/src/jquery.qrcode.js"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
         
         <!-- Global Site Tag (gtag.js) - Google Analytics -->

@@ -153,4 +153,10 @@
   <data name="Ultra Direct" xml:space="preserve">
     <value>株式会社ウルトラダイレクト</value>
   </data>
+  <data name="JRA" xml:space="preserve">
+    <value>日本中央競馬会</value>
+  </data>
+  <data name="TV TOKYO Corporation" xml:space="preserve">
+    <value>株式会社テレビ東京</value>
+  </data>
 </root>

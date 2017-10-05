@@ -120,6 +120,9 @@
   <data name="Bushiroad Inc." xml:space="preserve">
     <value>武士道有限公司</value>
   </data>
+  <data name="JRA" xml:space="preserve">
+    <value>日本中央競馬会</value>
+  </data>
   <data name="Just Production Inc." xml:space="preserve">
     <value>JustPro</value>
   </data>
@@ -140,5 +143,8 @@
   </data>
   <data name="The Niigata Anime and Manga Festival Committee" xml:space="preserve">
     <value>新潟動漫節執行委員會</value>
+  </data>
+  <data name="TV TOKYO Corporation" xml:space="preserve">
+    <value>東京電視台</value>
   </data>
 </root>
