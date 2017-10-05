@@ -17,7 +17,7 @@ http.listen(3000, function(){
 var client = new Twitter(cfg);
 var params = {
     q:"燃える紙飛行機",
-    result_type: 'mixed',
+    result_type: 'recent',
     count:5,
     include_entities: true
 };
@@ -25,20 +25,19 @@ io.on('connection', function(socket){
     console.log('a user connected');
     client.get('search/tweets', params, function(error, tweets, response){
         if(error) {
-            console.log(error)
-            throw error;
+            console.log(error);
+            return;
         }
-        tweets['statuses'].forEach(function(element) {
-            console.log(element);
-        }, this);
-        socket.emit('tweet', tweets);
+
+        for(i=4;i>=0;i--){
+            socket.emit('tweet', tweets['statuses'][i]);
+        }
     });
 });
 
 /** Track twitter */
 tw.track('燃える紙飛行機');
 tw.on('tweet', function (tweet) {
-    console.log('tweet received', tweet);
     io.emit('tweet', tweet);
 });
 
