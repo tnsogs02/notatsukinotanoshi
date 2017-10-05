@@ -14,7 +14,6 @@ socket.on('tweet', function (data) {
             .replace(/\[tweet-time\]/g, data.created_at)
             .replace(/\[sys-locale\]/g, $('#culture-input').val())
     );
-
     twttr.widgets.load(tweets);
 
     //Update time when a new tweet is published
