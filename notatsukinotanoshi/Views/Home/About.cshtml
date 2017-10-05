@@ -26,10 +26,10 @@
 </div>
 
 @section Scripts{ 
-    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="https://socket.savejaparipark.com/socket.io/socket.io.js"></script>
     <script>
         const callout = '<div class="bs-callout bs-callout-warning tweets-content"><img style="float: left; margin:8px" src="[profile-pic]"><b>[tweet-name]</b> - [tweet-time]<p>[replace-text]</p></div>';
-        var socket = io.connect('http://localhost:3000');
+        var socket = io.connect('https://socket.savejaparipark.com');
         socket.on('tweet', function (data) {
             let user = data.user;
             let tweets = $("#tweets");
