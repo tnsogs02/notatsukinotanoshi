@@ -42,6 +42,7 @@ io.on('connection', function(socket){
 tw.track('燃える紙飛行機');
 tw.track('SaveJapariPark');
 tw.track('フレンズ笑顔プロジェクト');
+tw.track('けものフレンズを信じろ');
 tw.on('tweet', function (tweet) {
     io.emit('tweet', tweet);
 });
