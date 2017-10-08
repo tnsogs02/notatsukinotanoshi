@@ -80,6 +80,12 @@ namespace notatsukinotanoshi.Controllers
             return View();
         }
 
+        public IActionResult News()
+        {
+            ViewData["Campaign"] = _localizer["News Content"];
+            return View();
+        }
+
         /// <summary>
         /// Validate a submittion of email
         /// </summary>

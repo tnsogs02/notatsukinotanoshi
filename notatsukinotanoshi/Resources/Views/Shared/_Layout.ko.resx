@@ -120,10 +120,13 @@
   <data name="About" xml:space="preserve">
     <value>약</value>
   </data>
+  <data name="News" xml:space="preserve">
+    <value>뉴스</value>
+  </data>
   <data name="Participate" xml:space="preserve">
     <value>참여</value>
   </data>
   <data name="Participated: {0}" xml:space="preserve">
-    <value>Participated: {0}</value>
+    <value>참가: {0}</value>
   </data>
 </root>

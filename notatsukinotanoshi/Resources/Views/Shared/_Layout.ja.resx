@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>このプロジェクトについて</value>
   </data>
+  <data name="News" xml:space="preserve">
+    <value>ニュース</value>
+  </data>
   <data name="Participate" xml:space="preserve">
     <value>メールを送る</value>
   </data>
