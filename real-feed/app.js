@@ -3,6 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var cfg = require('./config.json');
 var tw = require('node-tweet-stream')(cfg);
+var twn = require('node-tweet-stream')(cfg);
 var Twitter = require('twitter');
 
 http.listen(3000, function(){
@@ -48,5 +49,17 @@ tw.on('tweet', function (tweet) {
 });
 
 tw.on('error', function (err) {
+    console.log('Oh no');
+});
+
+/** News tracker */
+twn.track('#世界Friends應援ヤオヨロズ');
+twn.track('#Love_the_park');
+twn.track('#けものフレンズ');
+twn.on('tweet', function (tweet) {
+    io.emit('tweet news', tweet);
+});
+
+twn.on('error', function (err) {
     console.log('Oh no');
 });
