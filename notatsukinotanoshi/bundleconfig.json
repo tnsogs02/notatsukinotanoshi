@@ -28,5 +28,11 @@
     "inputFiles": [
       "wwwroot/css/about.css"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/news.min.js",
+    "inputFiles": [
+      "wwwroot/js/news.js"
+    ]
   }
 ]

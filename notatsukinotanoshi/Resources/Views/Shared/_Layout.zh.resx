@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>簡介</value>
   </data>
+  <data name="News" xml:space="preserve">
+    <value>新聞</value>
+  </data>
   <data name="Participate" xml:space="preserve">
     <value>參與</value>
   </data>

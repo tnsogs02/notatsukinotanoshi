@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<div class="container body-content">
+    <h4 class="text-center">@Localizer["What's on now?"]</h4>
+    <div class="letter markdown-body" id="manifest">
+        <pre>
+@ViewData["Campaign"]
+        </pre>
+    </div>
+    <h4 class="text-center">@Localizer["Who's in?"]</h4>
+    <div id="tweets"></div>
+</div>
+
+@section Scripts{
+    <environment include="Development">
+        <script src="https://socket.savejaparipark.com/socket.io/socket.io.js"></script>
+        <script src="~/js/news.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://socket.savejaparipark.com/socket.io/socket.io.js"></script>
+        <script src="~/js/news.min.js" 　asp-append-version="true"></script>
+    </environment>
+}
