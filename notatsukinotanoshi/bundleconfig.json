@@ -22,5 +22,17 @@
     "inputFiles": [
       "wwwroot/js/about.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/css/about.min.css",
+    "inputFiles": [
+      "wwwroot/css/about.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/news.min.js",
+    "inputFiles": [
+      "wwwroot/js/news.js"
+    ]
   }
 ]
