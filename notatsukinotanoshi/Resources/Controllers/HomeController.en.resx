@@ -129,4 +129,26 @@ We currently have a website to automatically generate email templates to the rel
   <data name="About Title" xml:space="preserve">
     <value>Let’s rescue director Tatsuki from the claws of Cerulean!</value>
   </data>
+  <data name="News Content" xml:space="preserve">
+    <value>Please spread the following:
+
+[Sign event for Yaoyorozu from Friends around the World!]  Start!
+
+3 steps of the activity:
+1. Write something encouraging to the studio which was responsible for animating Kemono Friends, 
+Yaoyorozu. Please include your name or nickname, and where you come from.
+
+2. Post the picture on Twitter with the 3 following tags:
+　#世界Friends應援ヤオヨロズ
+　#Love_the_park
+　#けものフレンズ　
+
+3. Add a tag showing where you are from:
+　#Japan_Friends
+　#American_Friends
+　#Taiwan_Friends
+
+This activity will recreate the signatures from everyone into a film!
+We have confirmed that 37 countries will participate!</value>
+  </data>
 </root>

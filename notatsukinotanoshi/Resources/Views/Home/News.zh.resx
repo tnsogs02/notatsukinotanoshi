@@ -117,48 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About message" xml:space="preserve">
-    <value>当サイトは、「ジャパリパークを救う会」のウェブサイトです。
-
-世界中のフレンズがジャパリパークを救う一員として、集まってできました。　
-
-我々の目標は、KFPA（けものフレンズプロジェクトA）がたつき監督と(株)ヤオヨロズを降板させた問題について事実を究明し、たつき監督がKFPAに復帰出来る環境を作る事です。
-
-そこで私たちは、現在世界中の国から電子メールを送ってもらうことで、(株)KADOKAWAとその関連企業への大規模な請願運動を行っています。
-
-それは例えば、(株)Crunchyrollや(株)UFI FUTECH(旧社名:(株)ファミマ・ドット・コム)、(株)テレビ東京などです。
-
-これらの企業が今回の事件に対して公式声明を発表し、KFPAのライセンス窓口であるKADOKAWAにたつき監督を呼び戻すために働きかけるよう、全力を尽くします。
-
-そのために、皆さんが関連企業にメールを送りやすくなるようにするために、名前と国籍を入力してもらうだけで自動でテンプレートが生成されるウェブサイトを用意しました。
-
-最後に、我々は既にジャパリパークを救うために他にも様々な計画を立て、努力を続けていますが、世界中のより多くのフレンズが、私たちの活動の仲間入りをしてくれることを願っています。</value>
-  </data>
-  <data name="About Title" xml:space="preserve">
-    <value>フレンズの皆さん、セルリアンからたつき監督を助けましょう！
-けもフレ陳情をご一緒に！</value>
-  </data>
-  <data name="News Content" xml:space="preserve">
-    <value>フォロワーに拡散よろしくお願いします：
-
-世界のフレンズのみんな、ヤオヨロズ応援署名運動はじまるよ！
-
-投稿までの3ステップ：
-
-1. けものフレンズを作ったスタジオ、ヤオヨロズを応援するメッセージを書きましょう。
-　署名(ハンドルネーム可)とあなたの国名を添えてください。
-
-2. 書いた署名の画像と、以下の3つのハッシュタグをつけて投稿してください。
-　#世界Friends應援ヤオヨロズ
-　#Love_the_park
-　#けものフレンズ
-
-3. あなたの国名を示すハッシュタグも追加して、投稿してください。　
-　#Japan_Friends
-　#American_Friends
-　#Taiwan_Friends
-
-みなさんの署名から動画を作成する予定です！
-既に37ヶ国からのフレンズが参加決定しています！</value>
+  <data name="What's on now?" xml:space="preserve">
+    <value>新聞</value>
   </data>
 </root>
