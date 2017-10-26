@@ -69,8 +69,8 @@ namespace notatsukinotanoshi.Controllers
 
                     //Get the target company info
                     cmd = conn.CreateCommand();
-                    cmd.CommandText = "SELECT name, email FROM company_info WHERE active = true LIMIT 1";
-                    cmd.Parameters.AddWithValue("@locale", culture);
+                    cmd.CommandText = "SELECT name, email FROM company_info WHERE active = true AND company_id = @company_id LIMIT 1";
+                    cmd.Parameters.AddWithValue("@company_id", model.Sponsor);
                     reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
