@@ -12,7 +12,7 @@ let mode = (isMobile ? 1 : 0);
 let friendName = $("#FriendName");
 let friendCountry = $("#FriendCountry");
 let companyName = $("#Sponsor");
-let companyMail = $("#sp-email").val();
+let companyMail = "";
 
 $(document).ready(() => {
     setMailMode(mode);
@@ -162,7 +162,7 @@ function generate() {
             if (data.status === "success") {
                 let info = data['returnData'];
                 templateBody = info['template'];
-                $("#sp-email").val(info['email']);
+                companyMail = info['email'];
                 fillTemplate();
             } else {
                 showNotification(data.message, "danger");
