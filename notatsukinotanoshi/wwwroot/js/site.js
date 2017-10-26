@@ -15,6 +15,7 @@ let companyName = $("#Sponsor");
 let companyMail = "";
 
 $(document).ready(() => {
+    getSignCount();
     setMailMode(mode);
     generate();
 });
@@ -138,6 +139,12 @@ function sendEmail() {
     window.open(link, "_blank").focus();
 }
 
+/**
+ * Set email mode
+ * 0 - Gmail web
+ * 1 - Open mail App
+ * @param {any} selected
+ */
 function setMailMode(selected) {
     mode = selected;
     if (mode === 0) {
@@ -147,6 +154,15 @@ function setMailMode(selected) {
         $("#btn--conventional").prop("disabled", true);
         $("#btn--gmail").prop("disabled", false);
     }
+}
+
+/**
+ * Load signed participants
+ */
+function getSignCount() {
+    $.post("/Api/SignedCount", function (data) {
+        $('#participants-signed').text(data['returnData']['signs']);
+    });
 }
 
 /**

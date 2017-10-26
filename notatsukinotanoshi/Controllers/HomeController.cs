@@ -31,7 +31,6 @@ namespace notatsukinotanoshi.Controllers
 
         public IActionResult Index()
         {
-            ViewData["SignedNo"] = CountSent();
             var model = new EmailSubmitViewModel
             {
                 Sponsors = new List<SelectListItem>()
@@ -76,7 +75,6 @@ namespace notatsukinotanoshi.Controllers
         {
             ViewData["Title"] = _localizer["About Title"];
             ViewData["Message"] = _localizer["About message"];
-            ViewData["SignedNo"] = CountSent();
             return View();
         }
 
@@ -148,40 +146,6 @@ namespace notatsukinotanoshi.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        /// <summary>
-        /// Count number of signed
-        /// </summary>
-        /// <returns></returns>
-        private int CountSent()
-        {
-            int result = 0;
-            using (var conn = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    var cmd = conn.CreateCommand();
-                    cmd.CommandText = "SELECT count(submit_id) FROM submit_count";
-                    var reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        result = reader.GetInt32(0);
-                    }
-                    reader.Close();
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    //Close the connection
-                    conn.Close();
-                }
-            };
-            return result;
         }
     }
 }

@@ -102,5 +102,41 @@ namespace notatsukinotanoshi.Controllers
             response.ReturnData = returnData;
             return Json(response);
         }
+
+        [HttpPost]
+        public IActionResult SignedCount()
+        {
+            int result = 0;
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = "SELECT count(submit_id) FROM submit_count";
+                    var reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        result = reader.GetInt32(0);
+                    }
+                    reader.Close();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    //Close the connection
+                    conn.Close();
+                }
+            };
+            var response = new ResponseAPI()
+            {
+                Status = ResponseState.Success,
+                ReturnData = new Dictionary<string, int> { { "signs", result } }
+            };
+            return Json(response);
+        }
     }
 }
