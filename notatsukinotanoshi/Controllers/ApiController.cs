@@ -103,6 +103,46 @@ namespace notatsukinotanoshi.Controllers
             return Json(response);
         }
 
+        /// <summary>
+        /// Generate ACA Template email
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult GenerateACA()
+        {
+            var msg = "";
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    //Get a random template
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = "CALL generate_aca_template(@locale)";
+                    cmd.Parameters.AddWithValue("@locale", "en");
+                    var reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        msg = reader.GetString(0);
+                    }
+                    reader.Close();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    //Close the connection
+                    conn.Close();
+                }
+            };
+
+            return Json(msg);
+        }
+
         [HttpPost]
         public IActionResult SignedCount()
         {
