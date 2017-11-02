@@ -123,4 +123,7 @@
   <data name="Please save director with us!" xml:space="preserve">
     <value>請跟我們一起拯救監督！</value>
   </data>
+  <data name="Why ACA?" xml:space="preserve">
+    <value>為什麼我們要發動ACA計畫？</value>
+  </data>
 </root>
