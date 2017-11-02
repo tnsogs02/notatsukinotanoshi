@@ -29,6 +29,10 @@ namespace notatsukinotanoshi.Controllers
             connectionString = config.GetValue<string>("ConnectionStrings:DefaultConnection"); //MySQL settings
         }
 
+        /// <summary>
+        /// The main event page that aims to send email to corporation for raising public concerns
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             var model = new EmailSubmitViewModel
@@ -71,6 +75,10 @@ namespace notatsukinotanoshi.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Landing page that gives info about the campaign
+        /// </summary>
+        /// <returns></returns>
         public IActionResult About()
         {
             ViewData["Title"] = _localizer["About Title"];
@@ -78,9 +86,22 @@ namespace notatsukinotanoshi.Controllers
             return View();
         }
 
+        /// <summary>
+        /// News about upcoming and current events
+        /// </summary>
+        /// <returns></returns>
         public IActionResult News()
         {
             ViewData["Campaign"] = _localizer["News Content"];
+            return View();
+        }
+
+        /// <summary>
+        /// ACA template generation page that aims to raise Japanese Government concern about the issue
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult ACA()
+        {
             return View();
         }
 
