@@ -108,10 +108,16 @@ namespace notatsukinotanoshi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult GenerateACA()
         {
             var msg = "";
+            var culture = Request.HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture.Culture.Name;
+            string[] supportedCultures = { "en", "ja" };
+            if (!supportedCultures.Contains(culture))
+            {
+                culture = "en";
+            }
+
             using (var conn = new MySqlConnection(connectionString))
             {
                 try
@@ -121,7 +127,7 @@ namespace notatsukinotanoshi.Controllers
                     //Get a random template
                     var cmd = conn.CreateCommand();
                     cmd.CommandText = "CALL generate_aca_template(@locale)";
-                    cmd.Parameters.AddWithValue("@locale", "en");
+                    cmd.Parameters.AddWithValue("@locale", culture);
                     var reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
