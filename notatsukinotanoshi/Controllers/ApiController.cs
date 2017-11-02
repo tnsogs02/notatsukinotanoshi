@@ -139,8 +139,12 @@ namespace notatsukinotanoshi.Controllers
                     conn.Close();
                 }
             };
-
-            return Json(msg);
+            var response = new ResponseAPI()
+            {
+                Status = ResponseState.Success,
+                ReturnData = new Dictionary<string, string> { { "template", msg } }
+            };
+            return Json(response);
         }
 
         [HttpPost]
