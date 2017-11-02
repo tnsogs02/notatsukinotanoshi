@@ -1,0 +1,55 @@
+﻿.content-sec {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.all-screen {
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 6;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#loading {
+    display: none;
+    text-align: center;
+}
+
+    #loading .content {
+        background: #FFF;
+        min-height: 30%;
+        min-width: 30%;
+        padding: 5em;
+    }
+
+.vertical-middle-container {
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.vertical-middle {
+    margin: auto;
+}
+
+.content-sec h1 + div.content {
+    margin-bottom: 2em;
+}
+
+.btn-send-confirm-container {
+    margin: 2em;
+}
+
+#secSend {
+    margin-top: 5em;
+    margin-bottom: 5em;
+    text-align: center;
+}
+
+#mainFooter {
+    text-align: center;
+}
