@@ -118,26 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Content" xml:space="preserve">
-    <value>&lt;h1&gt;為什麼我們要發動ACA計畫？&lt;/h1&gt;
+    <value>&lt;h1&gt;Why ACA？&lt;/h1&gt;
         &lt;div class="content"&gt;
-            &lt;p&gt;我們希望通過向日本政府說明內部狀況，使我們的問題能引起足夠的重視。&lt;/p&gt;
-            &lt;p&gt;ACA與日本Cool Japan政策旨在世界範圍內推廣傳播日本文化產品，而此次事件已在海外各國引起強烈反響。我們的聲音能讓ACA與內閣辦公室認真考慮事件的嚴重性。&lt;/p&gt;
-            &lt;p&gt;而CAA有義務保護消費者權益，因此在事前購買了動物朋友相關產品而利益受損的消費者有權要求CAA做出回應。&lt;/p&gt;
+            &lt;p&gt;We hope to explain the current state of affairs to the respective Japanese Government Departments to obtain awareness on the situation regarding the replacement of Director Tatsuki from the Kemono Friends Project. This incident has caused an uproar in countries outside of Japan, and given that the Cool Japan's policy to promote Japanese cultural products worldwide (which ACA &amp; METI is responsible for), our voices of concern should cause these organizations to consider the seriousness of the matter. Additionally, consumers who have purchased products which are related to Kemono Friends have a right to contact the CAA to comment on this matter as the CAA is obliged to protect consumer interests. &lt;/p&gt;
         &lt;/div&gt;
-        &lt;h1&gt;發信對象&lt;/h1&gt;
+        &lt;h1&gt;Who?&lt;/h1&gt;
         &lt;div class="content"&gt;
-            &lt;p&gt;我們將寄給日本文化廳(ACA)、日本經濟產業廳(METI)、日本內閣辦公室Cool Japan 政策熱線與日本消費者廳(CAA)。&lt;/p&gt;
+            &lt;p&gt;These will be sent to Japanese Agency of Cultural Affairs (ACA), Ministry of Economy, Trade and Industry (METI), 知的財産戦略推進事務局(Cool Japan), Japanese Consumer Affairs Agency (CAA)。&lt;/p&gt;
         &lt;/div&gt;
-        &lt;h1&gt;一起寄出我們的紙飛機吧！&lt;/h1&gt;
+        &lt;h1&gt;Let's send our paper planes!&lt;/h1&gt;
         &lt;div class="content"&gt;
-            &lt;p&gt;此頁面會隨機生成針對ACA、METI和Cool Japan的信件供您發送，每次都會產生不同的內容。&lt;/p&gt;
-            &lt;p&gt;當然若朋友們能夠動手用母語寫出自己的想法是最好的。&lt;/p&gt;
+            &lt;p&gt;This page will randomly generate a letter template for you to send to ACA, METI &amp; Cool Japan, and each letter is different from another. The message to CAA will be in unified in Japanese. [For more information]&lt;/p&gt;
+            &lt;p&gt;It would be best if Friends can use their native language to write their own ideas in the letters as well.&lt;/p&gt;
         &lt;/div&gt;</value>
-  </data>
-  <data name="It's time to send our paper plane!" xml:space="preserve">
-    <value>現在是傳遞紙飛機的時刻了！</value>
-  </data>
-  <data name="Please save director with us!" xml:space="preserve">
-    <value>請跟我們一起拯救監督！</value>
   </data>
 </root>
