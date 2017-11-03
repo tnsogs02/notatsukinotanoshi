@@ -1,8 +1,9 @@
 ﻿$(document).ready(function () {
-    var loading = $("#loading");
-    var btnSendConfirm = $("#btnSendConfirm");
-    var sendModal = $("#modal");
-    var modalBtnSubmit = $("#modalBtnSubmit");
+    let loading = $("#loading");
+    let btnSendConfirm = $("#btnSendConfirm");
+    let sendModal = $("#modal");
+    let modalBtnSubmit = $("#modalBtnSubmit");
+    let content = $("#mailContentView");
 
     btnSendConfirm.click(function (e) {
         e.preventDefault();
@@ -13,8 +14,9 @@
             loading.fadeIn();
             $.post("/Api/GenerateACA", function (data) {
                 sendModal.find(".modal-header h1").text("寄信給 " + selectedTarget.val() + " - 確認信件內容");
-                $("#mailContentView").html(data['returnData']['template']);
-                console.log(data);
+              
+                content.html(data['returnData']['template']);
+
                 // 設定信件資料
                 sendModal.modal();
                 loading.fadeOut();
@@ -40,7 +42,8 @@
         e.preventDefault();
 
         // AJAX送出訊息的處理
-
-        $modal.modal("hide");
+        copyToClipboard(content.get(0));
+        console.log(content.get(0));
+        sendModal.modal("hide");
     });
 });
