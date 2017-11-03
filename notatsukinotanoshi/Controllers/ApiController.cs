@@ -131,7 +131,7 @@ namespace notatsukinotanoshi.Controllers
                     var reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        msg = reader.GetString(0);
+                        msg = reader.GetString(0).Replace("\n", "<br/>");
                     }
                     reader.Close();
                 }
