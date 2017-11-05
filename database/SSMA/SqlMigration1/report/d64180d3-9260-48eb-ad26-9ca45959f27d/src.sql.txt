@@ -1,0 +1,24 @@
+CREATE DEFINER=`bd1d85be8957b7`@`%` PROCEDURE `generate_aca_template`(_code varchar(5))
+BEGIN
+  SELECT locale_id INTO @lid FROM supported_locale WHERE code = _code;
+  SELECT CONCAT_WS(CONCAT(CHAR(10 using utf8), CHAR(10 using utf8)), title, intro, intro2, body, end1) AS article FROM
+  (
+    SELECT content AS title FROM aca_template WHERE part_id = 'T' ORDER BY RAND() LIMIT 1
+  ) t,(
+    SELECT content AS intro FROM aca_template WHERE part_id = 1 AND locale = @lid ORDER BY RAND() LIMIT 1
+  ) s1,(
+    SELECT content AS intro2 FROM aca_template WHERE part_id = 2 AND locale = @lid ORDER BY RAND() LIMIT 1
+  ) s2, (
+    SELECT GROUP_CONCAT(main.content SEPARATOR '\n\n') AS body FROM (
+      SELECT tid, content, part_id FROM (
+        SELECT *, @row:=IF(t1.part_id=@part_id,@row,0)+1 as rn, @part_id:=part_id FROM (
+          SELECT *, RAND() AS trand FROM aca_template
+        ) t1, (
+          SELECT @row:=0,@part_id:=''
+        ) tm2 ORDER BY part_id, trand
+      ) t2 WHERE rn<=1 AND LEFT(t2.part_id,1) = 3 AND locale = @lid ORDER BY RAND() LIMIT 3
+    ) main ORDER BY part_id ASC
+  ) s3, (
+    SELECT content AS end1 FROM aca_template WHERE part_id = 4 AND locale = @lid ORDER BY RAND() LIMIT 1
+  ) s4 LIMIT 1;
+END

@@ -1,0 +1,8 @@
+CREATE TABLE `submit_count` (
+  `submit_id` int(11) NOT NULL AUTO_INCREMENT,
+  `ip` bigint(11) DEFAULT NULL,
+  `submit_time` timestamp NULL DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`submit_id`),
+  KEY `FK_submit_count_company_id` (`company_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5063 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC
