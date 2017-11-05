@@ -69,8 +69,8 @@ namespace notatsukinotanoshi.Controllers
 
                     //Get the target company info
                     cmd = conn.CreateCommand();
-                    cmd.CommandText = "SELECT name, email FROM company_info WHERE active = true LIMIT 1";
-                    cmd.Parameters.AddWithValue("@locale", culture);
+                    cmd.CommandText = "SELECT name, email FROM company_info WHERE active = true AND company_id = @company_id LIMIT 1";
+                    cmd.Parameters.AddWithValue("@company_id", model.Sponsor);
                     reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
@@ -100,6 +100,92 @@ namespace notatsukinotanoshi.Controllers
             response.Status = ResponseState.Success;
             response.Message = "Get template successfully";
             response.ReturnData = returnData;
+            return Json(response);
+        }
+
+        /// <summary>
+        /// Generate ACA Template email
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult GenerateACA()
+        {
+            var msg = "";
+            var culture = Request.HttpContext.Features.Get<IRequestCultureFeature>().RequestCulture.Culture.Name;
+            string[] supportedCultures = { "en", "ja" };
+            if (!supportedCultures.Contains(culture))
+            {
+                culture = "en";
+            }
+
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    //Get a random template
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = "CALL generate_aca_template(@locale)";
+                    cmd.Parameters.AddWithValue("@locale", culture);
+                    var reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        msg = reader.GetString(0).Replace("\n", "<br/>");
+                    }
+                    reader.Close();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    //Close the connection
+                    conn.Close();
+                }
+            };
+            var response = new ResponseAPI()
+            {
+                Status = ResponseState.Success,
+                ReturnData = new Dictionary<string, string> { { "template", msg } }
+            };
+            return Json(response);
+        }
+
+        [HttpPost]
+        public IActionResult SignedCount()
+        {
+            int result = 0;
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = "SELECT count(submit_id) FROM submit_count";
+                    var reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        result = reader.GetInt32(0);
+                    }
+                    reader.Close();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    //Close the connection
+                    conn.Close();
+                }
+            };
+            var response = new ResponseAPI()
+            {
+                Status = ResponseState.Success,
+                ReturnData = new Dictionary<string, int> { { "signs", result } }
+            };
             return Json(response);
         }
     }

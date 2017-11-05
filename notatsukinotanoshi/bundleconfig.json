@@ -34,5 +34,17 @@
     "inputFiles": [
       "wwwroot/js/news.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/css/aca.min.css",
+    "inputFiles": [
+      "wwwroot/css/aca.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/aca.min.js",
+    "inputFiles": [
+      "wwwroot/js/aca.js"
+    ]
   }
 ]

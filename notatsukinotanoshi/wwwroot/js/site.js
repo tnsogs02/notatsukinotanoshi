@@ -15,6 +15,7 @@ let companyName = $("#Sponsor");
 let companyMail = "";
 
 $(document).ready(() => {
+    getSignCount();
     setMailMode(mode);
     generate();
 });
@@ -138,6 +139,12 @@ function sendEmail() {
     window.open(link, "_blank").focus();
 }
 
+/**
+ * Set email mode
+ * 0 - Gmail web
+ * 1 - Open mail App
+ * @param {any} selected
+ */
 function setMailMode(selected) {
     mode = selected;
     if (mode === 0) {
@@ -147,6 +154,15 @@ function setMailMode(selected) {
         $("#btn--conventional").prop("disabled", true);
         $("#btn--gmail").prop("disabled", false);
     }
+}
+
+/**
+ * Load signed participants
+ */
+function getSignCount() {
+    $.post("/Api/SignedCount", function (data) {
+        $('#participants-signed').text(data['returnData']['signs']);
+    });
 }
 
 /**
@@ -183,4 +199,58 @@ function fillTemplate() {
         .replace(/%user_name%/g, friendName.val())
         .replace(/%user_nationality%/g, friendCountry.val()) + "</pre>"
     );
+}
+
+/**
+ * Clipboard function
+ * @param {any} elem
+ */
+function copyToClipboard(elem) {
+    // create hidden text element, if it doesn't already exist
+    var targetId = "_hiddenCopyText_";
+    var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+    var origSelectionStart, origSelectionEnd;
+    if (isInput) {
+        // can just use the original source element for the selection and copy
+        target = elem;
+        origSelectionStart = elem.selectionStart;
+        origSelectionEnd = elem.selectionEnd;
+    } else {
+        // must use a temporary form element for the selection and copy
+        target = document.getElementById(targetId);
+        if (!target) {
+            var target = document.createElement("textarea");
+            target.style.position = "absolute";
+            target.style.left = "-9999px";
+            target.style.top = "0";
+            target.id = targetId;
+            document.body.appendChild(target);
+        }
+        target.textContent = elem.innerText;
+    }
+    // select the content
+    var currentFocus = document.activeElement;
+    target.focus();
+    target.setSelectionRange(0, target.value.length);
+
+    // copy the selection
+    var succeed;
+    try {
+        succeed = document.execCommand("copy");
+    } catch (e) {
+        succeed = false;
+    }
+    // restore original focus
+    if (currentFocus && typeof currentFocus.focus === "function") {
+        currentFocus.focus();
+    }
+
+    if (isInput) {
+        // restore prior selection
+        elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+    } else {
+        // clear temporary content
+        target.textContent = "";
+    }
+    return succeed;
 }

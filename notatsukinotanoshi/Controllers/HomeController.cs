@@ -29,9 +29,12 @@ namespace notatsukinotanoshi.Controllers
             connectionString = config.GetValue<string>("ConnectionStrings:DefaultConnection"); //MySQL settings
         }
 
+        /// <summary>
+        /// The main event page that aims to send email to corporation for raising public concerns
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
-            ViewData["SignedNo"] = CountSent();
             var model = new EmailSubmitViewModel
             {
                 Sponsors = new List<SelectListItem>()
@@ -72,17 +75,33 @@ namespace notatsukinotanoshi.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Landing page that gives info about the campaign
+        /// </summary>
+        /// <returns></returns>
         public IActionResult About()
         {
             ViewData["Title"] = _localizer["About Title"];
             ViewData["Message"] = _localizer["About message"];
-            ViewData["SignedNo"] = CountSent();
             return View();
         }
 
+        /// <summary>
+        /// News about upcoming and current events
+        /// </summary>
+        /// <returns></returns>
         public IActionResult News()
         {
             ViewData["Campaign"] = _localizer["News Content"];
+            return View();
+        }
+
+        /// <summary>
+        /// ACA template generation page that aims to raise Japanese Government concern about the issue
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult ACA()
+        {
             return View();
         }
 
@@ -148,40 +167,6 @@ namespace notatsukinotanoshi.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        /// <summary>
-        /// Count number of signed
-        /// </summary>
-        /// <returns></returns>
-        private int CountSent()
-        {
-            int result = 0;
-            using (var conn = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    var cmd = conn.CreateCommand();
-                    cmd.CommandText = "SELECT count(submit_id) FROM submit_count";
-                    var reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        result = reader.GetInt32(0);
-                    }
-                    reader.Close();
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    //Close the connection
-                    conn.Close();
-                }
-            };
-            return result;
         }
     }
 }

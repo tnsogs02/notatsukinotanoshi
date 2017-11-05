@@ -1,6 +1,13 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-
+@section Styles{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/about.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/about.min.css" />
+    </environment>
+}
 <header id="mainHeader" class="jumbotron">
     <div class="container text-right">
         <h2>@ViewData["Title"]</h2>
