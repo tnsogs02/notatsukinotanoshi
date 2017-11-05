@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
   <data name="Content" xml:space="preserve">
     <value>&lt;h1&gt;為什麼我們要發動ACA計畫？&lt;/h1&gt;
         &lt;div class="content"&gt;
@@ -134,10 +137,22 @@
             &lt;p&gt;當然若朋友們能夠動手用母語寫出自己的想法是最好的。&lt;/p&gt;
         &lt;/div&gt;</value>
   </data>
+  <data name="Copy and go to submission site." xml:space="preserve">
+    <value>確認無誤，複製並寄出！</value>
+  </data>
+  <data name="I'm ready. Please generate the content." xml:space="preserve">
+    <value>決定好了，我要確認內容！</value>
+  </data>
   <data name="It's time to send our paper plane!" xml:space="preserve">
     <value>現在是傳遞紙飛機的時刻了！</value>
   </data>
+  <data name="Lucky beast is generating the content..." xml:space="preserve">
+    <value>請稍候，幸運獸正在產生內容……</value>
+  </data>
   <data name="Please save director with us!" xml:space="preserve">
     <value>請跟我們一起拯救監督！</value>
+  </data>
+  <data name="Please select a target" xml:space="preserve">
+    <value>請選擇您要寄向的對象</value>
   </data>
 </root>
