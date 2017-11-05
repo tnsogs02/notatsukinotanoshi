@@ -19,6 +19,14 @@ var params = {
     count:5,
     include_entities: true
 };
+
+io.configure(function() {  
+    io.set('transports', [ 'websocket' ]);  
+    if (process.env.IISNODE_VERSION) {  
+        io.set('resource', '/real-feed/socket.io');  
+    }  
+});
+
 io.on('connection', function(socket){
 	clients++;
     console.log('Users connected: '+clients);
