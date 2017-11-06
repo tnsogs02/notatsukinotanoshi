@@ -29,27 +29,27 @@
 			<div class="panel">
 				<ul class="add-nav">
 					<li >
-						<span class="selectedTab" id="errors" onmouseenter="f2(this);" onmouseleave="f3(this);" onclick="changeButton(1);">
+						<span class="unSelectedTab" id="errors" disabled="disabled" style="color:gray;">
 							<img style="vertical-align:middle;" src="img/error.gif" width="14" height="14">
 							</img>
 							<span id="espan">
-Errors (16)							</span>
+Errors							</span>
 						</span>
 					</li>
 					<li >
-						<span class="unSelectedTab" id="warnings" onmouseenter="f2(this);" onmouseleave="f3(this);" onclick="changeButton(2);">
+						<span class="unSelectedTab" id="warnings" disabled="disabled" style="color:gray;">
 							<img src="img/warning.gif" width="14" height="14">
 							</img>
 							<span id="wspan">
-Warnings (2)							</span>
+Warnings							</span>
 						</span>
 					</li>
 					<li >
-						<span class="unSelectedTab" id="infos" onmouseenter="f2(this);" onmouseleave="f3(this);" onclick="changeButton(3);">
+						<span class="selectedTab" id="infos" onmouseenter="f2(this);" onmouseleave="f3(this);" onclick="changeButton(3);">
 							<img src="img/info.gif" width="14" height="14">
 							</img>
 							<span id="ispan">
-Info (1)							</span>
+Info (10)							</span>
 						</span>
 					</li>
 				</ul>
@@ -67,200 +67,20 @@ Infos							</option>
 				</span>
 				<span style="top:8px; position:absolute;width:400px;font-family:Arial;font-size:14px;">
 Total estimated manual conversion time:					<span style="color:firebrick;top:0px; position:absolute;" id="etime">
-25.7 hr(s)					</span>
+0 hr(s)					</span>
 				</span>
 			</div>
 			<div id="innerDiv" style="HEIGHT: 194px; OVERFLOW-Y: auto">
 				<div id="errorDiv" style="DISPLAY: block">
-					<table dataSrc="#errorData" id="errorTable" class="selectedTable">
-						<tbody >
-							<tr >
-								<td >
-&nbsp;									<img onclick="toggle(this)" class="tableMinusIcons" src="img/nolines_plus.gif">
-									</img>
-									<img class="tableIcons" src="img/error.gif">
-									</img>
-&nbsp;									<span dataFld="description">
-M2SS0084: SQL Server Migration Assistant for MySQL Error message: INTO clause not converted(1) Estimated manual conversion time: 1 hr(s)									</span>
-									<span dataFld="name" style="DISPLAY: none">
-1									</span>
-									<table style="DISPLAY: none">
-										<tbody >
-											<tr >
-												<td >
-													<div >
-														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
-															<a onclick="pathTo('d64180d3-9260-48eb-ad26-9ca45959f27d',3);changeSelection(this);">
-																<img src="img/procedure_error.gif">
-																</img>
-generate_aca_template(1), Estimated manual conversion time: 1 hr(s) 															</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-						</tbody>
-						<tbody >
-							<tr >
-								<td >
-&nbsp;									<img onclick="toggle(this)" class="tableMinusIcons" src="img/nolines_plus.gif">
-									</img>
-									<img class="tableIcons" src="img/error.gif">
-									</img>
-&nbsp;									<span dataFld="description">
-M2SS0198: SQL Server Migration Assistant for MySQL Error message: SSMA for MySQL  does not support user variables conversion(12) Estimated manual conversion time: 24 hr(s)									</span>
-									<span dataFld="name" style="DISPLAY: none">
-2									</span>
-									<table style="DISPLAY: none">
-										<tbody >
-											<tr >
-												<td >
-													<div >
-														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
-															<a onclick="pathTo('d64180d3-9260-48eb-ad26-9ca45959f27d',3);changeSelection(this);">
-																<img src="img/procedure_error.gif">
-																</img>
-generate_aca_template(12), Estimated manual conversion time: 24 hr(s) 															</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-						</tbody>
-						<tbody >
-							<tr >
-								<td >
-&nbsp;									<img onclick="toggle(this)" class="tableMinusIcons" src="img/nolines_plus.gif">
-									</img>
-									<img class="tableIcons" src="img/error.gif">
-									</img>
-&nbsp;									<span dataFld="description">
-M2SS0201: SQL Server Migration Assistant for MySQL Error message: MySQL standard function is not supported(1) Estimated manual conversion time: 0.5 hr(s)									</span>
-									<span dataFld="name" style="DISPLAY: none">
-3									</span>
-									<table style="DISPLAY: none">
-										<tbody >
-											<tr >
-												<td >
-													<div >
-														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
-															<a onclick="pathTo('d64180d3-9260-48eb-ad26-9ca45959f27d',3);changeSelection(this);">
-																<img src="img/procedure_error.gif">
-																</img>
-generate_aca_template(1), Estimated manual conversion time: 0.5 hr(s) 															</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-						</tbody>
-						<tbody >
-							<tr >
-								<td >
-&nbsp;									<img onclick="toggle(this)" class="tableMinusIcons" src="img/nolines_plus.gif">
-									</img>
-									<img class="tableIcons" src="img/error.gif">
-									</img>
-&nbsp;									<span dataFld="description">
-M2SS0216: SQL Server Migration Assistant for MySQL Error message: CHAR expression with using charset name is not supported.(2)									</span>
-									<span dataFld="name" style="DISPLAY: none">
-4									</span>
-									<table style="DISPLAY: none">
-										<tbody >
-											<tr >
-												<td >
-													<div >
-														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
-															<a onclick="pathTo('d64180d3-9260-48eb-ad26-9ca45959f27d',3);changeSelection(this);">
-																<img src="img/procedure_error.gif">
-																</img>
-generate_aca_template(2)															</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-						</tbody>
+					<table dataSrc="#errorData" id="errorTable" class="unSelectedTable">
 					</table>
 				</div>
 				<div id="warningDiv" style="DISPLAY: block">
 					<table dataSrc="#warningData" id="warningTable" class="unSelectedTable">
-						<tbody >
-							<tr >
-								<td >
-&nbsp;									<img onclick="toggle(this)" class="tableMinusIcons" src="img/nolines_plus.gif">
-									</img>
-									<img class="tableIcons" src="img/warning.gif">
-									</img>
-&nbsp;									<span dataFld="description">
-M2SS0250: SQL Server Migration Assistant for MySQL Warning message: Parameters used in function/operator are not of same data type so they are casted to Character datatype.(1) Estimated manual conversion time: 0.2 hr(s)									</span>
-									<span dataFld="name" style="DISPLAY: none">
-4									</span>
-									<table style="DISPLAY: none">
-										<tbody >
-											<tr >
-												<td >
-													<div >
-														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
-															<a onclick="pathTo('d64180d3-9260-48eb-ad26-9ca45959f27d',3);changeSelection(this);">
-																<img src="img/procedure_warning.gif">
-																</img>
-generate_aca_template(1), Estimated manual conversion time: 0.2 hr(s) 															</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-						</tbody>
-						<tbody >
-							<tr >
-								<td >
-&nbsp;									<img onclick="toggle(this)" class="tableMinusIcons" src="img/nolines_plus.gif">
-									</img>
-									<img class="tableIcons" src="img/warning.gif">
-									</img>
-&nbsp;									<span dataFld="description">
-M2SS0284: SQL Server Migration Assistant for MySQL Warning message: Numeric value is converted to string value(1)									</span>
-									<span dataFld="name" style="DISPLAY: none">
-5									</span>
-									<table style="DISPLAY: none">
-										<tbody >
-											<tr >
-												<td >
-													<div >
-														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
-															<a onclick="pathTo('d64180d3-9260-48eb-ad26-9ca45959f27d',3);changeSelection(this);">
-																<img src="img/procedure_warning.gif">
-																</img>
-generate_aca_template(1)															</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-						</tbody>
 					</table>
 				</div>
 				<div id="infoDiv" style="DISPLAY: block">
-					<table dataSrc="#infoData" id="infoTable" class="unSelectedTable">
+					<table dataSrc="#infoData" id="infoTable" class="selectedTable">
 						<tbody >
 							<tr >
 								<td >
@@ -269,19 +89,145 @@ generate_aca_template(1)															</a>
 									<img class="tableIcons" src="img/info.gif">
 									</img>
 &nbsp;									<span dataFld="description">
-M2SS0003: SQL Server Migration Assistant for MySQL Info message: SQL clause was ignored during conversion(1)									</span>
+M2SS0003: SQL Server Migration Assistant for MySQL Info message: SQL clause was ignored during conversion(6)									</span>
 									<span dataFld="name" style="DISPLAY: none">
-5									</span>
+1									</span>
 									<table style="DISPLAY: none">
 										<tbody >
 											<tr >
 												<td >
 													<div >
 														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
-															<a onclick="pathTo('d64180d3-9260-48eb-ad26-9ca45959f27d',3);changeSelection(this);">
-																<img src="img/procedure_info.gif">
+															<a onclick="pathTo('4d9b98c6-9fe3-4c02-ab62-11f1f48fa879',3);changeSelection(this);">
+																<img src="img/table_info.gif">
 																</img>
-generate_aca_template(1)															</a>
+supported_locale(1)															</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr >
+												<td >
+													<div >
+														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+															<a onclick="pathTo('855a3364-17d5-4537-92e3-d1c4de09df76',3);changeSelection(this);">
+																<img src="img/table_info.gif">
+																</img>
+company_has_template(1)															</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr >
+												<td >
+													<div >
+														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+															<a onclick="pathTo('9518f810-76ee-4ed8-9274-688386a65869',3);changeSelection(this);">
+																<img src="img/table_info.gif">
+																</img>
+aca_template(1)															</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr >
+												<td >
+													<div >
+														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+															<a onclick="pathTo('b46a8384-b577-4811-885c-236a1f5316c3',3);changeSelection(this);">
+																<img src="img/table_info.gif">
+																</img>
+email_templates(1)															</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr >
+												<td >
+													<div >
+														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+															<a onclick="pathTo('c47db975-4f28-4784-8ad4-3a06320bb1f1',3);changeSelection(this);">
+																<img src="img/table_info.gif">
+																</img>
+submit_count(1)															</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr >
+												<td >
+													<div >
+														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+															<a onclick="pathTo('d943db19-6cb6-403f-97c7-e9f4d2457eb5',3);changeSelection(this);">
+																<img src="img/table_info.gif">
+																</img>
+company_info(1)															</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+						<tbody >
+							<tr >
+								<td >
+&nbsp;									<img onclick="toggle(this)" class="tableMinusIcons" src="img/nolines_plus.gif">
+									</img>
+									<img class="tableIcons" src="img/info.gif">
+									</img>
+&nbsp;									<span dataFld="description">
+M2SS0052: SQL Server Migration Assistant for MySQL Info message: string literal was converted to NUMERIC literal(4)									</span>
+									<span dataFld="name" style="DISPLAY: none">
+2									</span>
+									<table style="DISPLAY: none">
+										<tbody >
+											<tr >
+												<td >
+													<div >
+														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+															<a onclick="pathTo('9518f810-76ee-4ed8-9274-688386a65869',3);changeSelection(this);">
+																<img src="img/table_info.gif">
+																</img>
+aca_template(1)															</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr >
+												<td >
+													<div >
+														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+															<a onclick="pathTo('b42d02bc-c383-4978-959f-29b765e54d60',3);changeSelection(this);">
+																<img src="img/table_info.gif">
+																</img>
+caa_content(1)															</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr >
+												<td >
+													<div >
+														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+															<a onclick="pathTo('b46a8384-b577-4811-885c-236a1f5316c3',3);changeSelection(this);">
+																<img src="img/table_info.gif">
+																</img>
+email_templates(1)															</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr >
+												<td >
+													<div >
+														<div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+															<a onclick="pathTo('d943db19-6cb6-403f-97c7-e9f4d2457eb5',3);changeSelection(this);">
+																<img src="img/table_info.gif">
+																</img>
+company_info(1)															</a>
 														</div>
 													</div>
 												</td>
