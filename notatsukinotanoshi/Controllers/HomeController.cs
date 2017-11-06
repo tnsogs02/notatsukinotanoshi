@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 using notatsukinotanoshi.Models.Utilities;
 using notatsukinotanoshi.Localizers;
+using System.Data.SqlClient;
 
 namespace notatsukinotanoshi.Controllers
 {
@@ -26,7 +27,7 @@ namespace notatsukinotanoshi.Controllers
         {
             _localizer = localizer;
             _companyName = companyName;
-            connectionString = config.GetValue<string>("ConnectionStrings:DefaultConnection"); //MySQL settings
+            connectionString = config.GetValue<string>("ConnectionStrings:SQLConnectionString"); //MySQL settings
         }
 
         /// <summary>
@@ -40,25 +41,26 @@ namespace notatsukinotanoshi.Controllers
                 Sponsors = new List<SelectListItem>()
             };
 
-            using (var conn = new MySqlConnection(connectionString))
+            using (var conn = new SqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
-                    var cmd = conn.CreateCommand();
-                    cmd.CommandText = "SELECT company_id, name FROM company_info WHERE active = true";
-                    var reader = cmd.ExecuteReader();
-                    while(reader.Read())
+                    var sql = "SELECT company_id, name FROM [notatsukinotanoshi].[company_info] WHERE active = 1";
+                    using (var command = new SqlCommand(sql, conn))
                     {
-                        model.Sponsors.Add(new SelectListItem
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            Text = _companyName[reader.GetString(1)],
-                            Value = reader.GetInt16(0).ToString()
-                        });
+                            while (reader.Read())
+                            {
+                                model.Sponsors.Add(new SelectListItem
+                                {
+                                    Text = _companyName[reader.GetString(1)],
+                                    Value = reader.GetInt32(0).ToString()
+                                });
+                            }
+                        }
                     }
-
-                    //Close the reader
-                    reader.Close();
                 }
                 catch (Exception)
                 {
