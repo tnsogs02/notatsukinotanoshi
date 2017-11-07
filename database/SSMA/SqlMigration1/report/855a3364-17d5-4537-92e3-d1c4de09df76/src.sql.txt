@@ -1,8 +1,0 @@
-CREATE TABLE `company_has_template` (
-  `company_id` int(11) NOT NULL,
-  `template_id` int(11) NOT NULL,
-  PRIMARY KEY (`company_id`,`template_id`),
-  KEY `FK_template_to_email` (`template_id`),
-  CONSTRAINT `FK_company_to_info` FOREIGN KEY (`company_id`) REFERENCES `company_info` (`company_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `FK_template_to_email` FOREIGN KEY (`template_id`) REFERENCES `email_templates` (`template_id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC

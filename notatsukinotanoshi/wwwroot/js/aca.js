@@ -11,7 +11,8 @@
         let selectedTarget = $("input[name='target']:checked");
         console.log(selectedTarget);
         //var selectedTarget = $("#btnGroupSendTarget label.active input");
-        if (selectedTarget.length === 1) {
+        if (selectedTarget.length == 1) {
+                if (selectedTarget.val() == 'ACA' || selectedTarget.val() == 'CoolJapan') {
                     loading.fadeIn();
                     $.post("/Api/GenerateACA", function (data) {
                         sendModal.find(".modal-header h1").text("寄信給 " + selectedTarget.val() + " - 確認信件內容");
@@ -22,6 +23,18 @@
                         sendModal.modal();
                         loading.fadeOut();
                     }, 'json');
+                } else if (selectedTarget.val() == 'CAA') {
+                    loading.fadeIn();
+                    $.post("/Api/GenerateCAA", function (data) {
+                        sendModal.find(".modal-header h1").text("寄信給 " + selectedTarget.val() + " - 確認信件內容");
+                        content.html(data['returnData']['CAA_CONTENT']);
+                        sendTo = selectedTarget.data("link");
+
+                        // 設定信件資料
+                        sendModal.modal();
+                        loading.fadeOut();
+                    }, 'json');
+                }
         } else {
             alert("您還沒有選取您要寄信的對象，幸運獸無法處理喔！");
         }

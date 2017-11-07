@@ -1,7 +1,0 @@
-CREATE TABLE `email_templates` (
-  `template_id` int(11) NOT NULL AUTO_INCREMENT,
-  `text_body` text NOT NULL,
-  `locale` varchar(10) DEFAULT NULL,
-  `approved` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`template_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC
