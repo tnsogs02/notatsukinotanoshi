@@ -1,0 +1,11 @@
+CREATE TABLE `company_info` (
+  `company_id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `name_jp` varchar(255) DEFAULT NULL,
+  `name_zh` varchar(255) DEFAULT NULL,
+  `active` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`company_id`),
+  UNIQUE KEY `company_name` (`code`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC

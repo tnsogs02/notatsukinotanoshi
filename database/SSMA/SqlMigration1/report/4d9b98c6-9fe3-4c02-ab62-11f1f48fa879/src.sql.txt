@@ -1,0 +1,5 @@
+CREATE TABLE `supported_locale` (
+  `locale_id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(10) NOT NULL,
+  PRIMARY KEY (`locale_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC
