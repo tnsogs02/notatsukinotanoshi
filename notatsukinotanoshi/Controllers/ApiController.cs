@@ -141,7 +141,7 @@ namespace notatsukinotanoshi.Controllers
                     {
                         if (reader.Read())
                         {
-                            msg = reader.GetString(0);
+                            msg = reader.GetString(0).Replace("\n", "<br/>");
                         }
                         reader.Close();
                     }
