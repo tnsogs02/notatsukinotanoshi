@@ -43,33 +43,21 @@ namespace notatsukinotanoshi.Controllers
 
             using (var conn = new SqlConnection(connectionString))
             {
-                try
+                conn.Open();
+                var sql = "SELECT company_id, name FROM [notatsukinotanoshi].[company_info] WHERE active = 1";
+                using (var command = new SqlCommand(sql, conn))
                 {
-                    conn.Open();
-                    var sql = "SELECT company_id, name FROM [notatsukinotanoshi].[company_info] WHERE active = 1";
-                    using (var command = new SqlCommand(sql, conn))
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        while (reader.Read())
                         {
-                            while (reader.Read())
+                            model.Sponsors.Add(new SelectListItem
                             {
-                                model.Sponsors.Add(new SelectListItem
-                                {
-                                    Text = _companyName[reader.GetString(1)],
-                                    Value = reader.GetInt32(0).ToString()
-                                });
-                            }
+                                Text = _companyName[reader.GetString(1)],
+                                Value = reader.GetInt32(0).ToString()
+                            });
                         }
                     }
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    //Close the connection
-                    conn.Close();
                 }
             };
             var rnd = new Random();
@@ -118,26 +106,16 @@ namespace notatsukinotanoshi.Controllers
         {
             if (ModelState.IsValid)
             {
-                //Add count
-                using ( var conn = new MySqlConnection(connectionString)) {
-                    try
+                using (var conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    var sql = "INSERT INTO [notatsukinotanoshi].[submit_count](ip_org, submit_time, company_id, submit_type) VALUES (@ip, GETUTCDATE(), @company, 1)";
+                    using (var cmd = new SqlCommand(sql, conn))
                     {
-                        conn.Open();
-                        var cmd = conn.CreateCommand();
-                        cmd.CommandText = "INSERT INTO submit_count(ip, submit_time, company_id) VALUES (INET_ATON(@ip), NOW(), @company)";
                         var ip = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4();
                         cmd.Parameters.AddWithValue("@ip", ip.ToString());
                         cmd.Parameters.AddWithValue("@company", model.Sponsor);
                         cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception)
-                    {
-                        throw;
-                    }
-                    finally
-                    {
-                        //Close the connection
-                        conn.Close();
                     }
                 };
                 return Json("success");
