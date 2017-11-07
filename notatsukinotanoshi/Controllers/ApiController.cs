@@ -92,31 +92,21 @@ namespace notatsukinotanoshi.Controllers
                 culture = "en";
             }
 
-            using (var conn = new MySqlConnection(connectionString))
+            using (var conn = new SqlConnection(connectionString))
             {
-                try
+                conn.Open();
+                var sql = "EXEC notatsukinotanoshi.generate_aca_template @_locale = @locale";
+                using (var cmd = new SqlCommand(sql, conn))
                 {
-                    conn.Open();
-
-                    //Get a random template
-                    var cmd = conn.CreateCommand();
-                    cmd.CommandText = "CALL generate_aca_template(@locale)";
                     cmd.Parameters.AddWithValue("@locale", culture);
-                    var reader = cmd.ExecuteReader();
-                    if (reader.Read())
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        msg = reader.GetString(0).Replace("\n", "<br/>");
+                        if (reader.Read())
+                        {
+                            msg = reader.GetString(0);
+                        }
+                        reader.Close();
                     }
-                    reader.Close();
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    //Close the connection
-                    conn.Close();
                 }
             };
             var response = new ResponseAPI()
