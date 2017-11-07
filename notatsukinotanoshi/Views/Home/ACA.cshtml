@@ -20,24 +20,9 @@
 <div role="main" id="mainContent" class="container body-content">
     <section id="secIntroduction" class="content-sec">
         @Localizer["Content"]
-        <!-- <h1>@Localizer["Why ACA?"]</h1>
-        <div class="content">
-            <p>我們希望通過向日本政府說明內部狀況，使我們的問題能引起足夠的重視。</p>
-            <p>ACA與日本Cool Japan政策旨在世界範圍內推廣傳播日本文化產品，而此次事件已在海外各國引起強烈反響。我們的聲音能讓ACA與內閣辦公室認真考慮事件的嚴重性。</p>
-            <p>而CAA有義務保護消費者權益，因此在事前購買了動物朋友相關產品而利益受損的消費者有權要求CAA做出回應。</p>
-        </div>
-        <h1>發信對象</h1>
-        <div class="content">
-            <p>我們將寄給日本文化廳(ACA)、日本經濟產業廳(METI)、日本內閣辦公室Cool Japan 政策熱線與日本消費者廳(CAA)。</p>
-        </div>
-        <h1>一起寄出我們的紙飛機吧！</h1>
-        <div class="content">
-            <p>此頁面會隨機生成針對ACA、METI和Cool Japan的信件供您發送，每次都會產生不同的內容。</p>
-            <p>當然若朋友們能夠動手用母語寫出自己的想法是最好的。</p>
-        </div> -->
     </section>
     <section id="secSend" class="content-sec">
-        <h2>請選擇您要寄向的對象</h2>
+        <h2>@Localizer["Please select a target"]</h2>
         <div id="btnGroupSendTarget" class="btn-group btn-group-lg" data-toggle="buttons">
             <label class="btn btn-primary">
                 <input type="radio" name="target" autocomplete="off" data-link="https://www.e-gov.go.jp/policy/servlet/Propose" value="ACA" /> ACA
@@ -50,14 +35,14 @@
             </label>
         </div>
         <div class="btn-send-confirm-container">
-            <a id="btnSendConfirm" class="btn btn-success btn-lg" href="#">決定好了，我要確認內容！</a>
+            <a id="btnSendConfirm" class="btn btn-success btn-lg" href="#">@Localizer["I'm ready. Please generate the content."]</a>
         </div>
     </section>
 </div>
 <div id="loading" class="all-screen">
     <div class="vertical-middle-container">
         <div class="content container vertical-middle">
-            <p>請稍候，幸運獸正在產生內容……</p>
+            <p>@Localizer["Lucky beast is generating the content..."]</p>
         </div>
     </div>
 </div>
@@ -67,45 +52,10 @@
             <div class="modal-header">
                 <h1>確認信件內容</h1>
             </div>
-            <div id="mailContentView" class="modal-body container">
-                <p>程式產生信件內容</p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquam tempus vulputate. Pellentesque habitant morbi
-                    tristique senectus et netus et malesuada fames ac turpis egestas. Sed ac massa eget odio facilisis commodo
-                    id eu turpis. Suspendisse nisi tortor, aliquam at vehicula eget, cursus in ipsum. Curabitur vitae dictum ligula.
-                    Cras ac mi ornare orci iaculis rhoncus. Integer quis semper metus.
-                </p>
-                <p>
-                    Praesent quis imperdiet leo, non rhoncus dolor. Phasellus porta ante tristique risus pharetra, ac ultricies eros
-                    maximus. Sed sit amet magna tristique, dignissim justo eget, iaculis odio. Fusce tincidunt lectus dolor, et
-                    ullamcorper diam facilisis eu. Nulla fringilla lacus a leo gravida, eu dictum lorem mattis. Donec feugiat lobortis
-                    venenatis. Pellentesque orci magna, scelerisque ut consectetur et, scelerisque sed sapien. Aliquam erat volutpat.
-                    Etiam euismod maximus turpis sit amet auctor. Sed rutrum enim et finibus gravida. Quisque viverra, orci ac
-                    sagittis iaculis, sapien ipsum lobortis nisl, id eleifend elit nulla a turpis.
-                </p>
-                <p>
-                    Vestibulum mattis molestie sollicitudin. Praesent commodo volutpat urna, vel commodo nibh consectetur sit amet.
-                    Duis tincidunt aliquet pharetra. Mauris faucibus dignissim imperdiet. Phasellus ac commodo dui, eu efficitur
-                    diam. Duis sed est ultrices, semper purus a, ultrices neque. Pellentesque habitant morbi tristique senectus
-                    et netus et malesuada fames ac turpis egestas.
-                </p>
-                <p>
-                    Quisque fringilla massa in finibus lobortis. Sed tempor dignissim euismod. Curabitur a turpis est. Nullam rutrum
-                    enim at mauris porta, eget faucibus augue elementum. Nam tristique congue quam sed dictum. Fusce ac sagittis
-                    eros. In hac habitasse platea dictumst. Vestibulum viverra, justo quis dictum aliquam, massa sem convallis
-                    urna, pharetra malesuada felis elit at eros. Cras quis consequat odio. Maecenas quis gravida lacus. Integer
-                    ultricies est quis sem placerat, ut bibendum diam commodo.
-                </p>
-                <p>
-                    Suspendisse ipsum sapien, aliquet ac vehicula non, posuere in erat. Integer aliquam purus et sem aliquam pellentesque.
-                    Nullam nec urna velit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer scelerisque velit
-                    at ligula blandit, ut consectetur nibh semper. Nulla et lectus pellentesque, tempor nibh eget, elementum velit.
-                    Cras pretium pulvinar semper.
-                </p>
-            </div>
+            <div id="mailContentView" class="modal-body container"></div>
             <div class="modal-footer">
-                <a class="btn btn-default" href="#" data-dismiss="modal">取消</a>
-                <a class="btn btn-primary" href="#" id="modalBtnSubmit">確認無誤，複製並寄出！</a>
+                <a class="btn btn-default" href="#" data-dismiss="modal">@Localizer["Cancel"]</a>
+                <a class="btn btn-primary" href="#" id="modalBtnSubmit">@Localizer["Copy and go to submission site."]</a>
             </div>
         </div>
     </div>

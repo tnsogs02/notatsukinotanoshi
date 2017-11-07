@@ -1,7 +1,13 @@
 ﻿//The message
 const callout = '<blockquote class="twitter-tweet center-block" data-lang="[sys-locale]"><p lang="[tweet-locale]" dir="ltr">[replace-text]</p>&mdash; [tweet-name] ([screen-name]) <a class="tweet-time" href="https://twitter.com/[screen-name]/status/[tweet-id]" data-time="[tweet-time]"></a></blockquote>';
 
-var socket = io.connect('https://socket.savejaparipark.com');
+var address = window.location.protocol + '//' + window.location.host;
+var details = {
+    resource: (window.location.pathname.split('/').slice(0, -1).join('/') + '/socket.io').substring(1)
+};
+
+var socket = io.connect(address, details); 
+//var socket = io.connect('https://savejaparipark.com');
 socket.on('tweet', function (data) {
     let user = data.user;
     let tweets = $("#tweets");
