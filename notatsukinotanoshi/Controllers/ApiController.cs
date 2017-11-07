@@ -10,6 +10,7 @@ using MySql.Data.MySqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
 using notatsukinotanoshi.Localizers;
+using System.Data.SqlClient;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,7 +26,7 @@ namespace notatsukinotanoshi.Controllers
         {
             _localizer = localizer;
             _companyName = companyName;
-            connectionString = config.GetValue<string>("ConnectionStrings:DefaultConnection"); //MySQL settings
+            connectionString = config.GetValue<string>("ConnectionStrings:SQLConnectionString"); //SQL Server settings
         }
 
         /// <summary>
@@ -48,53 +49,26 @@ namespace notatsukinotanoshi.Controllers
             }
 
             var msg = "";
-            var companyName = "";
-            var companyMail = "";
-            using (var conn = new MySqlConnection(connectionString))
+            using (var conn = new SqlConnection(connectionString))
             {
-                try
+                conn.Open();
+                var sql = "SELECT TOP 1 text_body FROM notatsukinotanoshi.email_templates et WHERE et.locale = @locale AND approved = 1 ORDER BY rand()";
+                using (var cmd = new SqlCommand(sql, conn))
                 {
-                    conn.Open();
-
-                    //Get a random template
-                    var cmd = conn.CreateCommand();
-                    cmd.CommandText = "SELECT text_body FROM email_templates et WHERE et.locale = @locale AND approved = true ORDER BY RAND() LIMIT 1";
                     cmd.Parameters.AddWithValue("@locale", culture);
-                    var reader = cmd.ExecuteReader();
-                    if (reader.Read())
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        msg = reader.GetString(0);
+                        if (reader.Read())
+                        {
+                            msg = reader.GetString(0);
+                        }
+                        reader.Close();
                     }
-                    reader.Close();
-
-                    //Get the target company info
-                    cmd = conn.CreateCommand();
-                    cmd.CommandText = "SELECT name, email FROM company_info WHERE active = true AND company_id = @company_id LIMIT 1";
-                    cmd.Parameters.AddWithValue("@company_id", model.Sponsor);
-                    reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        companyName = _companyName[reader.GetString(0)];
-                        companyMail = reader.GetString(1);
-                    }
-                    reader.Close();
-
                 }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    //Close the connection
-                    conn.Close();
-                }
-            };
-
+            }
             var returnData = new Dictionary<string, string>
             {
-                { "template", msg },
-                { "email", companyMail }
+                { "template", msg }
             };
 
             response.Status = ResponseState.Success;
