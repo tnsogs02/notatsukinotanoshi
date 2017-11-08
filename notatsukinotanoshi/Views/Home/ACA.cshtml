@@ -11,40 +11,40 @@
         <link rel="stylesheet" href="~/css/aca.min.css" />
     </environment>
 }
-<header id="mainHeader" class="jumbotron">
-    <div class="container text-right">
-        <h1>@Localizer["It's time to send our paper plane!"]</h1>
-        <h2>@Localizer["Please save director with us!"]</h2>
+@section HeadBanner{ 
+    <header id="mainHeader" class="jumbotron">
+        <div class="container text-right">
+            <h1>@Localizer["It's time to send our paper plane!"]</h1>
+            <h2>@Localizer["Please save director with us!"]</h2>
+        </div>
+    </header>
+}
+<section id="secIntroduction" class="content-sec">
+    @Localizer["Content"]
+</section>
+<section id="secSend" class="content-sec">
+    <h2>@Localizer["Please select a target"]</h2>
+    <div id="btnGroupSendTarget" class="btn-group btn-group-lg" data-toggle="buttons">
+        <label class="btn btn-primary">
+            <input type="radio" name="target" autocomplete="off" data-link="https://www.e-gov.go.jp/policy/servlet/Propose" value="ACA" /> ACA
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" name="target" autocomplete="off" data-link="http://www.kantei.go.jp/jp/singi/titeki2/goiken.html" value="CoolJapan" /> Cool Japan
+        </label>
     </div>
-</header>
-<div role="main" id="mainContent" class="container body-content">
-    <section id="secIntroduction" class="content-sec">
-        @Localizer["Content"]
-    </section>
-    <section id="secSend" class="content-sec">
-        <h2>@Localizer["Please select a target"]</h2>
-        <div id="btnGroupSendTarget" class="btn-group btn-group-lg" data-toggle="buttons">
-            <label class="btn btn-primary">
-                <input type="radio" name="target" autocomplete="off" data-link="https://www.e-gov.go.jp/policy/servlet/Propose" value="ACA" /> ACA
-            </label>
-            <label class="btn btn-primary">
-                <input type="radio" name="target" autocomplete="off" data-link="http://www.kantei.go.jp/jp/singi/titeki2/goiken.html" value="CoolJapan" /> Cool Japan
-            </label>
-        </div>
-        <div class="btn-send-confirm-container">
-            <a id="btnSendConfirm" class="btn btn-success btn-lg" href="#">@Localizer["I'm ready. Please generate the content."]</a>
-        </div>
-        <div class="content" style="margin: auto;">
-            <img src='\images\aca\IJKLONghks.jpg' width='600' height='700' />
-        </div>
-        <div class="content" style="margin: auto;">
-            <img src='\images\aca\IJKLONghks-2.jpg' width='600' height='700' />
-        </div>
-        <div class="content" style="margin: auto;">
-            <img src='\images\aca\IJKLONghks-3.jpg' width='600' height='700' />
-        </div>  
-    </section>
-</div>
+    <div class="btn-send-confirm-container">
+        <a id="btnSendConfirm" class="btn btn-success btn-lg" href="#">@Localizer["I'm ready. Please generate the content."]</a>
+    </div>
+    <div class="content" style="margin: auto;">
+        <img src='\images\aca\IJKLONghks.jpg' width='600' height='700' />
+    </div>
+    <div class="content" style="margin: auto;">
+        <img src='\images\aca\IJKLONghks-2.jpg' width='600' height='700' />
+    </div>
+    <div class="content" style="margin: auto;">
+        <img src='\images\aca\IJKLONghks-3.jpg' width='600' height='700' />
+    </div>  
+</section>
 <div id="loading" class="all-screen">
     <div class="vertical-middle-container">
         <div class="content container vertical-middle">
@@ -52,23 +52,24 @@
         </div>
     </div>
 </div>
-<div id="modal" class="modal fade" data-toggle="modal">
-    <div class="modal-dlalog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1>確認信件內容</h1>
-            </div>
-            <div id="mailContentView" class="modal-body container"></div>
-            <div class="modal-footer">
-                <a class="btn btn-default" href="#" data-dismiss="modal">@Localizer["Cancel"]</a>
-                <a class="btn btn-primary" href="#" id="modalBtnSubmit">@Localizer["Copy and go to submission site."]</a>
+@section Modal{ 
+    <div id="modal" class="modal fade" data-toggle="modal">
+        <div class="modal-dlalog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1>確認信件內容</h1>
+                </div>
+                <div id="mailContentView" class="modal-body container"></div>
+                <div class="modal-footer">
+                    <a class="btn btn-default" href="#" data-dismiss="modal">@Localizer["Cancel"]</a>
+                    <a class="btn btn-primary" href="#" id="modalBtnSubmit">@Localizer["Copy and go to submission site."]</a>
+                </div>
+
             </div>
 
         </div>
-
     </div>
-</div>
-
+}
 @section Scripts{
     <environment include="Development">
         <script src="~/js/aca.js"></script>
