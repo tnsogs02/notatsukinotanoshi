@@ -95,6 +95,11 @@ namespace notatsukinotanoshi.Controllers
             return View();
         }
 
+        public IActionResult CAA()
+        {
+            return View();
+        }
+
         /// <summary>
         /// Validate a submittion of email
         /// </summary>

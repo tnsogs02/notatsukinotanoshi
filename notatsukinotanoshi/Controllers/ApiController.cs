@@ -77,44 +77,6 @@ namespace notatsukinotanoshi.Controllers
             return Json(response);
         }
 
-        [HttpPost]
-        public IActionResult GenerateCAA()
-        {
-            var msg = "";
-            using (var conn = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-
-                    //Get a random template
-                    var cmd = conn.CreateCommand();
-                    cmd.CommandText = "select content from caa_content where locale='2'";
-                    var reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        msg = reader.GetString(0).Replace("\n", "<br/>");
-                    }
-                    reader.Close();
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    //Close the connection
-                    conn.Close();
-                }
-            };
-            var response = new ResponseAPI()
-            {
-                Status = ResponseState.Success,
-                ReturnData = new Dictionary<string, string> { { "CAA_CONTENT", msg } }
-            };
-            return Json(response);
-        }
-
         /// <summary>
         /// Generate ACA Template email
         /// </summary>
