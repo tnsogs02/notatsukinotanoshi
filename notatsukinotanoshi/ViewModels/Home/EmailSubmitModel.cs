@@ -19,6 +19,11 @@ namespace notatsukinotanoshi.ViewModels.Home
 
         public string Culture { get; set; }
 
-        public List<SelectListItem> Sponsors { set; get; }
+        public List<Sponsor> Sponsors { set; get; }
+    }
+
+    public class Sponsor : SelectListItem
+    {
+        public string Email { get; set; }
     }
 }
