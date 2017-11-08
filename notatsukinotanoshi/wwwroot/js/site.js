@@ -124,10 +124,11 @@ function sendEmail() {
     //Build the URI
     let bodyText = $('#mail-body').text();
     let subject = langs[_locale]["mailSubject"][parseInt(Math.random() * langs[_locale]["mailSubject"].length)];
+    let targetMail = $('#Sponsor option:selected').data("email");
 
     let link = mailAPI[mode]
         .replace("!SUBJECT!", encodeURIComponent(subject))
-        .replace("!RECV!", encodeURIComponent(companyMail))
+        .replace("!RECV!", encodeURIComponent(targetMail))
         .replace("!BODY!", encodeURIComponent(bodyText));
 
     //Open the mail
