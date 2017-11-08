@@ -118,19 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Content" xml:space="preserve">
-    <value>&lt;h1&gt;Why ACA？&lt;/h1&gt;
+    <value>&lt;h1&gt;Why ACA?&lt;/h1&gt;
         &lt;div class="content"&gt;
-            &lt;p&gt;Consumers who have purchased products which are related to Kemono Friends have a right to contact the CAA to comment on this matter as the CAA is obliged to protect consumer interests. &lt;/p&gt;
+            &lt;p&gt;우리는 현재 케모노 프렌즈 프로젝트의 타츠키 감독 교체 사태를 일본의 각 정부부처가 알 수 있도록 설득하려 합니다. 이 사태는 해외 여러나라에서도 큰 화제가 되었으며, 현재 일본 문화청과 경제산업성이 추진중인 쿨재팬 정책에 차질을 빚을 수 있는 심각한 문제임을 알아야 합니다. 또한 케모노 프렌즈 굿즈를 사는 소비자들은 CAA에 이 문제를 제기할 권리가 있고, CAA는 소비자의 권익을 지킬 의무가 있습니다.
+&lt;/p&gt;
         &lt;/div&gt;
-        &lt;h1&gt;Who?&lt;/h1&gt;
+        &lt;h1&gt;보낼 대상&lt;/h1&gt;
         &lt;div class="content"&gt;
-            &lt;p&gt;Japanese Consumer Affairs Agency (CAA)。&lt;/p&gt;
+            &lt;p&gt;일본 문화청(ACA)&lt;br /&gt;
+일본 경제산업성(METI) &lt;br /&gt;
+지적재산전략본부(Cool Japan)&lt;br /&gt;
+일본 소비자청(CAA)
+&lt;/p&gt;
         &lt;/div&gt;
-        &lt;h1&gt;Let's send our paper planes!&lt;/h1&gt;
+        &lt;h1&gt;Let's send our paper planes! &lt;/h1&gt;
         &lt;div class="content"&gt;
-            &lt;p&gt;This page will randomly generate a letter template for you to send to ACA, METI &amp; Cool Japan, and each letter is different from another. The message to CAA will be in unified in Japanese. [For more information]&lt;/p&gt;
-            &lt;p&gt;It would be best if Friends can use their native language to write their own ideas in the letters as well.&lt;/p&gt;
-        &lt;/div&gt;
-</value>
+            &lt;p&gt;이 페이지에선 일본 관계각처에 보낼 메일 내용을 무작위로 출력하며, 각 메일 내용은 다릅니다. &lt;/p&gt;
+            &lt;p&gt;메일을 보내실 때는, 프렌즈 여러분의 모국어를 사용하는 편이 효과적일 것입니다. 
+&lt;/p&gt;
+        &lt;/div&gt;</value>
   </data>
 </root>
