@@ -40,7 +40,12 @@
 
         <div class="form-group">
             <label asp-for="Sponsor"></label>
-            <select asp-for="Sponsor" asp-items="@Model.Sponsors" class="form-control"></select>
+            <select asp-for="Sponsor" class="form-control">
+                @foreach (var sponsor in Model.Sponsors)
+                {
+                    <option data-email="@sponsor.Email" value="@sponsor.Value">@sponsor.Text</option>
+                }
+            </select>
         </div>
 
         <!-- Hidden helper contents -->
