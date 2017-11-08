@@ -1,3 +1,6 @@
+# Database data
+database/backup
+
 *.swp
 *.*~
 project.lock.json

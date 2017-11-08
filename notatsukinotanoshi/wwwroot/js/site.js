@@ -34,18 +34,13 @@ $('form').submit(function (e) {
         success: function (data) {
             if (data === "success") {
                 sendEmail();
+                window.location.reload();
             }
         },
         fail: function () {
             showNotification('Internal error', "danger");
         }
     });
-
-    $.post($(this).attr("action"), $(this).serialize(), function (data) {
-        if (data === "success") {
-            $("#btn--send-mail").click();
-        }
-    }, 'json');
 });
 
 $("#btn--preview").click(function (e) {
