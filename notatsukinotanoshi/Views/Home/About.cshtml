@@ -8,38 +8,39 @@
         <link rel="stylesheet" href="~/css/about.min.css" />
     </environment>
 }
-<header id="mainHeader" class="jumbotron">
-    <div class="container text-right">
-        <h2>@ViewData["Title"]</h2>
-    </div>
-</header>
-<div class="container body-content">
-    <div class="letter markdown-body" id="manifest">
-        <pre>  
-@Html.Raw(@ViewData["Message"])
-        </pre>
-    </div>
-    <div class="text-center">
-        <h1>@Localizer["You can save Japari Park!"]</h1>
-        <div>
-            <a class="btn btn-primary" href="https://discord.gg/bbBbsGc">@Localizer["Join our discord group!"]</a>
-            <a class="btn btn-success" href="/Home/Index">@Localizer["Participate in our action!"]</a>
+@section HeadBanner{ 
+    <header id="mainHeader" class="jumbotron">
+        <div class="container text-right">
+            <h2>@ViewData["Title"]</h2>
         </div>
-    </div>
+    </header>
+}
 
-    <div class="bs-callout">
-        <h4 class="text-center">@Localizer["Comments about us"]</h4>
-        <div id="tweets"></div>
+<div class="letter markdown-body" id="manifest">
+    <pre>  
+@Html.Raw(@ViewData["Message"])
+    </pre>
+</div>
+<div class="text-center">
+    <h1>@Localizer["You can save Japari Park!"]</h1>
+    <div>
+        <a class="btn btn-primary" href="https://discord.gg/bbBbsGc">@Localizer["Join our discord group!"]</a>
+        <a class="btn btn-success" href="/Home/Index">@Localizer["Participate in our action!"]</a>
     </div>
+</div>
+
+<div class="bs-callout">
+    <h4 class="text-center">@Localizer["Comments about us"]</h4>
+    <div id="tweets"></div>
 </div>
 
 @section Scripts{ 
     <environment include="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-        <script src="~/js/about.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+        <script src="~/js/about.js"></script> -->
     </environment>
     <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
-        <script src="~/js/about.min.js"　asp-append-version="true"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
+        <script src="~/js/about.min.js"　asp-append-version="true"></script> -->
     </environment>
 }
