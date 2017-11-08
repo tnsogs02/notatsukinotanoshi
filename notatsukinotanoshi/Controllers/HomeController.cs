@@ -106,6 +106,12 @@ namespace notatsukinotanoshi.Controllers
             return View();
         }
 
+        public IActionResult Disclaimer()
+        {
+            return View();
+        }
+
+        /* ---------- Forms ---------- */
         /// <summary>
         /// Validate a submittion of email
         /// </summary>
