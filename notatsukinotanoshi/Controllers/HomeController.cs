@@ -95,6 +95,11 @@ namespace notatsukinotanoshi.Controllers
             return View();
         }
 
+        public IActionResult UnconfirmedInfo()
+        {
+            return View();
+        }
+
         public IActionResult CAA()
         {
             return View();
