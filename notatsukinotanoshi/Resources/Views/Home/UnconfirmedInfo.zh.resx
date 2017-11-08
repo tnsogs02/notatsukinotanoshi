@@ -117,16 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>簡介</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
   </data>
-  <data name="News" xml:space="preserve">
-    <value>新聞</value>
+  <data name="Content" xml:space="preserve">
+    <value>&lt;h1&gt;為什麼我們要發動ACA計畫？&lt;/h1&gt;
+        &lt;div class="content"&gt;
+            &lt;p&gt;我們希望通過向日本政府說明內部狀況，使我們的問題能引起足夠的重視。&lt;/p&gt;
+            &lt;p&gt;ACA與日本Cool Japan政策旨在世界範圍內推廣傳播日本文化產品，而此次事件已在海外各國引起強烈反響。我們的聲音能讓ACA與內閣辦公室認真考慮事件的嚴重性。&lt;/p&gt;
+            &lt;p&gt;而CAA有義務保護消費者權益，因此在事前購買了動物朋友相關產品而利益受損的消費者有權要求CAA做出回應。&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;h1&gt;發信對象&lt;/h1&gt;
+        &lt;div class="content"&gt;
+            &lt;p&gt;我們將寄給日本文化廳(ACA)、日本經濟產業廳(METI)、日本內閣辦公室Cool Japan 政策熱線與日本消費者廳(CAA)。&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;h1&gt;一起寄出我們的紙飛機吧！&lt;/h1&gt;
+        &lt;div class="content"&gt;
+            &lt;p&gt;此頁面會隨機生成針對ACA、METI和Cool Japan的信件供您發送，每次都會產生不同的內容。&lt;/p&gt;
+            &lt;p&gt;當然若朋友們能夠動手用母語寫出自己的想法是最好的。&lt;/p&gt;
+        &lt;/div&gt;</value>
   </data>
-  <data name="Participate" xml:space="preserve">
-    <value>參與</value>
+  <data name="Copy and go to submission site." xml:space="preserve">
+    <value>確認無誤，複製並寄出！</value>
   </data>
-  <data name="Participated: {0}" xml:space="preserve">
-    <value>已發送：{0}</value>
+  <data name="I'm ready. Please generate the content." xml:space="preserve">
+    <value>決定好了，我要確認內容！</value>
+  </data>
+  <data name="It's time to send our paper plane!" xml:space="preserve">
+    <value>現在是傳遞紙飛機的時刻了！</value>
+  </data>
+  <data name="Lucky beast is generating the content..." xml:space="preserve">
+    <value>請稍候，幸運獸正在產生內容……</value>
+  </data>
+  <data name="Please save director with us!" xml:space="preserve">
+    <value>請跟我們一起拯救監督！</value>
+  </data>
+  <data name="Please select a target" xml:space="preserve">
+    <value>請選擇您要寄向的對象</value>
   </data>
 </root>

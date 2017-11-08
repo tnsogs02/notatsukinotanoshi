@@ -18,8 +18,9 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/utilities.css" />
+        <link rel="stylesheet" href="~/css/plugin/bs-callout.css" />
+        <link rel="stylesheet" href="~/css/site.css" />       
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
         <!-- ja -->
@@ -60,7 +61,7 @@
     </environment>
 
     <!-- Page specific CSS -->
-    @RenderSection("Styles", false);
+    @RenderSection("Styles", false)
 </head>
 <body>
     <div id="notification-area"></div>
@@ -89,7 +90,10 @@
             </div>
         </div>
     </nav>
-    @RenderBody()
+    @RenderSection("HeadBanner", false)
+    <div class="container body-content">
+        @RenderBody()
+    </div>
     <div class="container footer">
         <div class="sent-data">
             <h3 style="text-align: center">
@@ -98,12 +102,9 @@
         </div>
         <hr />
         <footer class="text-right">
-            <!-- <div class="container">
-                Use beautiful background image from <a target="_blank" href="https://www.toptal.com/designers/subtlepatterns">Subtle Patterns</a>
-            </div> -->
             <p>
                 &copy; 2017 - <a href="https://discord.gg/bbBbsGc">Save Japari Park</a><br />
-                Designed by <a href="https://utosoft.com.au/">UTOSOFT</a>
+                Designed by <a href="https://utosoft.com.au/">UTOSOFT</a> | <a asp-controller="Home" asp-action="Disclaimer">Disclaimer</a>
             </p>
         </footer>
     </div>
@@ -144,7 +145,7 @@
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
-        
+
         <!-- Global Site Tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86950282-2"></script>
         <script>
@@ -157,5 +158,6 @@
     </environment>
 
     @RenderSection("Scripts", required: false)
+    @RenderSection("Modal", false)
 </body>
 </html>

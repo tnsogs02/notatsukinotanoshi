@@ -38,23 +38,24 @@ namespace notatsukinotanoshi.Controllers
         {
             var model = new EmailSubmitViewModel
             {
-                Sponsors = new List<SelectListItem>()
+                Sponsors = new List<Sponsor>()
             };
 
             using (var conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                var sql = "SELECT company_id, name FROM [notatsukinotanoshi].[company_info] WHERE active = 1";
+                var sql = "SELECT company_id, name, email FROM [notatsukinotanoshi].[company_info] WHERE active = 1";
                 using (var command = new SqlCommand(sql, conn))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            model.Sponsors.Add(new SelectListItem
+                            model.Sponsors.Add(new Sponsor
                             {
                                 Text = _companyName[reader.GetString(1)],
-                                Value = reader.GetInt32(0).ToString()
+                                Value = reader.GetInt32(0).ToString(),
+                                Email = reader.GetString(2)
                             });
                         }
                     }
@@ -95,6 +96,22 @@ namespace notatsukinotanoshi.Controllers
             return View();
         }
 
+        public IActionResult UnconfirmedInfo()
+        {
+            return View();
+        }
+
+        public IActionResult CAA()
+        {
+            return View();
+        }
+
+        public IActionResult Disclaimer()
+        {
+            return View();
+        }
+
+        /* ---------- Forms ---------- */
         /// <summary>
         /// Validate a submittion of email
         /// </summary>
