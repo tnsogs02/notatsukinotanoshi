@@ -47,5 +47,11 @@
     "inputFiles": [
       "wwwroot/js/aca.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/caa.min.js",
+    "inputFiles": [
+      "wwwroot/js/caa.js"
+    ]
   }
 ]
