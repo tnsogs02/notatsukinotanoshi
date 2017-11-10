@@ -103,16 +103,27 @@ namespace notatsukinotanoshi.Controllers
                     {
                         if (reader.Read())
                         {
-                            msg = reader.GetString(0).Replace("\n", "<br/>");
+                            msg = reader.GetString(0);
                         }
                         reader.Close();
                     }
+                }
+
+                //Insert to count
+                //TODO: Make sure the user has really submitted the request
+                sql = "INSERT INTO [notatsukinotanoshi].[submit_count](ip_org, submit_time, submit_hash, submit_type) VALUES (@ip, GETUTCDATE(), HASHBYTES('SHA2_256', @msg), 1)";
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    var ip = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4();
+                    cmd.Parameters.AddWithValue("@ip", ip.ToString());
+                    cmd.Parameters.AddWithValue("@msg", msg);
+                    cmd.ExecuteNonQuery();
                 }
             };
             var response = new ResponseAPI()
             {
                 Status = ResponseState.Success,
-                ReturnData = new Dictionary<string, string> { { "template", msg } }
+                ReturnData = new Dictionary<string, string> { { "template", msg.Replace("\n", "<br/>") } }
             };
             return Json(response);
         }
