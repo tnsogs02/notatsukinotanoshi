@@ -10,7 +10,8 @@
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
       "wwwroot/js/site.js",
-      "wwwroot/js/utilities.js"
+      "wwwroot/js/utilities.js",
+      "wwwroot/plugin/bs-callout.css"
     ],
     "minify": {
       "enabled": true,
@@ -45,6 +46,12 @@
     "outputFileName": "wwwroot/js/aca.min.js",
     "inputFiles": [
       "wwwroot/js/aca.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/caa.min.js",
+    "inputFiles": [
+      "wwwroot/js/caa.js"
     ]
   }
 ]
