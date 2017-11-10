@@ -111,7 +111,7 @@ namespace notatsukinotanoshi.Controllers
 
                 //Insert to count
                 //TODO: Make sure the user has really submitted the request
-                sql = "INSERT INTO [notatsukinotanoshi].[submit_count](ip_org, submit_time, submit_hash, submit_type) VALUES (@ip, GETUTCDATE(), HASHBYTES('SHA2_256', @msg), 1)";
+                sql = "INSERT INTO [notatsukinotanoshi].[submit_count](ip_org, submit_time, submit_hash, submit_type) VALUES (@ip, GETUTCDATE(), HASHBYTES('SHA2_256', @msg), 2)";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     var ip = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4();
