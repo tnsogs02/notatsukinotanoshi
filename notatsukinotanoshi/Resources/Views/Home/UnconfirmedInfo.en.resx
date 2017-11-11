@@ -118,18 +118,64 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Content" xml:space="preserve">
-    <value>&lt;h1&gt;Why ACA？&lt;/h1&gt;
-        &lt;div class="content"&gt;
-            &lt;p&gt;We hope to explain the current state of affairs to the respective Japanese Government Departments to obtain awareness on the situation regarding the replacement of Director Tatsuki from the Kemono Friends Project. This incident has caused an uproar in countries outside of Japan, and given that the Cool Japan's policy to promote Japanese cultural products worldwide (which ACA &amp; METI is responsible for), our voices of concern should cause these organizations to consider the seriousness of the matter. Additionally, consumers who have purchased products which are related to Kemono Friends have a right to contact the CAA to comment on this matter as the CAA is obliged to protect consumer interests. &lt;/p&gt;
-        &lt;/div&gt;
-        &lt;h1&gt;Who?&lt;/h1&gt;
-        &lt;div class="content"&gt;
-            &lt;p&gt;These will be sent to Japanese Agency of Cultural Affairs (ACA), Ministry of Economy, Trade and Industry (METI), 知的財産戦略推進事務局(Cool Japan), Japanese Consumer Affairs Agency (CAA)。&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;h1&gt;Let's send our paper planes!&lt;/h1&gt;
-        &lt;div class="content"&gt;
-            &lt;p&gt;This page will randomly generate a letter template for you to send to ACA, METI &amp; Cool Japan, and each letter is different from another. The message to CAA will be in unified in Japanese. [For more information]&lt;/p&gt;
-            &lt;p&gt;It would be best if Friends can use their native language to write their own ideas in the letters as well.&lt;/p&gt;
-        &lt;/div&gt;</value>
+    <value>&lt;h2&gt;The ”involved person” of the incident that director of “Kemono Friends” released from his position, may turn out to be the “real cause of the incident”?&lt;/h2&gt;
+    &lt;p&gt;Director Tatsuki, the one who made the popular anime “Kemono Friends” almost all by himself, tweeted on 9/25 said that he was suddenly released from the anime production team. That tweet caused dramatic impact on the Internet in a short time, and got hundreds of thousands of retweets in several hours. The development of the incident was even more bizarre and confusing, and there’s no clear answer till now.&lt;br/&gt;&lt;br/&gt;
+ 
+The announcement of the official website (KFPA) on 9/27 further indicated that not only Director Tatsuki, but the whole anime production company, ヤオヨロズ, was released from their post. The most striking and obscure part of that announcement is this sentence: “ヤオヨロズ, the company that responsible for anime production, used the IP improperly and didn’t share information with other companies in KFPA “ (“アニメーション制作を担当していただきましたヤオヨロズ株式会社には、関係各所への情報共有や連絡がないままでの作品利用がありました。” )&lt;br/&gt;&lt;br/&gt;
+
+It's well known that Japan attaches great importance to copyright management, so what KFPA said is a very serious allegation, which naturally brought up a series of controversies again. JRA (日本中央競馬会) and Nissin Foods, who just cooperated with Kemono Friends and had their advertisement anime made by ヤオヨロズ, immediately clarified that their collaboration had been properly authorized. Then, doubt transferred to the “Ep 12.1” which Tatsuki published online by himself, but a statement from the original author Mr. Yoshizaki before also proofed that it’s not the evidence of “improper IP use”.&lt;br/&gt;&lt;br/&gt;
+ 
+This mystery which related to the reason why Tatsuki released, is the core of the whole incident, and haven’t been solved all this long, until now.&lt;/p&gt;
+    &lt;br/&gt;
+    &lt;h2&gt;A tiny gap in a great wall&lt;/h2&gt;
+    &lt;p&gt;The truth of the incident was unveiled from a rather obscure news.
+ 
+October 17, a bit of weird news appeared in front of us:”...China live event, the organizer brought it in through anime production company ヤオヨロズ, where Director Tatsuki is from, and it’s not related to KADOKAWA…” . These words was from the official Weibo account of the China live event organizer which reposted from a media account. The China live event which announced on exact the date of 9/25, always considered as the implication of this incident, and it’s ticket selling has been difficult due to the boycott from the fans.&lt;/p&gt;
+    &lt;img src="\images\ucinfo\image2.png" /&gt;
+    &lt;br/&gt;
+	&lt;p&gt;Is this an excuse from the organizer to rescue the ticket selling, or something really happened? KADOKAWA is the owner of the Kemono Friends IP. If this live event was indeed brought in through ヤオヨロズ and has nothing to do with KADOKAWA, that is clearly saying that ヤオヨロズ “used the IP improperly”. However, ヤオヨロズ doesn’t appear on the list of the organizers for this event.&lt;br/&gt;&lt;br/&gt;
+ 
+This is the exact obscure information, which induced the author's interest, and finally finding the truth, just like seeing through a tiny gap in a great wall.&lt;br/&gt;&lt;br/&gt;
+ 
+The survey found that this news first appeared in a media website called "JPbeta", and the author (Mr. Wang) is the manager of that Weibo media account called Aninews. Mr. Wang works in the parent company of Aninews called “上海索罗游信息技术有限公司”, while having a work relationship with the main organizer of event called “上海牡丹影视传播有限公司（萬代南宮夢文化中心）” at the same time.&lt;br/&gt;&lt;br/&gt;
+ 
+There are more details in that article on JPbeta: ”it was the 社长 of  ヤオヨロズ , 福原慶匡, who introduced Kay Production Co. Ltd to the IP holder of Kemono Friends, Age Global Networks. Those two companies communicated with each other and finally imported the live event …… there’s nothing to do with KADOKAWA”&lt;/p&gt;
+    &lt;br/&gt;
+    &lt;h2&gt;What is 株式会社Kay Production?&lt;/h2&gt;
+    &lt;p&gt;Kay Production Co. Ltd Is a small company that has just been established in Japan this year, with no more than 10 members and registered as （上海旭逸文化传媒有限公司）in China on 2017/7/5. How did such a small company obtain a business of a popular IP like kemono friends?&lt;br/&gt;&lt;br/&gt;
+ 
+With careful investigation step by step, some seemingly unrelated clues lead to a surprising final conclusion.&lt;br/&gt;&lt;br/&gt;
+ 
+The CEO(取締役) and also the founder of Kay Production Co. Ltd, called 張永青, is from Shanghai. He was an ACG lover before and knows Mr. Wang well. They both wrote articles for a magazine called “Two Dimensions Mania （二次元狂熱）” and they keep an intimate relationship till today. Later, 張永青 went to work in Japan, and was in 株式会社DMM.futureworks during 2015-2016, which was exactly the time when the 社长 of ヤオヨロズ, 福原慶匡, worked as the CEO(取締役) of DMM.futureworks. And this is the opportunity that 張永青 got contact with 福原慶匡. We can see that they are friends on Facebook.
+&lt;/p&gt;
+    &lt;img src="\images\ucinfo\image3.png" width="624" height="396" /&gt;
+    &lt;br/&gt;
+    &lt;h2&gt;China Live Event&lt;/h2&gt;
+    &lt;p&gt;After that, 張永青left DMM and founded Kay Production with his friend. The main business of the company is to introduce sub-cultural products from Japan to China and the only resource that can make use of is the contacts network of 張永青 in both countries.&lt;br/&gt;&lt;br/&gt;
+ 
+Early in this August,  張永青 used his personal relationship with 福原 to get in touch with Age Global Networks, and then contacted China’s organizer and promotion companies (including （上海牡丹影视传播有限公司，and his own 上海旭逸文化传媒有限公司） using his networks in China. Age Global Networks negotiated with China’s companies through his intermediary and finalize the plan. ヤオヨロズ did not participate in this procedure at all.&lt;br/&gt;&lt;br/&gt;
+ 
+On 9/25, Tatsuki tweeted that he was released from the production committee. And the tickets of the event was still not selling till 10/15. Helpless, 張永青 instructed Mr. Wang to write that article said above to spread misleading information, hoping words like “live event was imported by ヤオヨロズ and not related to KADOKAWA” could save the ticket selling.&lt;br/&gt;&lt;br/&gt;
+ 
+Age Global Networks is one of the members of KFPA, mainly responsible for the promotion and selling businesses, and have done works like ticket selling, advertising, etc. in nearly every Kemono Friends event. In addition, it’s subsidiary  “Clion Market” sells all kinds of products of “Kemono Friends”, and also responsible for the production of DVDs of the stage show. Interestingly, the company that designed Kemono Friends’ logo shows on its webpage that the clients of this logo was two companies: KADOKAWA, Age Global Networks. This fact indicates that Age Global Networks shares a large portion in the KFPA, which could even be compared equally with KADOKAWA.&lt;br/&gt;&lt;br/&gt;
+ 
+On the other hand, the reason why 福原 could get in touch with Age Global Networks is also because of his personal relationship. 志村麻奈貴 of Age Global Networks was coworker with 福原 in a project called “ガールフレンド（♪）”, while she’s also responsible for the advertising of “Kemono Friends”. Besides, she participates in the management of “Clion Market”.&lt;/p&gt;
+    &lt;img src="\images\ucinfo\image1.png" /&gt;
+    &lt;h2&gt;What is the Truth?&lt;/h2&gt;
+    &lt;p&gt;The second half of 張永青’ s claim is not wrong, “China live event is not related to KADOKAWA”. As we all know that China is a huge market and it’s investment and consumption of Japanese ACG industry is increasingly booming. Although there were subsidiaries of KADOKAWA in China, their window of entering China, which is also the first event, was seized away from them. Moreover, before this incident, there was news mentioning that another event was held by a wholly-owned subsidiary of KADOKAWA, which infers that it is KADOKAWA’s intention to make all the events in its own control.&lt;br/&gt;&lt;br/&gt;
+ 
+It is an enterprise's nature to make more money. To extract any possible benefits from this popular IP, KADOKAWA must marginalize ヤオヨロズ to dilute the equity and discretion. Why ヤオヨロズ must be ruled out? Because after the hit of the first season, all the audience gave thanks to director Tatsuki’s magic of turning something hopeless into a miracle, while thinking KADOKAWA who passively invested in the project was just being lucky to hitch a ride. What’s more, Tatsuki arranging all aspects of production and his style of working slowly and deliberately can’t satisfy KADOKAWA’s vision of mass production.&lt;br/&gt;&lt;br/&gt;
+ 
+Therefore, this live event further strengthened KADOKAWA’s idea of making Kemono Friends fully in its own control, while providing an excuse to attack ヤオヨロズ at the same time. Hence we got “used the IP improperly and didn’t share information with other companies in KFPA” in that announcement. However the truth is ヤオヨロズ never participated in the importing of the event, that’s why any outsiders won’t get further detailed explanation. Furthermore, Age Global Networks is fairly equal to KADOKAWA in the KFPA and also holds the IP, which means the event that already been planned out can not be stopped. Thus, as the result of KADOKAWA enhancing the control of IP, the first one who suffer the impact was ヤオヨロズ  (It is normal for today's industry that animators to be underrepresented in production committees)&lt;br/&gt;&lt;br/&gt;
+ 
+But the speciality of Kemono Friends is that, it was exactly the anime made by ヤオヨロズ and Tatsuki, which brought this dying IP back to life and became the hottest topic. What seen by the audiences is the director who created the miracle got fired, even if it’s legal business operation. Facing business profits in reality, the hero admired and respected by fans turn out to be a poor wage earner whose creation be easily taken away. This tragic ending is unacceptable to everyone.&lt;br/&gt;&lt;br/&gt;
+ 
+Ironically, Kay Production who caused the riot also spread the information of “ヤオヨロズ imported live event” for business profits, yet eventually led the people concerned about this incident to find the truth.&lt;br/&gt;&lt;br/&gt;
+ 
+Before this article was published, I tried to contact Kay Production Co. Ltd and 張永青 to interview, but was rejected. After that, 張永青 removed  福原 from his Facebook friends.&lt;/p&gt;
+    &lt;img src="\images\ucinfo\image4.png" width="624" height="352"/&gt;</value>
+  </data>
+  <data name="Disclaimer" xml:space="preserve">
+    <value>This article is unconfirmed and subjected to Save Japari Park's &lt;a href="/HOME/Disclaimer"&gt;&lt;span style="color:red"&gt;disclaimer&lt;/span&gt;&lt;/a&gt;.</value>
   </data>
 </root>
