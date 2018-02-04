@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Devart (www.devart.com), SQL document design file -->
+<!-- Modifying this generated file will probably render it invalid -->
+<Document>
+  <Properties>
+    <Type>SQL Document Design</Type>
+    <DatabaseProvider>aa8afe9c-7d62-4564-b477-c12e62e0f440</DatabaseProvider>
+    <ProviderVersion>5.5.311.0</ProviderVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+  </Properties>
+  <Connection Name="Kaban-SJP">
+    <Category>00000000-0000-0000-0000-000000000000</Category>
+    <ConnectionString>Data Source=utosoft.database.windows.net;Encrypt=True;Initial Catalog=SaveJapariPark;Integrated Security=False;User ID=kaban</ConnectionString>
+    <Database>SaveJapariPark</Database>
+  </Connection>
+  <Views ShowAdditionalViews="False" IsLayoutActiveAttribute="True" MainViewAttribute="Code" MainViewScale="50">
+    <View Name="Design" Visible="False" />
+    <View Name="Code" Active="True" Visible="True">
+      <Data />
+    </View>
+    <View Name="Data" Visible="True" />
+  </Views>
+  <ProfilingMode Enabled="False" />
+  <LiveProfilingMode Enabled="False" />
+</Document>
